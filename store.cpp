@@ -2,6 +2,7 @@
 #include "ui_store.h"
 #include "QFile"
 #include "QTextStream"
+#include "store_edit_two.h"
 
 Store::Store(QWidget *parent) :
     QWidget(parent),
@@ -44,6 +45,7 @@ void Store::on_write_last_line_clicked()
 
 void Store::on_multi_exchange_opener_clicked()
 {
-
+    Store_Edit_Two *store_edit_two_open = new Store_Edit_Two;
+    store_edit_two_open->show();
 }
 

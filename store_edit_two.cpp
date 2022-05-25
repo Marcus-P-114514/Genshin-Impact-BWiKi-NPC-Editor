@@ -39,36 +39,44 @@ void Store_Edit_Two::on_write_multi_price_clicked()
     else{
         if (exchange_three==""){
             QString store_edit_two_out = exchange_one + "*" + price_one + "、" + exchange_two + "*" + price_two;
-            QFile save_cache_for_store_two_one ("./cache/store_two.npceditor");
+            QFile save_cache_for_store_two_one ("./cache/store_two.npchandler");
             if (save_cache_for_store_two_one.open(QFile::WriteOnly|QFile::Text)){
                 QTextStream changes_to_be_saved_from_store_two_one (&save_cache_for_store_two_one);
                 changes_to_be_saved_from_store_two_one << store_edit_two_out;
+
+                this->hide();
             }
         }
         else{
             if (exchange_four==""){
                 QString store_edit_two_out = exchange_one + "*" + price_one + "、" + exchange_two + "*" + price_two + "、" + exchange_three + "*" + price_three;
-                QFile save_cache_for_store_two_two ("./cache/store_two.npceditor");
+                QFile save_cache_for_store_two_two ("./cache/store_two.npchandler");
                 if (save_cache_for_store_two_two.open(QFile::WriteOnly|QFile::Text)){
                     QTextStream changes_to_be_saved_from_store_two_two (&save_cache_for_store_two_two);
                     changes_to_be_saved_from_store_two_two << store_edit_two_out;
+
+                    this->hide();
                 }
             }
             else{
                 if (exchange_five==""){
                     QString store_edit_two_out = exchange_one + "*" + price_one + "、" + exchange_two + "*" + price_two + "、" + exchange_three + "*" + price_three + "、" + exchange_four + "*" + price_four;
-                    QFile save_cache_for_store_two_three ("./cache/store_two.npceditor");
+                    QFile save_cache_for_store_two_three ("./cache/store_two.npchandler");
                     if (save_cache_for_store_two_three.open(QFile::WriteOnly|QFile::Text)){
                         QTextStream changes_to_be_saved_from_store_two_three (&save_cache_for_store_two_three);
                         changes_to_be_saved_from_store_two_three << store_edit_two_out;
+
+                        this->hide();
                     }
                 }
                 else{
                     QString store_edit_two_out = exchange_one + "*" + price_one + "、" + exchange_two + "*" + price_two + "、" + exchange_three + "*" + price_three + "、" + exchange_four + "*" + price_four + "、" + exchange_five + "*" + price_five;
-                    QFile save_cache_for_store_two_four ("./cache/store_two.npceditor");
+                    QFile save_cache_for_store_two_four ("./cache/store_two.npchandler");
                     if (save_cache_for_store_two_four.open(QFile::WriteOnly|QFile::Text)){
                         QTextStream changes_to_be_saved_from_store_two_four (&save_cache_for_store_two_four);
                         changes_to_be_saved_from_store_two_four << store_edit_two_out;
+
+                        this->hide();
                     }
                 }
             }
