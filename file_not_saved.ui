@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>File_Not_Saved</class>
+ <widget class="QWidget" name="File_Not_Saved">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Your File HAS NOT BEEN SAVED!</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>381</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Source Han Sans Bold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Warning!! Your current work has not been saved! Click on &quot;Go Back&quot; to close this dialog and save your work. If you wish to continue without saving your work, please click on &quot;Discard Changes Anyway&quot;. We are not responsible for any data loss.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="discard_changes_from_file_not_saved_dialog">
+   <property name="geometry">
+    <rect>
+     <x>152</x>
+     <y>260</y>
+     <width>241</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Discard Changes Anyway</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="return_to_editor_from_file_no_saved_dialog">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Go Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
