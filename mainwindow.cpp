@@ -69,12 +69,13 @@ void MainWindow::on_create_file_triggered()
                              QMessageBox::NoButton);
            if (user_action_file_not_saved==QMessageBox::Yes)
                placeholder_if_cannot_return="Returned true";
-           else if(user_action_file_not_saved==QMessageBox::No)
+           if(user_action_file_not_saved==QMessageBox::No){
                ui->working_paper->clear();
                ui->working_paper->insertHtml("{{面包屑|NPC图鉴}}");
                ui->working_paper->insertHtml("<br/>");
                ui->working_paper->insertHtml("{{NPC");
                ui->working_paper->insertHtml("<br/>");
+               }
     }
     else{
         ui->working_paper->clear();

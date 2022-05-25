@@ -35,3 +35,15 @@ void Store::on_no_store_clicked()
     }
 }
 
+
+void Store::on_write_last_line_clicked()
+{
+
+}
+
+
+void Store::on_multi_exchange_opener_clicked()
+{
+
+}
+
