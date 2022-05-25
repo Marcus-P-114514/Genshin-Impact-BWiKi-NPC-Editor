@@ -2,6 +2,7 @@
     <qresource prefix="/icon">
         <file>open.png</file>
         <file>open-2.png</file>
+        <file>test.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>
