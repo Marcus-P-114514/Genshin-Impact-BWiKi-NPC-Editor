@@ -12,17 +12,20 @@ SOURCES += \
     basic_info.cpp \
     main.cpp \
     mainwindow.cpp \
-    store.cpp
+    store.cpp \
+    store_edit_two.cpp
 
 HEADERS += \
     basic_info.h \
     mainwindow.h \
-    store.h
+    store.h \
+    store_edit_two.h
 
 FORMS += \
     basic_info.ui \
     mainwindow.ui \
-    store.ui
+    store.ui \
+    store_edit_two.ui
 
 TRANSLATIONS += \
     NPC-Handler-Widget_zh_CN.ts

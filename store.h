@@ -20,6 +20,11 @@ private slots:
 
     void on_no_store_clicked();
 
+
+    void on_write_last_line_clicked();
+
+    void on_multi_exchange_opener_clicked();
+
 private:
     Ui::Store *ui;
 };
