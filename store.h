@@ -25,6 +25,13 @@ private slots:
 
     void on_multi_exchange_opener_clicked();
 
+
+    void on_clear_clicked();
+
+    void on_insert_cache_two_clicked();
+
+    void on_update_store_clicked();
+
 private:
     Ui::Store *ui;
 };

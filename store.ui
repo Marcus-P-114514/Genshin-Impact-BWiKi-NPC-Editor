@@ -64,21 +64,18 @@
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>642</width>
+          <width>691</width>
           <height>421</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="2" column="8">
-          <widget class="QLineEdit" name="price_edit"/>
+         <item row="0" column="2" colspan="3">
+          <widget class="QLineEdit" name="commodity_name_edit"/>
          </item>
-         <item row="1" column="4" colspan="2">
-          <widget class="QLineEdit" name="min_sale_unit_edit"/>
-         </item>
-         <item row="4" column="0" colspan="3">
-          <widget class="QLabel" name="label_6">
+         <item row="7" column="5">
+          <widget class="QPushButton" name="clear">
            <property name="text">
-            <string>刷新时间：</string>
+            <string>清空</string>
            </property>
           </widget>
          </item>
@@ -89,24 +86,30 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="5" colspan="4">
-          <widget class="QPushButton" name="store_write_enter">
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_7">
            <property name="text">
-            <string>换行</string>
+            <string>限制：</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_4">
+         <item row="5" column="1" colspan="4">
+          <widget class="QLineEdit" name="limit_edit"/>
+         </item>
+         <item row="6" column="0" colspan="9">
+          <widget class="QPushButton" name="multi_exchange_opener">
            <property name="text">
-            <string>价格：</string>
+            <string>特殊模板：价格标签内使用多种交换物</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="7">
-          <widget class="QLabel" name="label_9">
+         <item row="2" column="8">
+          <widget class="QLineEdit" name="price_edit"/>
+         </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>数量：</string>
+            <string>最小销售单元：</string>
            </property>
           </widget>
          </item>
@@ -117,31 +120,12 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="0" colspan="5">
-          <widget class="QPushButton" name="write_last_line">
+         <item row="2" column="7">
+          <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>写入最后一行</string>
+            <string>数量：</string>
            </property>
           </widget>
-         </item>
-         <item row="3" column="3" colspan="2">
-          <widget class="QLineEdit" name="limited_quantity_edit"/>
-         </item>
-         <item row="0" column="2" colspan="3">
-          <widget class="QLineEdit" name="commodity_name_edit"/>
-         </item>
-         <item row="5" column="1" colspan="4">
-          <widget class="QLineEdit" name="limit_edit"/>
-         </item>
-         <item row="1" column="0" colspan="4">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>最小销售单元：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="3" colspan="2">
-          <widget class="QLineEdit" name="refresh_time_edit"/>
          </item>
          <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="label_2">
@@ -150,20 +134,43 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="6">
-          <widget class="QLineEdit" name="currency_edit"/>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_7">
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>限制：</string>
+            <string>价格：</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="0" colspan="9">
-          <widget class="QPushButton" name="multi_exchange_opener">
+         <item row="4" column="0" colspan="3">
+          <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>特殊模板：价格标签内使用多种交换物</string>
+            <string>刷新时间：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3" colspan="2">
+          <widget class="QLineEdit" name="limited_quantity_edit"/>
+         </item>
+         <item row="2" column="6">
+          <widget class="QLineEdit" name="currency_edit"/>
+         </item>
+         <item row="4" column="3" colspan="2">
+          <widget class="QLineEdit" name="refresh_time_edit"/>
+         </item>
+         <item row="1" column="4" colspan="2">
+          <widget class="QLineEdit" name="min_sale_unit_edit"/>
+         </item>
+         <item row="7" column="0" colspan="5">
+          <widget class="QPushButton" name="write_last_line">
+           <property name="text">
+            <string>写入最后一行</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="6" colspan="3">
+          <widget class="QPushButton" name="store_write_enter">
+           <property name="text">
+            <string>换行</string>
            </property>
           </widget>
          </item>
@@ -190,13 +197,17 @@
        </property>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QTextEdit" name="store_code_output"/>
+         <widget class="QTextEdit" name="store_code_output">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 152, 0);</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="insert_cache_two">
        <property name="font">
         <font>
          <family>思源黑体 CN Medium</family>
@@ -209,7 +220,7 @@
       </widget>
      </item>
      <item row="2" column="0" colspan="2">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="update_store">
        <property name="font">
         <font>
          <family>思源黑体 CN Medium</family>
