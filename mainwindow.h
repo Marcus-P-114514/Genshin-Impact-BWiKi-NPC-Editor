@@ -43,6 +43,8 @@ private slots:
 
     void on_edit_npc_store_content_triggered();
 
+    void on_refresh_npc_store_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -86,6 +86,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="refresh_cache"/>
     <addaction name="refresh_basic_info"/>
+    <addaction name="refresh_npc_store"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -284,6 +285,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="refresh_npc_store">
+   <property name="text">
+    <string>刷新商店信息</string>
+   </property>
+   <property name="toolTip">
+    <string>刷新NPC商店信息</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
    </property>
   </action>
  </widget>

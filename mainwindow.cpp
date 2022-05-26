@@ -272,3 +272,14 @@ void MainWindow::on_edit_npc_store_content_triggered()
     store_edit->show();
 }
 
+
+void MainWindow::on_refresh_npc_store_triggered()
+{
+    QFile insert_store_info ("./cache/store_cache.npchandler");
+    if (!insert_store_info.open(QIODevice::ReadOnly | QIODevice::Text))
+            placeholder_if_cannot_return = "Ok";
+    ui->working_paper->insertPlainText (insert_store_info.readAll());
+    ui->working_paper->insertHtml("<br/>");
+    insert_store_info.close();
+}
+
