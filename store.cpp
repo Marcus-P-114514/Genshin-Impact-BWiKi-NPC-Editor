@@ -33,6 +33,7 @@ void Store::on_no_store_clicked()
     if (finish_store_page_without_store.open(QFile::WriteOnly|QFile::Text)){
         QTextStream finish_store_page_without_store_content (&finish_store_page_without_store);
         finish_store_page_without_store_content << ui->store_code_output->toPlainText();
+        this->hide();
     }
 }
 
