@@ -12,6 +12,7 @@ Store::Store(QWidget *parent) :
 
     ui->store_code_output->insertPlainText("|存在商店=是");
     ui->store_code_output->insertHtml("<br/>");
+    ui->store_code_output->insertPlainText("|商店内容=");
 }
 
 QString use_this_if_returned_nothing_for_store = "";
@@ -43,11 +44,13 @@ void Store::on_store_write_enter_clicked()
     ui->refresh_time_edit->setText("");
     ui->limit_edit->setText("");
 
+    /**
     QFile clear_store_cache_one ("./cache/store_two.npchandler");
     if (clear_store_cache_one.open(QFile::WriteOnly|QFile::Text)){
         QTextStream wipe_cache_store_one (&clear_store_cache_one);
         wipe_cache_store_one << "";
     }
+    **/
 
     ui->currency_edit->setDisabled(0);
     ui->price_edit->setDisabled(0);
@@ -80,7 +83,6 @@ void Store::on_write_last_line_clicked()
 
     QString code_output_stoe_two = commodity_name_input_fin + "*" + min_sale_unit_input_fin + "," + currency_input_fin + "*" + price_input_fin + "," + limit_quantity_input_fin + "," + refresh_time_input_fin + "," + limit_input_fin;
     ui->store_code_output->insertPlainText(code_output_stoe_two);
-    ui->store_code_output->insertHtml("<br/>");
 
     ui->commodity_name_edit->setText("");
     ui->min_sale_unit_edit->setText("");
@@ -90,11 +92,13 @@ void Store::on_write_last_line_clicked()
     ui->refresh_time_edit->setText("");
     ui->limit_edit->setText("");
 
+    /**
     QFile clear_store_cache_two ("./cache/store_two.npchandler");
     if (clear_store_cache_two.open(QFile::WriteOnly|QFile::Text)){
         QTextStream wipe_cache_store_two (&clear_store_cache_two);
         wipe_cache_store_two << "";
     }
+    **/
 
     ui->currency_edit->setDisabled(0);
     ui->price_edit->setDisabled(0);
@@ -123,6 +127,7 @@ void Store::on_clear_clicked()
 
     ui->store_code_output->insertPlainText("|存在商店=是");
     ui->store_code_output->insertHtml("<br/>");
+    ui->store_code_output->insertPlainText("|商店内容=");
 }
 
 
@@ -136,6 +141,12 @@ void Store::on_insert_cache_two_clicked()
 
     ui->currency_edit->setDisabled(0);
     ui->price_edit->setDisabled(0);
+
+    QFile clear_store_cache_one ("./cache/store_two.npchandler");
+    if (clear_store_cache_one.open(QFile::WriteOnly|QFile::Text)){
+        QTextStream wipe_cache_store_one (&clear_store_cache_one);
+        wipe_cache_store_one << "";
+    }
 }
 
 
