@@ -32,6 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     clear_cache->setValue("basic/system", "无");
     delete clear_cache;
 
+    QFile clear_store_one_target ("./cache/store_cache.npchandler");
+    if (clear_store_one_target.open(QFile::WriteOnly|QFile::Text)){
+        QTextStream clear_store_one (&clear_store_one_target);
+        clear_store_one << "";
+    }
+
     QFile clear_store_two_target ("./cache/store_two.npchandler");
     if (clear_store_two_target.open(QFile::WriteOnly|QFile::Text)){
         QTextStream clear_store_two (&clear_store_two_target);
