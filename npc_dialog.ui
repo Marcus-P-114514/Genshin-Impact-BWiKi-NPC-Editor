@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NPC_Dialog</class>
+ <widget class="QWidget" name="NPC_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>993</width>
+    <height>583</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>思源黑体 CN Medium</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>处理：NPC对话</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>719</x>
+     <y>0</y>
+     <width>261</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>代码预览</string>
+   </property>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>241</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>701</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>工作区</string>
+   </property>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>681</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>NPC 对话</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

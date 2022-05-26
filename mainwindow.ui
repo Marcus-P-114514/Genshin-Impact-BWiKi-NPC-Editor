@@ -65,6 +65,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="npc_basic_info"/>
     <addaction name="edit_npc_store_content"/>
+    <addaction name="insert_dialog"/>
    </widget>
    <widget class="QMenu" name="menuUpload">
     <property name="title">
@@ -296,6 +297,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Shift+S</string>
+   </property>
+  </action>
+  <action name="insert_dialog">
+   <property name="text">
+    <string>NPC对话</string>
+   </property>
+   <property name="toolTip">
+    <string>插入NPC对话</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
    </property>
   </action>
  </widget>

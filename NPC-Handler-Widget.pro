@@ -12,18 +12,21 @@ SOURCES += \
     basic_info.cpp \
     main.cpp \
     mainwindow.cpp \
+    npc_dialog.cpp \
     store.cpp \
     store_edit_two.cpp
 
 HEADERS += \
     basic_info.h \
     mainwindow.h \
+    npc_dialog.h \
     store.h \
     store_edit_two.h
 
 FORMS += \
     basic_info.ui \
     mainwindow.ui \
+    npc_dialog.ui \
     store.ui \
     store_edit_two.ui
 

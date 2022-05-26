@@ -45,6 +45,8 @@ private slots:
 
     void on_refresh_npc_store_triggered();
 
+    void on_insert_dialog_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

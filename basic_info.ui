@@ -17,7 +17,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>处理：NPC基本信息</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

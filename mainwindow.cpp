@@ -283,3 +283,9 @@ void MainWindow::on_refresh_npc_store_triggered()
     insert_store_info.close();
 }
 
+
+void MainWindow::on_insert_dialog_triggered()
+{
+
+}
+
