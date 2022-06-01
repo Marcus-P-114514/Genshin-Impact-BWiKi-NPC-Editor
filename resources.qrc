@@ -3,5 +3,6 @@
         <file>resources/ui/toolbar_bg_light.png</file>
         <file>resources/ui/card_bg_light.png</file>
         <file>resources/ui/code_output_container_bg_light.png</file>
+        <file>resources/ui/bg_light.png</file>
     </qresource>
 </RCC>

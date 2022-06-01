@@ -17,11 +17,23 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QGroupBox" name="toolbox_container">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>350</width>
@@ -34,20 +46,75 @@
         <property name="title">
          <string/>
         </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QTabWidget" name="toolbox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="basic_info">
+            <attribute name="title">
+             <string>Tab 1</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="store">
+            <attribute name="title">
+             <string>Tab 2</string>
+            </attribute>
+           </widget>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item row="0" column="1">
        <widget class="QGroupBox" name="code">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="styleSheet">
          <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);</string>
         </property>
         <property name="title">
          <string/>
         </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QTextEdit" name="code_output">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item row="1" column="0" colspan="2">
        <widget class="QStackedWidget" name="toolabr">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>

@@ -7,7 +7,15 @@ WorkingArea::WorkingArea(QWidget *parent)
     , ui(new Ui::WorkingArea)
 {
     ui->setupUi(this);
+
+    ui->toolbox->removeTab(0);
+    ui->toolbox->removeTab(1);
+    ui->toolbox->removeTab(2);
+    ui->toolbox->setTabBarAutoHide(1);
+    ui->toolbox->setCurrentIndex(1);
 }
+
+//Define var
 
 WorkingArea::~WorkingArea()
 {
