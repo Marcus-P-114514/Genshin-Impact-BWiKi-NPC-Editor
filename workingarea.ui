@@ -68,14 +68,17 @@
             <widget class="QLabel" name="label">
              <property name="geometry">
               <rect>
-               <x>110</x>
-               <y>290</y>
-               <width>58</width>
-               <height>16</height>
+               <x>20</x>
+               <y>10</y>
+               <width>81</width>
+               <height>21</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>名称：</string>
              </property>
             </widget>
            </widget>
