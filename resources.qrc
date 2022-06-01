@@ -1,8 +1,7 @@
 <RCC>
-    <qresource prefix="/icon">
-        <file>open.png</file>
-        <file>open-2.png</file>
-        <file>test.png</file>
+    <qresource prefix="/ui">
+        <file>resources/ui/toolbar_bg_light.png</file>
+        <file>resources/ui/card_bg_light.png</file>
+        <file>resources/ui/code_output_container_bg_light.png</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
 </RCC>

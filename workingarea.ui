@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WorkingArea</class>
+ <widget class="QMainWindow" name="WorkingArea">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1073</width>
+    <height>562</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NPC图鉴编辑工具</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="maximumSize">
+         <size>
+          <width>350</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/ui/resources/ui/card_bg_light.png);</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QStackedWidget" name="toolabr">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image: url(:/ui/resources/ui/toolbar_bg_light.png);</string>
+        </property>
+        <widget class="QWidget" name="page"/>
+        <widget class="QWidget" name="page_2"/>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1073</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="open_document"/>
+    <addaction name="save"/>
+    <addaction name="save_as"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>上传</string>
+    </property>
+    <addaction name="upload_avatar"/>
+    <addaction name="upload_model"/>
+    <addaction name="upload_npc_location"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="actionAbout_This_allication"/>
+    <addaction name="actionAbout_Qt"/>
+    <addaction name="actionChangelog"/>
+    <addaction name="separator"/>
+    <addaction name="show_license"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
+  </widget>
+  <action name="upload_avatar">
+   <property name="text">
+    <string>上传头像</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC头像，要求为125*125 px。</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="upload_model">
+   <property name="text">
+    <string>上传建模</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC建模，要求为240*500px。</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+M</string>
+   </property>
+  </action>
+  <action name="upload_npc_location">
+   <property name="text">
+    <string>上传位置</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC位置，对大小没有特别要求，但请尽量保持比例为16:9</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
+   </property>
+  </action>
+  <action name="open_document">
+   <property name="text">
+    <string>打开</string>
+   </property>
+   <property name="toolTip">
+    <string>打开一个NPC文档</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+O</string>
+   </property>
+  </action>
+  <action name="save">
+   <property name="text">
+    <string>保存</string>
+   </property>
+   <property name="toolTip">
+    <string>保存您的工作到一个文件，如果是已打开的文件或之前已保存过，将保存到该文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="save_as">
+   <property name="text">
+    <string>另存为</string>
+   </property>
+   <property name="toolTip">
+    <string>另行保存您的副本到另外的文档</string>
+   </property>
+  </action>
+  <action name="actionAbout_This_allication">
+   <property name="text">
+    <string>About This allication</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="show_license">
+   <property name="text">
+    <string>许可证</string>
+   </property>
+   <property name="toolTip">
+    <string>显示许可证</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Space</string>
+   </property>
+  </action>
+  <action name="actionChangelog">
+   <property name="text">
+    <string>Changelog</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

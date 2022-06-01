@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "workingarea.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -11,13 +11,13 @@ int main(int argc, char *argv[])
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
-        const QString baseName = "NPC-Handler-Widget_" + QLocale(locale).name();
+        const QString baseName = "NPC-Handler_" + QLocale(locale).name();
         if (translator.load(":/i18n/" + baseName)) {
             a.installTranslator(&translator);
             break;
         }
     }
-    MainWindow w;
+    WorkingArea w;
     w.show();
     return a.exec();
 }

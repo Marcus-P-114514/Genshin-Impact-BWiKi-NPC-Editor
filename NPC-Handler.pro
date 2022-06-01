@@ -2,33 +2,27 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    basic_info.cpp \
+    license.cpp \
     main.cpp \
-    mainwindow.cpp \
-    store.cpp \
-    store_edit_two.cpp
+    workingarea.cpp
 
 HEADERS += \
-    basic_info.h \
-    mainwindow.h \
-    store.h \
-    store_edit_two.h
+    license.h \
+    workingarea.h
 
 FORMS += \
-    basic_info.ui \
-    mainwindow.ui \
-    store.ui \
-    store_edit_two.ui
+    license.ui \
+    workingarea.ui
 
 TRANSLATIONS += \
-    NPC-Handler-Widget_zh_CN.ts
+    NPC-Handler_en_US.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
