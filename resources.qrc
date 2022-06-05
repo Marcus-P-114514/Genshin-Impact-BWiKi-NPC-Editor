@@ -4,6 +4,12 @@
         <file>resources/ui/card_bg_light.png</file>
         <file>resources/ui/code_output_container_bg_light.png</file>
         <file>resources/ui/bg_light.png</file>
+<<<<<<< Updated upstream
+        <file>resources/ui/frame_bg_light.png</file>
+        <file>resources/ui/spacer_bg.png</file>
+=======
+        <file>resources/ui/input_box_light.png</file>
+>>>>>>> Stashed changes
     </qresource>
     <qresource prefix="/fonts">
         <file>resources/fonts/SourceHanSansCN-Regular.otf</file>
