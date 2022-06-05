@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>759</width>
+    <width>818</width>
     <height>542</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>NPC图鉴编辑工具</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/ui/resources/ui/bg_light.png);</string>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -81,7 +81,7 @@
       <item row="0" column="0">
        <widget class="QGroupBox" name="toolbox_container">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -117,401 +117,22 @@
             <attribute name="title">
              <string>Tab 1</string>
             </attribute>
-            <layout class="QGridLayout" name="gridLayout_6">
-             <item row="0" column="0">
-              <layout class="QGridLayout" name="gridLayout_5">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>名称：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="lineEdit">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/input_box_light.png);
-padding:2px 4px;
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_2">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>称号：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLineEdit" name="lineEdit_2">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_3">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>性别：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QComboBox" name="comboBox_4">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>男</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>女</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>未知</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_4">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>职业：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLineEdit" name="lineEdit_4">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_5">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>位置：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLineEdit" name="lineEdit_5">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_6">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>所属国家：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QComboBox" name="comboBox_2">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>蒙德</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>璃月</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>稻妻</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="label_7">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>对话赠礼：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="1">
-                <widget class="QLineEdit" name="lineEdit_7">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="label_8">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>数量：</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLineEdit" name="lineEdit_8">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QLabel" name="label_9">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>实装版本：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="1">
-                <widget class="QComboBox" name="comboBox">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>1.0</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.1</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.2</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.3</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.4</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.5</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.6</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.7</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.8</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>1.9</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.0</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.1</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.2</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.3</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.4</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.5</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.6</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.7</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.8</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>2.9</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>3.0</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="9" column="0">
-                <widget class="QLabel" name="label_10">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>所属组织：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="1">
-                <widget class="QLineEdit" name="lineEdit_9">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="10" column="0">
-                <widget class="QLabel" name="label_11">
-                 <property name="styleSheet">
-                  <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>相关系统：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="10" column="1">
-                <widget class="QComboBox" name="comboBox_3">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>委托</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>声望</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>活动</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>商店</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>烹饪</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>尘歌壶</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="11" column="0" colspan="2">
-                <widget class="QPushButton" name="pushButton">
-                 <property name="styleSheet">
-                  <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);
-font: 12pt &quot;Source Han Sans CN&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>下一页</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
+            <widget class="QLabel" name="label">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>10</y>
+               <width>81</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
+             </property>
+             <property name="text">
+              <string>名称：</string>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="store">
             <attribute name="title">
@@ -524,44 +145,7 @@ font: 12pt &quot;Source Han Sans CN&quot;;</string>
        </widget>
       </item>
       <item row="0" column="1">
-<<<<<<< Updated upstream
        <widget class="QGroupBox" name="spacer">
-=======
-       <widget class="QGroupBox" name="code">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border-image: url(:/ui/resources/ui/code_output_container_bg_light.png);</string>
-        </property>
-        <property name="title">
-         <string/>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0">
-          <widget class="QTextEdit" name="code_output">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);
-font: 12pt &quot;Source Han Serif SC&quot;;
-color:rgb(33, 150, 243);</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QStackedWidget" name="toolabr">
->>>>>>> Stashed changes
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -591,7 +175,7 @@ color:rgb(33, 150, 243);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>759</width>
+     <width>818</width>
      <height>22</height>
     </rect>
    </property>
