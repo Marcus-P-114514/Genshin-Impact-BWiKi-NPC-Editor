@@ -2,6 +2,7 @@
 #define WORKINGAREA_H
 
 #include <QMainWindow>
+#include "code_highlight.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WorkingArea; }
@@ -20,5 +21,6 @@ private slots:
 
 private:
     Ui::WorkingArea *ui;
+    code_highlight *highlighter;
 };
 #endif // WORKINGAREA_H

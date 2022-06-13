@@ -14,7 +14,7 @@
    <string>NPC图鉴编辑工具</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -41,7 +41,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/ui/resources/ui/toolbar_bg_light.png);</string>
+         <string notr="true"/>
         </property>
         <widget class="QWidget" name="page"/>
         <widget class="QWidget" name="page_2"/>
@@ -56,7 +56,7 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string/>
@@ -71,7 +71,7 @@
             </sizepolicy>
            </property>
            <property name="styleSheet">
-            <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+            <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
            </property>
           </widget>
          </item>
@@ -93,7 +93,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string/>
@@ -108,7 +108,7 @@
             </sizepolicy>
            </property>
            <property name="styleSheet">
-            <string notr="true">border-image: url(:/ui/resources/ui/bg_light.png);</string>
+            <string notr="true"/>
            </property>
            <property name="currentIndex">
             <number>0</number>
@@ -127,10 +127,20 @@
               </rect>
              </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Source Han Sans CN&quot;;</string>
+              <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
              </property>
              <property name="text">
               <string>名称：</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="geometry">
+              <rect>
+               <x>70</x>
+               <y>10</y>
+               <width>113</width>
+               <height>21</height>
+              </rect>
              </property>
             </widget>
            </widget>
@@ -139,6 +149,13 @@
              <string>Tab 2</string>
             </attribute>
            </widget>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QProgressBar" name="progressBar">
+           <property name="value">
+            <number>24</number>
+           </property>
           </widget>
          </item>
         </layout>

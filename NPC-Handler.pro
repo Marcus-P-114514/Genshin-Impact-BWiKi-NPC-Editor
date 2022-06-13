@@ -9,11 +9,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    code_highlight.cpp \
     license.cpp \
     main.cpp \
     workingarea.cpp
 
 HEADERS += \
+    code_highlight.h \
     license.h \
     workingarea.h
 
