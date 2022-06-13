@@ -18,6 +18,10 @@ WorkingArea::WorkingArea(QWidget *parent)
 
     **/
 
+    //初始化文本
+    ui->code_output->insertPlainText("{{NPC");
+    ui->code_output->insertHtml("<br/>");
+
     //高亮语法
    // code_highlight *ch = new code_highlight;
     //code_highlight(ui->code_output->document());
@@ -25,7 +29,8 @@ WorkingArea::WorkingArea(QWidget *parent)
     highlighter=new code_highlight (ui->code_output->document());
 }
 
-//Define var
+//定义变量
+QString npc_gift_exist_bool="yes";
 
 WorkingArea::~WorkingArea()
 {
@@ -37,5 +42,79 @@ void WorkingArea::on_show_license_triggered()
 {
     License *license_show = new License;
     license_show->show();
+}
+
+
+void WorkingArea::on_write_basic_info_clicked()
+{
+    //写入NPC基本信息
+    QString npc_name = ui->name_input->text();
+    QString npc_name_output = "|名称="+npc_name;
+    ui->code_output->insertPlainText(npc_name_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_nickname = ui->nickname_input->text();
+    QString npc_nickname_output = "|称号="+npc_nickname;
+    ui->code_output->insertPlainText(npc_nickname_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_gender = ui->gender_input->currentText();
+    QString npc_gender_output = "|性别="+npc_gender;
+    ui->code_output->insertPlainText(npc_gender_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_job = ui->job_input->text();
+    QString npc_job_output = "|职业="+npc_job;
+    ui->code_output->insertPlainText(npc_job_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_location = ui->location_input->text();
+    QString npc_location_output = "|位置="+npc_location;
+    ui->code_output->insertPlainText(npc_location_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_country = ui->country_input->currentText();
+    QString npc_country_output = "|所属国家="+npc_country;
+    ui->code_output->insertPlainText(npc_country_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_org = ui->org_input->text();
+    QString npc_org_output = "|所属组织="+npc_org;
+    ui->code_output->insertPlainText(npc_org_output);
+    ui->code_output->insertHtml("<br/>");
+    QString npc_system = ui->system_input->currentText();
+    if (npc_system=="无"){
+        ui->code_output->insertPlainText("|相关系统=无");
+        ui->code_output->insertHtml("<br/>");
+    }
+    else{
+        QString npc_system_output = "|相关系统=[["+npc_system+"]]";
+        ui->code_output->insertPlainText(npc_system_output);
+        ui->code_output->insertHtml("<br/>");
+    }
+    bool npc_gift_exist_trigged = ui->exist_dialog_judge->isChecked();
+    if (npc_gift_exist_trigged==0){
+        ui->code_output->insertPlainText("|对话赠礼=无");
+    }
+    else{
+        QString npc_gift = ui->gift_name_input->text();
+        QString npc_gift_num = ui->gift_num_input->text();
+        QString npc_gift_output = "|对话赠礼={{NPC图标|"+npc_gift+"|"+npc_gift_num+"}}";
+        ui->code_output->insertPlainText(npc_gift_output);
+        ui->code_output->insertHtml("<br/>");
+    }
+    QString npc_version = ui->version_input->text();
+    QString npc_version_output = "|实装版本="+npc_version;
+    ui->code_output->insertPlainText(npc_version_output);
+    ui->code_output->insertHtml("<br/>");
+}
+
+
+
+void WorkingArea::on_exist_dialog_judge_clicked(bool checked)
+{
+    bool npc_gift_exist_trig = ui->exist_dialog_judge->isChecked();
+    if (npc_gift_exist_trig==0){
+        ui->gift_name_input->setEnabled(0);
+        ui->gift_num_input->setEnabled(0);
+    }
+    else{
+        ui->gift_name_input->setEnabled(1);
+        ui->gift_num_input->setEnabled(1);
+    }
 }
 

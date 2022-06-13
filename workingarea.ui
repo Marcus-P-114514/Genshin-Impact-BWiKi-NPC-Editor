@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>818</width>
-    <height>542</height>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,7 +99,14 @@
          <string/>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
+         <item row="2" column="0">
+          <widget class="QProgressBar" name="progressBar">
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QTabWidget" name="toolbox">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -115,47 +122,311 @@
            </property>
            <widget class="QWidget" name="basic_info">
             <attribute name="title">
-             <string>Tab 1</string>
+             <string>基本信息</string>
             </attribute>
-            <widget class="QLabel" name="label">
+            <widget class="QWidget" name="">
              <property name="geometry">
               <rect>
                <x>20</x>
                <y>10</y>
-               <width>81</width>
-               <height>21</height>
+               <width>281</width>
+               <height>227</height>
               </rect>
              </property>
-             <property name="styleSheet">
-              <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
-             </property>
-             <property name="text">
-              <string>名称：</string>
-             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>名称：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="name_input"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>称号：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QLineEdit" name="nickname_input"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>性别：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1" colspan="2">
+               <widget class="QComboBox" name="gender_input">
+                <item>
+                 <property name="text">
+                  <string>未知</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>男</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>女</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>职业：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" colspan="2">
+               <widget class="QLineEdit" name="job_input"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>位置：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" colspan="2">
+               <widget class="QLineEdit" name="location_input"/>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QLabel" name="label_6">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>所属国家：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QComboBox" name="country_input">
+                <item>
+                 <property name="text">
+                  <string>未知</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>蒙德</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>璃月</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>稻妻</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>须弥</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>枫丹</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>纳塔</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>至冬</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="6" column="0" colspan="2">
+               <widget class="QLabel" name="label_7">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>相关系统：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QComboBox" name="system_input">
+                <item>
+                 <property name="text">
+                  <string>无</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>委托</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>声望</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>活动</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>商店</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>烹饪</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>尘歌壶</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </widget>
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QWidget" name="">
              <property name="geometry">
               <rect>
-               <x>70</x>
-               <y>10</y>
-               <width>113</width>
-               <height>21</height>
+               <x>20</x>
+               <y>233</y>
+               <width>281</width>
+               <height>51</height>
               </rect>
              </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>对话赠礼：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="3">
+               <widget class="QCheckBox" name="exist_dialog_judge">
+                <property name="text">
+                 <string>存在</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="gift_name_input">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_9">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Helvetica&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>*</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="gift_num_input">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>287</y>
+               <width>281</width>
+               <height>98</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_10">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>实装版本：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="version_input"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_11">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>所属组织：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="org_input"/>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="write_basic_info">
+                <property name="styleSheet">
+                 <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>写入</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
-           <widget class="QWidget" name="store">
+           <widget class="QWidget" name="store_info">
             <attribute name="title">
-             <string>Tab 2</string>
+             <string>NPC商店</string>
             </attribute>
            </widget>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QProgressBar" name="progressBar">
-           <property name="value">
-            <number>24</number>
-           </property>
           </widget>
          </item>
         </layout>

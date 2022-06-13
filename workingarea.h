@@ -19,6 +19,10 @@ public:
 private slots:
     void on_show_license_triggered();
 
+    void on_write_basic_info_clicked();
+
+    void on_exist_dialog_judge_clicked(bool checked);
+
 private:
     Ui::WorkingArea *ui;
     code_highlight *highlighter;

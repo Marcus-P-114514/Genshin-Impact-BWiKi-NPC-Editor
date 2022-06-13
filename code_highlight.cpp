@@ -8,7 +8,7 @@ code_highlight::code_highlight(QTextDocument *parent)
     keywordFormat.setForeground(QColor(76,175,80));
     keywordFormat.setFontWeight(QFont::Bold);
     const QString keywordPatternsHead[] = {
-        QStringLiteral("{{NPC")
+        QStringLiteral("{{NPC"), QStringLiteral("{{NPC图鉴"), QStringLiteral("{{NPC图标")
     };
     for (const QString &pattern : keywordPatternsHead) {
         rule.pattern = QRegularExpression(pattern);
