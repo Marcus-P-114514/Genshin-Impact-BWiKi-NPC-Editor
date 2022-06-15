@@ -2,6 +2,7 @@
 #include "ui_workingarea.h"
 #include "license.h"
 #include "code_highlight.h"
+#include "QFocusEvent"
 
 WorkingArea::WorkingArea(QWidget *parent)
     : QMainWindow(parent)
@@ -31,6 +32,8 @@ WorkingArea::WorkingArea(QWidget *parent)
 
 //定义变量
 QString npc_gift_exist_bool="yes";
+QString npc_store_exist_bool="no";
+QString experimental_function_npc_store_exchange_enabled="no";
 
 WorkingArea::~WorkingArea()
 {
@@ -117,4 +120,50 @@ void WorkingArea::on_exist_dialog_judge_clicked(bool checked)
         ui->gift_num_input->setEnabled(1);
     }
 }
+
+
+
+
+
+void WorkingArea::on_store_exist_normal_toggled(bool checked)
+{
+    bool npc_store_exist_trig = ui->store_exist_normal->isChecked();
+    if  (npc_store_exist_trig==0){
+        npc_store_exist_bool="no";
+        ui->commodity_name_input->setEnabled(0);
+        ui->min_sale_unit_input->setEnabled(0);
+        ui->exchanger_norn_input->setEnabled(0);
+        ui->price_norm_input->setEnabled(0);
+        ui->limit_quantity_input->setEnabled(0);
+        ui->refresh_time_input->setEnabled(0);
+        ui->etc_limit_input->setEnabled(0);
+        ui->store_write_and_enter->setEnabled(0);
+    }
+    else{
+        npc_store_exist_bool="yes";
+        ui->commodity_name_input->setEnabled(1);
+        ui->min_sale_unit_input->setEnabled(1);
+        ui->exchanger_norn_input->setEnabled(1);
+        ui->price_norm_input->setEnabled(1);
+        ui->limit_quantity_input->setEnabled(1);
+        ui->refresh_time_input->setEnabled(1);
+        ui->etc_limit_input->setEnabled(1);
+        ui->store_write_and_enter->setEnabled(1);
+    }
+}
+
+void WorkingArea::on_store_end_task_clicked()
+{
+    if  (npc_store_exist_bool=="no"){
+        ui->code_output->insertPlainText("|存在商店=否");
+        ui->code_output->insertHtml("<br/>");
+    }
+    else{
+        ui->code_output->insertPlainText("|存在商店=是");
+        ui->code_output->insertHtml("<br/>");
+    }
+}
+
+
+
 

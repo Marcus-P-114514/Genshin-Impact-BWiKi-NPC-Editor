@@ -485,7 +485,11 @@
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="lineEdit"/>
+                   <widget class="QLineEdit" name="commodity_name_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_13">
@@ -498,7 +502,11 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="lineEdit_2"/>
+                   <widget class="QLineEdit" name="min_sale_unit_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="label_14">
@@ -511,7 +519,11 @@
                    </widget>
                   </item>
                   <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit_3"/>
+                   <widget class="QLineEdit" name="exchanger_norn_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="3" column="0">
                    <widget class="QLabel" name="label_15">
@@ -524,7 +536,11 @@
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QLineEdit" name="lineEdit_4"/>
+                   <widget class="QLineEdit" name="price_norm_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="4" column="0">
                    <widget class="QLabel" name="label_16">
@@ -537,7 +553,11 @@
                    </widget>
                   </item>
                   <item row="4" column="1">
-                   <widget class="QLineEdit" name="lineEdit_5"/>
+                   <widget class="QLineEdit" name="limit_quantity_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="5" column="0">
                    <widget class="QLabel" name="label_17">
@@ -550,7 +570,11 @@
                    </widget>
                   </item>
                   <item row="5" column="1">
-                   <widget class="QLineEdit" name="lineEdit_6"/>
+                   <widget class="QLineEdit" name="refresh_time_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="6" column="0">
                    <widget class="QLabel" name="label_18">
@@ -563,10 +587,17 @@
                    </widget>
                   </item>
                   <item row="6" column="1">
-                   <widget class="QLineEdit" name="lineEdit_7"/>
+                   <widget class="QLineEdit" name="etc_limit_input">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="7" column="0" colspan="2">
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="store_write_and_enter">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
                     </property>
@@ -576,7 +607,7 @@
                    </widget>
                   </item>
                   <item row="8" column="0" colspan="2">
-                   <widget class="QPushButton" name="pushButton_2">
+                   <widget class="QPushButton" name="store_end_task">
                     <property name="styleSheet">
                      <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
                     </property>
@@ -590,9 +621,9 @@
                </widget>
                <widget class="QWidget" name="multi_currency">
                 <attribute name="title">
-                 <string>多交换物模式</string>
+                 <string>多交换物模式（实验性）</string>
                 </attribute>
-                <widget class="QCheckBox" name="store_exist_multi_support">
+                <widget class="QCheckBox" name="multi_mod_support_on">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
@@ -624,7 +655,10 @@
                   <string>交换物1:</string>
                  </property>
                 </widget>
-                <widget class="QLineEdit" name="lineEdit_8">
+                <widget class="QLineEdit" name="multi_exchange_one_input">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -634,7 +668,10 @@
                   </rect>
                  </property>
                 </widget>
-                <widget class="QLineEdit" name="lineEdit_9">
+                <widget class="QLineEdit" name="multi_price_one_input">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -661,6 +698,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_10">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -687,6 +727,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_11">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -729,6 +772,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_12">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -739,6 +785,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_13">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -781,6 +830,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_14">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -791,6 +843,9 @@
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="lineEdit_15">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>110</x>
@@ -817,6 +872,9 @@
                  </property>
                 </widget>
                 <widget class="QPushButton" name="pushButton_3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
                    <x>10</x>

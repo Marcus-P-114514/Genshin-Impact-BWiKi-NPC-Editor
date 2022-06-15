@@ -23,6 +23,10 @@ private slots:
 
     void on_exist_dialog_judge_clicked(bool checked);
 
+    void on_store_exist_normal_toggled(bool checked);
+
+    void on_store_end_task_clicked();
+
 private:
     Ui::WorkingArea *ui;
     code_highlight *highlighter;
