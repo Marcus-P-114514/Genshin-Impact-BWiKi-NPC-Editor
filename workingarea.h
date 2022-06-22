@@ -31,6 +31,10 @@ private slots:
 
     void on_multi_mod_support_on_stateChanged(int arg1);
 
+    void on_store_write_and_enter_clicked();
+
+    void on_back_to_npc_store_normal_mode_clicked();
+
 private:
     Ui::WorkingArea *ui;
     code_highlight *highlighter;

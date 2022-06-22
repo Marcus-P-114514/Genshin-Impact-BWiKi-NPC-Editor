@@ -40,6 +40,7 @@ QString npc_basic_info_completed = "no";
 QString npc_name_completed = "no";
 QString cache_exchanger_norm = "";
 QString cache_price_norm = "";
+QString write_known_store_status = "Not yet";
 
 WorkingArea::~WorkingArea()
 {
@@ -139,7 +140,7 @@ void WorkingArea::on_store_exist_normal_toggled(bool checked)
         npc_store_exist_bool="no";
         ui->commodity_name_input->setEnabled(0);
         ui->min_sale_unit_input->setEnabled(0);
-        ui->exchanger_norn_input->setEnabled(0);
+        ui->exchanger_norm_input->setEnabled(0);
         ui->price_norm_input->setEnabled(0);
         ui->limit_quantity_input->setEnabled(0);
         ui->refresh_time_input->setEnabled(0);
@@ -150,7 +151,7 @@ void WorkingArea::on_store_exist_normal_toggled(bool checked)
         npc_store_exist_bool="yes";
         ui->commodity_name_input->setEnabled(1);
         ui->min_sale_unit_input->setEnabled(1);
-        ui->exchanger_norn_input->setEnabled(1);
+        ui->exchanger_norm_input->setEnabled(1);
         ui->price_norm_input->setEnabled(1);
         ui->limit_quantity_input->setEnabled(1);
         ui->refresh_time_input->setEnabled(1);
@@ -166,8 +167,88 @@ void WorkingArea::on_store_end_task_clicked()
         ui->code_output->insertHtml("<br/>");
     }
     else{
-        ui->code_output->insertPlainText("|存在商店=是");
-        ui->code_output->insertHtml("<br/>");
+        if (write_known_store_status == "Not yet"){
+            ui->code_output->insertPlainText("|存在商店=是");
+            ui->code_output->insertHtml("<br/>");
+        }
+        else{
+            bool ok;
+        }
+        bool cache_mult_exchange_mod = ui->multi_mod_support_on->isChecked();
+        if (cache_mult_exchange_mod == 0){
+            QString commodity_cache = ui->commodity_name_input->text();
+            QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+            QString cache_exchange_norm_input = ui->exchanger_norm_input->text();
+            QString cache_price_input = ui->price_norm_input->text();
+            QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+            QString cache_refresh_time_input = ui->refresh_time_input->text();
+            QString cache_etc_limit_input = ui->etc_limit_input->text();
+            QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_exchange_norm_input + "*" + cache_price_input + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input;
+            ui->code_output->insertPlainText(cache_single_line_out_one);
+            ui->code_output->insertHtml("<br/>");
+            write_known_store_status = "Not yet"; //重置“是否已经写入存在商店”
+        }
+        else{
+            QString cache_multi_exchange_one_input = ui->multi_exchange_one_input->text();
+            QString cache_multi_exchange_two_input = ui->multi_exchange_two_input->text();
+            QString cache_multi_exchange_three_input = ui->multi_exchange_three_input->text();
+            QString cache_multi_exchange_four_input = ui->multi_price_four_input->text();
+            QString cache_multi_price_one_input = ui->multi_price_one_input->text();
+            QString cache_multi_price_two_input = ui->multi_price_two_input->text();
+            QString cache_multi_price_three_input = ui->multi_price_three_input->text();
+            QString cache_multi_price_four_input = ui->multi_price_four_input->text();
+            if (cache_multi_exchange_one_input == ""){
+                QMessageBox::StandardButton result = QMessageBox::critical(this, "严重错误", "您已经启用了「多交换物模式」，但您似乎将多交换物模式表格留空了，请从交换物1开始依次往下填写，不足4请留空对应序号。错误#114");
+            }
+            else{
+
+                if (cache_multi_exchange_two_input == ""){
+                    QMessageBox::StandardButton result = QMessageBox::critical(this, "严重错误", "您已经启用了「多交换物模式」，但您似乎仅提供了一种交换物信息，这种情况下请关闭「多交换物模式」且打开常规模式填写。如果您已经填入不止一个交换物，请检查您是否交换物1开始依次往下填写。错误#514");
+                }
+                else{
+                    if (cache_multi_exchange_three_input == ""){
+                        QString commodity_cache = ui->commodity_name_input->text();
+                        QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                        QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                        QString cache_refresh_time_input = ui->refresh_time_input->text();
+                        QString cache_etc_limit_input = ui->etc_limit_input->text();
+                        QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input;
+                        QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input;
+                        ui->code_output->insertPlainText(cache_single_line_out_one);
+                        ui->code_output->insertHtml("<br/>");
+                        write_known_store_status = "Not yet"; //重置“是否已经写入存在商店”
+                    }
+                    else{
+                        if (cache_multi_exchange_four_input == ""){
+                            QString commodity_cache = ui->commodity_name_input->text();
+                            QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                            QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                            QString cache_refresh_time_input = ui->refresh_time_input->text();
+                            QString cache_etc_limit_input = ui->etc_limit_input->text();
+                            QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input + "、" + cache_multi_exchange_three_input + "*" + cache_multi_price_three_input;
+                            QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input;
+                            ui->code_output->insertPlainText(cache_single_line_out_one);
+                            ui->code_output->insertHtml("<br/>");
+                            write_known_store_status = "Not yet"; //重置“是否已经写入存在商店”
+                        }
+                        else{
+                            QString commodity_cache = ui->commodity_name_input->text();
+                            QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                            QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                            QString cache_refresh_time_input = ui->refresh_time_input->text();
+                            QString cache_etc_limit_input = ui->etc_limit_input->text();
+                            QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input + "、" + cache_multi_exchange_three_input + "*" + cache_multi_price_three_input + "、" + cache_multi_exchange_four_input + "*" + cache_multi_price_four_input;
+                            QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input;
+                            ui->code_output->insertPlainText(cache_single_line_out_one);
+                            ui->code_output->insertHtml("<br/>");
+                            write_known_store_status = "Not yet"; //重置“是否已经写入存在商店”
+                        }
+                    }
+
+                }
+
+            }
+        }
     }
 }
 
@@ -185,7 +266,7 @@ void WorkingArea::on_multi_mod_support_on_stateChanged(int arg1)
 {
     bool special_store_mode_isenabled = ui->multi_mod_support_on->isChecked();
     if (special_store_mode_isenabled==0){
-        ui->exchanger_norn_input->setText(cache_exchanger_norm);
+        ui->exchanger_norm_input->setText(cache_exchanger_norm);
         ui->price_norm_input->setText(cache_price_norm);
         ui->multi_exchange_one_input->setEnabled(0);
         ui->multi_price_one_input->setEnabled(0);
@@ -195,6 +276,7 @@ void WorkingArea::on_multi_mod_support_on_stateChanged(int arg1)
         ui->multi_price_three_input->setEnabled(0);
         ui->multi_exchange_four_input->setEnabled(0);
         ui->multi_price_four_input->setEnabled(0);
+        ui->back_to_npc_store_normal_mode->setEnabled(0);
     }
     else{
         bool cache_store_exist = ui->store_exist_normal->isChecked();
@@ -203,11 +285,11 @@ void WorkingArea::on_multi_mod_support_on_stateChanged(int arg1)
             ui->multi_mod_support_on->setChecked(0);
         }
         else{
-            QString cache_exchanger_norm_read = ui->exchanger_norn_input->text();
+            QString cache_exchanger_norm_read = ui->exchanger_norm_input->text();
             cache_exchanger_norm = cache_exchanger_norm_read;
             QString cache_price_norm_read = ui->price_norm_input->text();
             cache_price_norm = cache_price_norm_read;
-            ui->exchanger_norn_input->setText("请使用「多交换物模式」");
+            ui->exchanger_norm_input->setText("请使用「多交换物模式」");
             ui->price_norm_input->setText("请使用「多交换物模式」");
             ui->multi_exchange_one_input->setEnabled(1);
             ui->multi_price_one_input->setEnabled(1);
@@ -217,7 +299,98 @@ void WorkingArea::on_multi_mod_support_on_stateChanged(int arg1)
             ui->multi_price_three_input->setEnabled(1);
             ui->multi_exchange_four_input->setEnabled(1);
             ui->multi_price_four_input->setEnabled(1);
+            ui->back_to_npc_store_normal_mode->setEnabled(1);
         }
     }
+}
+
+
+void WorkingArea::on_store_write_and_enter_clicked()
+{
+    if (write_known_store_status == "Not yet"){
+        ui->code_output->insertPlainText("|存在商店=是");
+        ui->code_output->insertHtml("<br/>");
+        write_known_store_status = "written";
+    }
+    else{
+        bool ok;
+    }
+    bool cache_mult_exchange_mod = ui->multi_mod_support_on->isChecked();
+    if (cache_mult_exchange_mod == 0){
+        QString commodity_cache = ui->commodity_name_input->text();
+        QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+        QString cache_exchange_norm_input = ui->exchanger_norm_input->text();
+        QString cache_price_input = ui->price_norm_input->text();
+        QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+        QString cache_refresh_time_input = ui->refresh_time_input->text();
+        QString cache_etc_limit_input = ui->etc_limit_input->text();
+        QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_exchange_norm_input + "*" + cache_price_input + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input + "+";
+        ui->code_output->insertPlainText(cache_single_line_out_one);
+        ui->code_output->insertHtml("<br/>");
+    }
+    else{
+        QString cache_multi_exchange_one_input = ui->multi_exchange_one_input->text();
+        QString cache_multi_exchange_two_input = ui->multi_exchange_two_input->text();
+        QString cache_multi_exchange_three_input = ui->multi_exchange_three_input->text();
+        QString cache_multi_exchange_four_input = ui->multi_price_four_input->text();
+        QString cache_multi_price_one_input = ui->multi_price_one_input->text();
+        QString cache_multi_price_two_input = ui->multi_price_two_input->text();
+        QString cache_multi_price_three_input = ui->multi_price_three_input->text();
+        QString cache_multi_price_four_input = ui->multi_price_four_input->text();
+        if (cache_multi_exchange_one_input == ""){
+            QMessageBox::StandardButton result = QMessageBox::critical(this, "严重错误", "您已经启用了「多交换物模式」，但您似乎将多交换物模式表格留空了，请从交换物1开始依次往下填写，不足4请留空对应序号。错误#114");
+        }
+        else{
+
+            if (cache_multi_exchange_two_input == ""){
+                QMessageBox::StandardButton result = QMessageBox::critical(this, "严重错误", "您已经启用了「多交换物模式」，但您似乎仅提供了一种交换物信息，这种情况下请关闭「多交换物模式」且打开常规模式填写。如果您已经填入不止一个交换物，请检查您是否交换物1开始依次往下填写。错误#514");
+            }
+            else{
+                if (cache_multi_exchange_three_input == ""){
+                    QString commodity_cache = ui->commodity_name_input->text();
+                    QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                    QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                    QString cache_refresh_time_input = ui->refresh_time_input->text();
+                    QString cache_etc_limit_input = ui->etc_limit_input->text();
+                    QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input;
+                    QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input + "+";
+                    ui->code_output->insertPlainText(cache_single_line_out_one);
+                    ui->code_output->insertHtml("<br/>");
+                }
+                else{
+                    if (cache_multi_exchange_four_input == ""){
+                        QString commodity_cache = ui->commodity_name_input->text();
+                        QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                        QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                        QString cache_refresh_time_input = ui->refresh_time_input->text();
+                        QString cache_etc_limit_input = ui->etc_limit_input->text();
+                        QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input + "、" + cache_multi_exchange_three_input + "*" + cache_multi_price_three_input;
+                        QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input + "+";
+                        ui->code_output->insertPlainText(cache_single_line_out_one);
+                        ui->code_output->insertHtml("<br/>");
+                    }
+                    else{
+                        QString commodity_cache = ui->commodity_name_input->text();
+                        QString cache_min_sale_unit = ui->min_sale_unit_input->text();
+                        QString cache_limit_quantity_input = ui->limit_quantity_input->text();
+                        QString cache_refresh_time_input = ui->refresh_time_input->text();
+                        QString cache_etc_limit_input = ui->etc_limit_input->text();
+                        QString cache_price_info = cache_multi_exchange_one_input + "*" + cache_multi_price_one_input + "、" + cache_multi_exchange_two_input + "*" + cache_multi_price_two_input + "、" + cache_multi_exchange_three_input + "*" + cache_multi_price_three_input + "、" + cache_multi_exchange_four_input + "*" + cache_multi_price_four_input;
+                        QString cache_single_line_out_one = commodity_cache + "*" + cache_min_sale_unit + "," + cache_price_info + "," + cache_limit_quantity_input + "," + cache_refresh_time_input + "," + cache_etc_limit_input + "+";
+                        ui->code_output->insertPlainText(cache_single_line_out_one);
+                        ui->code_output->insertHtml("<br/>");
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+
+
+void WorkingArea::on_back_to_npc_store_normal_mode_clicked()
+{
+    ui->npc_store_container->setCurrentIndex(0);
 }
 
