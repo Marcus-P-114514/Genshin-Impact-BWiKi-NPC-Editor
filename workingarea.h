@@ -27,6 +27,10 @@ private slots:
 
     void on_store_end_task_clicked();
 
+    void on_store_exist_normal_stateChanged(int arg1);
+
+    void on_multi_mod_support_on_stateChanged(int arg1);
+
 private:
     Ui::WorkingArea *ui;
     code_highlight *highlighter;

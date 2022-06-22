@@ -3,6 +3,7 @@
 #include "license.h"
 #include "code_highlight.h"
 #include "QFocusEvent"
+#include "QMessageBox"
 
 WorkingArea::WorkingArea(QWidget *parent)
     : QMainWindow(parent)
@@ -37,6 +38,8 @@ QString npc_store_exist_bool="no";
 QString experimental_function_npc_store_exchange_enabled="no";
 QString npc_basic_info_completed = "no";
 QString npc_name_completed = "no";
+QString cache_exchanger_norm = "";
+QString cache_price_norm = "";
 
 WorkingArea::~WorkingArea()
 {
@@ -170,4 +173,51 @@ void WorkingArea::on_store_end_task_clicked()
 
 
 
+
+
+void WorkingArea::on_store_exist_normal_stateChanged(int arg1)
+{
+
+}
+
+
+void WorkingArea::on_multi_mod_support_on_stateChanged(int arg1)
+{
+    bool special_store_mode_isenabled = ui->multi_mod_support_on->isChecked();
+    if (special_store_mode_isenabled==0){
+        ui->exchanger_norn_input->setText(cache_exchanger_norm);
+        ui->price_norm_input->setText(cache_price_norm);
+        ui->multi_exchange_one_input->setEnabled(0);
+        ui->multi_price_one_input->setEnabled(0);
+        ui->multi_exchange_two_input->setEnabled(0);
+        ui->multi_price_two_input->setEnabled(0);
+        ui->multi_exchange_three_input->setEnabled(0);
+        ui->multi_price_three_input->setEnabled(0);
+        ui->multi_exchange_four_input->setEnabled(0);
+        ui->multi_price_four_input->setEnabled(0);
+    }
+    else{
+        bool cache_store_exist = ui->store_exist_normal->isChecked();
+        if (cache_store_exist == 0){
+            QMessageBox::StandardButton result = QMessageBox::critical(this, "严重错误", "若要使用多交换物模式，需要该NPC存在商店");
+            ui->multi_mod_support_on->setChecked(0);
+        }
+        else{
+            QString cache_exchanger_norm_read = ui->exchanger_norn_input->text();
+            cache_exchanger_norm = cache_exchanger_norm_read;
+            QString cache_price_norm_read = ui->price_norm_input->text();
+            cache_price_norm = cache_price_norm_read;
+            ui->exchanger_norn_input->setText("请使用「多交换物模式」");
+            ui->price_norm_input->setText("请使用「多交换物模式」");
+            ui->multi_exchange_one_input->setEnabled(1);
+            ui->multi_price_one_input->setEnabled(1);
+            ui->multi_exchange_two_input->setEnabled(1);
+            ui->multi_price_two_input->setEnabled(1);
+            ui->multi_exchange_three_input->setEnabled(1);
+            ui->multi_price_three_input->setEnabled(1);
+            ui->multi_exchange_four_input->setEnabled(1);
+            ui->multi_price_four_input->setEnabled(1);
+        }
+    }
+}
 
