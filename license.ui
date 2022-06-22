@@ -6,22 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>373</height>
+    <width>731</width>
+    <height>419</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>许可证</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QTextBrowser" name="textBrowser">
-     <property name="styleSheet">
-      <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>711</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 13pt &quot;Source Han Serif SC&quot;;</string>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Source Han Serif SC'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; border-collapse:collapse;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;
@@ -2600,10 +2606,21 @@ p, li { white-space: pre-wrap; }
 &lt;td bgcolor=&quot;transparent&quot; style=&quot; vertical-align:top; padding-left:10; padding-right:10; padding-top:0; padding-bottom:0;&quot;&gt;&lt;/td&gt;
 &lt;td bgcolor=&quot;transparent&quot; style=&quot; vertical-align:top; padding-left:10; padding-right:10; padding-top:0; padding-bottom:0;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:20px; background-color:transparent;&quot;&gt;&lt;a name=&quot;L674&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'ui-monospace','SFMono-Regular','SF Mono','Menlo','Consolas','Liberation Mono','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot; font-family:'ui-monospace','SFMono-Regular','SF Mono','Menlo','Consolas','Liberation Mono','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;https://www.gnu.org/licenses/why-not-lgpl.html&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="close_license_framework">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>380</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

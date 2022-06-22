@@ -12,3 +12,9 @@ License::~License()
 {
     delete ui;
 }
+
+void License::on_close_license_framework_clicked()
+{
+
+}
+

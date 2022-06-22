@@ -31,9 +31,12 @@ WorkingArea::WorkingArea(QWidget *parent)
 }
 
 //定义变量
+double overall_progress = 0.00;
 QString npc_gift_exist_bool="yes";
 QString npc_store_exist_bool="no";
 QString experimental_function_npc_store_exchange_enabled="no";
+QString npc_basic_info_completed = "no";
+QString npc_name_completed = "no";
 
 WorkingArea::~WorkingArea()
 {
@@ -92,6 +95,7 @@ void WorkingArea::on_write_basic_info_clicked()
     bool npc_gift_exist_trigged = ui->exist_dialog_judge->isChecked();
     if (npc_gift_exist_trigged==0){
         ui->code_output->insertPlainText("|对话赠礼=无");
+        ui->code_output->insertHtml("<br/>");
     }
     else{
         QString npc_gift = ui->gift_name_input->text();

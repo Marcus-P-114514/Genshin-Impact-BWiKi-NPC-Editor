@@ -6,6 +6,7 @@
 #include <QFontDatabase>
 #include <QIODevice>
 #include <QFile>
+#include <QStyleFactory>
 
 void FontsSerif() {
     int index = QFontDatabase::addApplicationFont(":/fonts/resources/fonts/SourceHanSerifSC-Regular.otf");
@@ -46,6 +47,9 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
+    QApplication::setStyle(QStyleFactory::create("fusion"));
+
     WorkingArea w;
     w.show();
     return a.exec();
