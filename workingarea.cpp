@@ -170,6 +170,7 @@ void WorkingArea::on_store_end_task_clicked()
         if (write_known_store_status == "Not yet"){
             ui->code_output->insertPlainText("|存在商店=是");
             ui->code_output->insertHtml("<br/>");
+            ui->code_output->insertPlainText("|商店内容=");
         }
         else{
             bool ok;
@@ -310,6 +311,7 @@ void WorkingArea::on_store_write_and_enter_clicked()
     if (write_known_store_status == "Not yet"){
         ui->code_output->insertPlainText("|存在商店=是");
         ui->code_output->insertHtml("<br/>");
+        ui->code_output->insertPlainText("|商店内容=");
         write_known_store_status = "written";
     }
     else{
