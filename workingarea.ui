@@ -49,7 +49,21 @@
         <property name="styleSheet">
          <string notr="true"/>
         </property>
-        <widget class="QWidget" name="page"/>
+        <widget class="QWidget" name="page">
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_27">
+            <property name="styleSheet">
+             <string notr="true">font: 9pt &quot;Source Han Serif SC&quot;;
+color: rgb(33, 150, 243);</string>
+            </property>
+            <property name="text">
+             <string>这是「软键盘」，在您输入的时候将根据您编辑的内容提供不同的快捷键入。</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
         <widget class="QWidget" name="page_2"/>
        </widget>
       </item>
@@ -136,7 +150,7 @@
             <string notr="true">font: 9pt &quot;Source Han Serif SC&quot;;</string>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="basic_info">
             <attribute name="title">
@@ -450,7 +464,7 @@
                 <string notr="true">font: 9pt &quot;Source Han Serif SC&quot;;</string>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="single_currency">
                 <attribute name="title">
@@ -822,6 +836,31 @@
              </item>
             </layout>
            </widget>
+           <widget class="QWidget" name="NPCDialog">
+            <attribute name="title">
+             <string>存在对话</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="cv_table">
+            <attribute name="title">
+             <string>CV表</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="time_and_place">
+            <attribute name="title">
+             <string>时间地点</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="extras">
+            <attribute name="title">
+             <string>杂项</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="end_of_editing">
+            <attribute name="title">
+             <string>结束编辑</string>
+            </attribute>
+           </widget>
           </widget>
          </item>
         </layout>
@@ -859,7 +898,7 @@
      <x>0</x>
      <y>0</y>
      <width>855</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
