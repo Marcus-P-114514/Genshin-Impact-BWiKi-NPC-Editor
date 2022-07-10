@@ -38,26 +38,40 @@
     </property>
     <addaction name="open_code"/>
     <addaction name="save_code"/>
+    <addaction name="save_code_as"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
      <string>编辑</string>
     </property>
+    <addaction name="insert_template"/>
+    <addaction name="clear_all"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
      <string>上传</string>
     </property>
+    <addaction name="upload_avatar"/>
+    <addaction name="upload_model"/>
+    <addaction name="upload_location"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
      <string>打点</string>
     </property>
+    <addaction name="open_map"/>
    </widget>
    <widget class="QMenu" name="menu_5">
     <property name="title">
      <string>关于</string>
     </property>
+    <addaction name="about_this_application"/>
+    <addaction name="about_qt"/>
+    <addaction name="separator"/>
+    <addaction name="upload_log"/>
+    <addaction name="check_update"/>
+    <addaction name="separator"/>
+    <addaction name="open_license"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -85,6 +99,138 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="save_code_as">
+   <property name="text">
+    <string>另存为</string>
+   </property>
+   <property name="toolTip">
+    <string>保存您文件的副本</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="insert_template">
+   <property name="text">
+    <string>插入特殊字符</string>
+   </property>
+   <property name="toolTip">
+    <string>插入特殊字符</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
+  <action name="clear_all">
+   <property name="text">
+    <string>清空</string>
+   </property>
+   <property name="toolTip">
+    <string>彻底清空整份文档</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="upload_avatar">
+   <property name="text">
+    <string>上传头像</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC头像</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="upload_model">
+   <property name="text">
+    <string>上传建模</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC建模</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+M</string>
+   </property>
+  </action>
+  <action name="upload_location">
+   <property name="text">
+    <string>上传位置</string>
+   </property>
+   <property name="toolTip">
+    <string>上传NPC位置</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
+   </property>
+  </action>
+  <action name="open_map">
+   <property name="text">
+    <string>打开大地图</string>
+   </property>
+   <property name="toolTip">
+    <string>打开大地图，您稍后可以利用大地图打点</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="about_this_application">
+   <property name="text">
+    <string>关于本程序</string>
+   </property>
+   <property name="toolTip">
+    <string>有关本程序的信息</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="about_qt">
+   <property name="text">
+    <string>关于Qt</string>
+   </property>
+   <property name="toolTip">
+    <string>关于用于构建此程序的Qt的信息</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Q</string>
+   </property>
+  </action>
+  <action name="upload_log">
+   <property name="text">
+    <string>更新日志</string>
+   </property>
+   <property name="toolTip">
+    <string>此版本的更新日志</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+U</string>
+   </property>
+  </action>
+  <action name="check_update">
+   <property name="text">
+    <string>检查更新</string>
+   </property>
+   <property name="toolTip">
+    <string>检查是否有更新，通常建议保持最新版本</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="open_license">
+   <property name="text">
+    <string>许可证</string>
+   </property>
+   <property name="toolTip">
+    <string>打开许可证</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
    </property>
   </action>
  </widget>
