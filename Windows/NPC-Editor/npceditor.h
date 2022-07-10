@@ -16,6 +16,9 @@ public:
     NPCEditor(QWidget *parent = nullptr);
     ~NPCEditor();
 
+private slots:
+    void on_open_code_triggered();
+
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;
