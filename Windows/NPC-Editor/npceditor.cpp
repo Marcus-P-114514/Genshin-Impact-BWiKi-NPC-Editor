@@ -9,8 +9,11 @@
 #include "QDir"
 #include "QDomDocument"
 #include "QFileDialog"
-#include <QClipboard>
-#include <QApplication>
+#include "QClipboard"
+#include "QApplication"
+#include "QDialog"
+#include "QInputDialog"
+#include "QDesktopServices"
 
 QString version = "1.0";
 int read_progress = 0;
@@ -18,6 +21,7 @@ QString filepath="";
 int saveprogress = 0;
 int save_emptylinenum = 0;
 QString nonrelated_info = "";
+QString npc_name_for_upload = "";
 
 NPCEditor::NPCEditor(QWidget *parent)
     : QMainWindow(parent)
@@ -59,6 +63,7 @@ void NPCEditor::on_open_code_triggered()
     else{
         QString windowtitle = npc_name_for_windowtitle + " - 原神BWIKI NPC图鉴第三方编辑工具";
         setWindowTitle(windowtitle);
+        npc_name_for_upload = npc_name_for_windowtitle;
     }
     if (type != "npcedit"){
         QMessageBox::critical(NULL, "打开文件失败", "错误：所选文件似乎不是此编辑器所支持的类型。\n错误#1", QMessageBox::Ok);
@@ -120,8 +125,8 @@ void NPCEditor::on_save_code_triggered()
                 int name_row_num = tc. blockNumber()+1;
                 QString line_npc_name = ui->code_preview->document()->findBlockByLineNumber(name_row_num).text();
                 QString npc_name = line_npc_name.replace("|名称=", "");
-                write_doc->setValue("manifest/name", npc_name);
-                QString windowtitle = npc_name + " - 原神BWIKI NPC图鉴第三方编辑工具";
+                write_doc->setValue("manifest/name", npc_name_for_upload);
+                QString windowtitle = npc_name_for_upload + " - 原神BWIKI NPC图鉴第三方编辑工具";
                 setWindowTitle(windowtitle);
 
                 bool save_done = false;
@@ -154,7 +159,7 @@ void NPCEditor::on_save_code_triggered()
 
 
                 }
-
+                delete write_doc;
             }
 
 }
@@ -212,6 +217,7 @@ void NPCEditor::on_save_code_as_triggered()
 
 
             }
+            delete write_doc;
 }
 
 
@@ -228,4 +234,73 @@ void NPCEditor::on_clear_all_triggered()
     }
 }
 
+
+void NPCEditor::on_assign_npc_name_triggered()
+{
+    QString npc_name_input = QInputDialog::getText(this, "指定NPC名称", "在上传文件之前，请指定NPC名称。");
+        if (!npc_name_input.isEmpty())
+            npc_name_for_upload = npc_name_input;
+        QString windowtitle = npc_name_for_upload + " - 原神BWIKI NPC图鉴第三方编辑工具";
+        setWindowTitle(windowtitle);
+}
+
+
+void NPCEditor::on_upload_avatar_triggered()
+{
+    if (npc_name_for_upload == ""){
+        QString npc_name_input = QInputDialog::getText(this, "指定NPC名称", "在上传文件之前，请指定NPC名称。");
+            if (!npc_name_input.isEmpty())
+                npc_name_for_upload = npc_name_input;
+            QString windowtitle = npc_name_for_upload + " - 原神BWIKI NPC图鉴第三方编辑工具";
+            setWindowTitle(windowtitle);
+            QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + ".png";
+            QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+    else{
+        QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + ".png";
+        QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+}
+
+
+void NPCEditor::on_upload_model_triggered()
+{
+    if (npc_name_for_upload == ""){
+        QString npc_name_input = QInputDialog::getText(this, "指定NPC名称", "在上传文件之前，请指定NPC名称。");
+            if (!npc_name_input.isEmpty())
+                npc_name_for_upload = npc_name_input;
+            QString windowtitle = npc_name_for_upload + " - 原神BWIKI NPC图鉴第三方编辑工具";
+            setWindowTitle(windowtitle);
+            QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + "建模.png";
+            QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+    else{
+        QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + "建模.png";
+        QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+}
+
+
+void NPCEditor::on_upload_location_triggered()
+{
+    if (npc_name_for_upload == ""){
+        QString npc_name_input = QInputDialog::getText(this, "指定NPC名称", "在上传文件之前，请指定NPC名称。");
+            if (!npc_name_input.isEmpty())
+                npc_name_for_upload = npc_name_input;
+            QString windowtitle = npc_name_for_upload + " - 原神BWIKI NPC图鉴第三方编辑工具";
+            setWindowTitle(windowtitle);
+            QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + "位置.png";
+            QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+    else{
+        QString target_url = "https://wiki.biligame.com/ys/文件:" + npc_name_for_upload + "位置.png";
+        QDesktopServices::openUrl(QUrl(QString(target_url)));
+    }
+}
+
+
+void NPCEditor::on_open_map_triggered()
+{
+    QDesktopServices::openUrl(QUrl(QString("https://wiki.biligame.com/ys/%E5%8E%9F%E7%A5%9E%E5%9C%B0%E5%9B%BE%E5%B7%A5%E5%85%B7_%E5%85%A8%E5%9C%B0%E6%A0%87%E4%BD%8D%E7%BD%AE%E7%82%B9")));
+}
 

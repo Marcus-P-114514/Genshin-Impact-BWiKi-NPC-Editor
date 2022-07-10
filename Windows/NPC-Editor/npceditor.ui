@@ -51,6 +51,8 @@
     <property name="title">
      <string>上传</string>
     </property>
+    <addaction name="assign_npc_name"/>
+    <addaction name="separator"/>
     <addaction name="upload_avatar"/>
     <addaction name="upload_model"/>
     <addaction name="upload_location"/>
@@ -186,7 +188,7 @@
     <string>有关本程序的信息</string>
    </property>
    <property name="shortcut">
-    <string>Alt+A</string>
+    <string>Ctrl+Alt+I</string>
    </property>
   </action>
   <action name="about_qt">
@@ -231,6 +233,17 @@
    </property>
    <property name="shortcut">
     <string>Alt+L</string>
+   </property>
+  </action>
+  <action name="assign_npc_name">
+   <property name="text">
+    <string>指定NPC名称</string>
+   </property>
+   <property name="toolTip">
+    <string>指定当前NPC的名称</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

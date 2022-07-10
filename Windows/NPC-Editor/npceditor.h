@@ -27,6 +27,16 @@ private slots:
 
     void on_clear_all_triggered();
 
+    void on_assign_npc_name_triggered();
+
+    void on_upload_avatar_triggered();
+
+    void on_upload_model_triggered();
+
+    void on_upload_location_triggered();
+
+    void on_open_map_triggered();
+
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;

@@ -38,6 +38,7 @@ public:
     QAction *upload_log;
     QAction *check_update;
     QAction *open_license;
+    QAction *assign_npc_name;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QTextEdit *code_preview;
@@ -82,6 +83,8 @@ public:
         check_update->setObjectName(QString::fromUtf8("check_update"));
         open_license = new QAction(NPCEditor);
         open_license->setObjectName(QString::fromUtf8("open_license"));
+        assign_npc_name = new QAction(NPCEditor);
+        assign_npc_name->setObjectName(QString::fromUtf8("assign_npc_name"));
         centralwidget = new QWidget(NPCEditor);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -117,6 +120,8 @@ public:
         menu->addAction(save_code_as);
         menu_2->addAction(insert_template);
         menu_2->addAction(clear_all);
+        menu_3->addAction(assign_npc_name);
+        menu_3->addSeparator();
         menu_3->addAction(upload_avatar);
         menu_3->addAction(upload_model);
         menu_3->addAction(upload_location);
@@ -205,7 +210,7 @@ public:
         about_this_application->setToolTip(QCoreApplication::translate("NPCEditor", "\346\234\211\345\205\263\346\234\254\347\250\213\345\272\217\347\232\204\344\277\241\346\201\257", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
-        about_this_application->setShortcut(QCoreApplication::translate("NPCEditor", "Alt+A", nullptr));
+        about_this_application->setShortcut(QCoreApplication::translate("NPCEditor", "Ctrl+Alt+I", nullptr));
 #endif // QT_CONFIG(shortcut)
         about_qt->setText(QCoreApplication::translate("NPCEditor", "\345\205\263\344\272\216Qt", nullptr));
 #if QT_CONFIG(tooltip)
@@ -234,6 +239,13 @@ public:
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
         open_license->setShortcut(QCoreApplication::translate("NPCEditor", "Alt+L", nullptr));
+#endif // QT_CONFIG(shortcut)
+        assign_npc_name->setText(QCoreApplication::translate("NPCEditor", "\346\214\207\345\256\232NPC\345\220\215\347\247\260", nullptr));
+#if QT_CONFIG(tooltip)
+        assign_npc_name->setToolTip(QCoreApplication::translate("NPCEditor", "\346\214\207\345\256\232\345\275\223\345\211\215NPC\347\232\204\345\220\215\347\247\260", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        assign_npc_name->setShortcut(QCoreApplication::translate("NPCEditor", "Ctrl+N", nullptr));
 #endif // QT_CONFIG(shortcut)
         menu->setTitle(QCoreApplication::translate("NPCEditor", "\346\226\207\344\273\266", nullptr));
         menu_2->setTitle(QCoreApplication::translate("NPCEditor", "\347\274\226\350\276\221", nullptr));
