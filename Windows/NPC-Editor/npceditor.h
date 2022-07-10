@@ -37,6 +37,16 @@ private slots:
 
     void on_open_map_triggered();
 
+    void on_about_this_application_triggered();
+
+    void on_about_qt_triggered();
+
+    void on_upload_log_triggered();
+
+    void on_check_update_triggered();
+
+    void on_open_license_triggered();
+
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;

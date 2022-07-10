@@ -304,3 +304,35 @@ void NPCEditor::on_open_map_triggered()
     QDesktopServices::openUrl(QUrl(QString("https://wiki.biligame.com/ys/%E5%8E%9F%E7%A5%9E%E5%9C%B0%E5%9B%BE%E5%B7%A5%E5%85%B7_%E5%85%A8%E5%9C%B0%E6%A0%87%E4%BD%8D%E7%BD%AE%E7%82%B9")));
 }
 
+
+void NPCEditor::on_about_this_application_triggered()
+{
+    QMessageBox::information(NULL, "关于", "版本：1.0\nby：屑机主\n许可证：GPL v3", QMessageBox::Ok);
+}
+
+
+void NPCEditor::on_about_qt_triggered()
+{
+    QApplication::aboutQt();
+}
+
+
+void NPCEditor::on_upload_log_triggered()
+{
+    QMessageBox::information(NULL, "更新日志", "这是初次提交。", QMessageBox::Ok);
+}
+
+
+void NPCEditor::on_check_update_triggered()
+{
+    QDesktopServices::openUrl(QUrl(QString("https://xjz.rth.app/NPC%E5%9B%BE%E9%89%B4%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/%E6%9B%B4%E6%96%B0%E6%A3%80%E6%9F%A5/1.0")));
+}
+
+void NPCEditor::on_open_license_triggered()
+{
+    QDesktopServices::openUrl(QUrl(QString("https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/main/LICENSE")));
+}
+
+
+
+
