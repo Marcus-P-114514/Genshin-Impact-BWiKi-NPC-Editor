@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/ui">
+        <file>resources/images/shade_left.png</file>
+        <file>resources/images/shade_left_toolbar.png</file>
+    </qresource>
+</RCC>
