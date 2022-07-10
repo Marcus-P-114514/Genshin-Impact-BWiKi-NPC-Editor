@@ -21,6 +21,8 @@ public:
 private slots:
     void on_open_code_triggered();
 
+    void on_save_code_triggered();
+
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;

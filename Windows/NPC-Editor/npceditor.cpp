@@ -13,6 +13,9 @@
 
 QString version = "1.0";
 int read_progress = 0;
+QString filepath="";
+int saveprogress = 0;
+int save_emptylinenum = 0;
 
 NPCEditor::NPCEditor(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +27,9 @@ NPCEditor::NPCEditor(QWidget *parent)
 
     //应用高亮
     highlighter=new code_highlight (ui->code_preview->document());
+
+    //窗体标题
+    setWindowTitle("无标题 - 原神BWIKI NPC图鉴第三方编辑工具");
 }
 
 NPCEditor::~NPCEditor()
@@ -39,10 +45,19 @@ void NPCEditor::on_open_code_triggered()
                                       "./",
                                       tr("NPC图鉴 (*.npcedit);;all (*.*)")
                                       );
+    filepath = open_target;
     QSettings *read_doc = new QSettings(open_target, QSettings::IniFormat);
     QString type = read_doc->value("manifest/type").toString();
     QString sector = read_doc->value("manifest/sector").toString();
     QString min_required_version = read_doc->value("manifest/min_version").toString();
+    QString npc_name_for_windowtitle = read_doc->value("manifest/name").toString();
+    if (npc_name_for_windowtitle == ""){
+        setWindowTitle("无标题 - 原神BWIKI NPC图鉴第三方编辑工具");
+    }
+    else{
+        QString windowtitle = npc_name_for_windowtitle + " - 原神BWIKI NPC图鉴第三方编辑工具";
+        setWindowTitle(windowtitle);
+    }
     if (type != "npcedit"){
         QMessageBox::critical(NULL, "打开文件失败", "错误：所选文件似乎不是此编辑器所支持的类型。\n错误#1", QMessageBox::Ok);
     }
@@ -76,6 +91,69 @@ void NPCEditor::on_open_code_triggered()
     read_progress = 0;
     delete read_doc;
 
+
+}
+
+
+void NPCEditor::on_save_code_triggered()
+{
+    QString save_target;
+    if (filepath == ""){
+        save_target = QFileDialog::getSaveFileName(this,
+            tr("保存NPC图鉴"), "",
+            tr("NPC图鉴 (*.npcedit);;all (*.*)"));
+        filepath = save_target;
+    }
+    else{
+        QSettings *write_doc = new QSettings(filepath, QSettings::IniFormat);
+        write_doc->setValue("manifest/type", "npcedit");
+        write_doc->setValue("manifest/sector", "npc");
+        write_doc->setValue("manifest/min_version", version);
+
+
+                QPalette palette = ui->code_preview->palette();
+                palette.setColor(QPalette::Highlight,palette.color(QPalette::Active,QPalette::Highlight));
+                ui->code_preview->setPalette(palette);
+                QTextCursor tc = ui->code_preview->textCursor();
+                int name_row_num = tc. blockNumber()+1;
+                QString line_npc_name = ui->code_preview->document()->findBlockByLineNumber(name_row_num).text();
+                QString npc_name = line_npc_name.replace("|名称=", "");
+                write_doc->setValue("manifest/name", npc_name);
+                QString windowtitle = npc_name + " - 原神BWIKI NPC图鉴第三方编辑工具";
+                setWindowTitle(windowtitle);
+
+                bool save_done = false;
+                while (save_done == false){
+                    QString save_current_line = ui->code_preview->document()->findBlockByLineNumber(saveprogress).text();
+                    if (save_emptylinenum == 5){
+                        save_done = true;
+                        saveprogress = saveprogress + 1;
+                        QString linenum_string = QString::number(saveprogress);
+                        QString linetitle = "line" + linenum_string;
+                        QString write_target = "content/" + linetitle;
+                        write_doc->setValue(write_target, "this_is_the_end_of_content");
+                    }
+                    else{
+                        if (save_current_line == ""){
+                            //saveprogress = saveprogress + 1;
+                            save_emptylinenum = save_emptylinenum + 1;
+                        }
+                        else{
+                            save_emptylinenum = 0;
+
+                            QString linenum_string = QString::number(saveprogress);
+                            QString linetitle = "line" + linenum_string;
+                            QString write_target = "content/" + linetitle;
+                            write_doc->setValue(write_target, save_current_line);
+
+                            saveprogress = saveprogress + 1;
+                        }
+                    }
+
+
+                }
+
+            }
 
 }
 
