@@ -8,6 +8,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class NPCEditor; }
 QT_END_NAMESPACE
 
+extern QString version;
+
 class NPCEditor : public QMainWindow
 {
     Q_OBJECT
