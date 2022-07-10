@@ -9,13 +9,15 @@
 #include "QDir"
 #include "QDomDocument"
 #include "QFileDialog"
-
+#include <QClipboard>
+#include <QApplication>
 
 QString version = "1.0";
 int read_progress = 0;
 QString filepath="";
 int saveprogress = 0;
 int save_emptylinenum = 0;
+QString nonrelated_info = "";
 
 NPCEditor::NPCEditor(QWidget *parent)
     : QMainWindow(parent)
@@ -156,4 +158,74 @@ void NPCEditor::on_save_code_triggered()
             }
 
 }
+
+
+void NPCEditor::on_save_code_as_triggered()
+{
+    QString save_target = QFileDialog::getSaveFileName(this,
+        tr("保存NPC图鉴"), "",
+        tr("NPC图鉴 (*.npcedit);;all (*.*)"));
+    QSettings *write_doc = new QSettings(save_target, QSettings::IniFormat);
+    write_doc->setValue("manifest/type", "npcedit");
+    write_doc->setValue("manifest/sector", "npc");
+    write_doc->setValue("manifest/min_version", version);
+
+
+            QPalette palette = ui->code_preview->palette();
+            palette.setColor(QPalette::Highlight,palette.color(QPalette::Active,QPalette::Highlight));
+            ui->code_preview->setPalette(palette);
+            QTextCursor tc = ui->code_preview->textCursor();
+            int name_row_num = tc. blockNumber()+1;
+            QString line_npc_name = ui->code_preview->document()->findBlockByLineNumber(name_row_num).text();
+            QString npc_name = line_npc_name.replace("|名称=", "");
+            write_doc->setValue("manifest/name", npc_name);
+            QString windowtitle = npc_name + " - 原神BWIKI NPC图鉴第三方编辑工具";
+            setWindowTitle(windowtitle);
+
+            bool save_done = false;
+            while (save_done == false){
+                QString save_current_line = ui->code_preview->document()->findBlockByLineNumber(saveprogress).text();
+                if (save_emptylinenum == 5){
+                    save_done = true;
+                    saveprogress = saveprogress + 1;
+                    QString linenum_string = QString::number(saveprogress);
+                    QString linetitle = "line" + linenum_string;
+                    QString write_target = "content/" + linetitle;
+                    write_doc->setValue(write_target, "this_is_the_end_of_content");
+                }
+                else{
+                    if (save_current_line == ""){
+                        //saveprogress = saveprogress + 1;
+                        save_emptylinenum = save_emptylinenum + 1;
+                    }
+                    else{
+                        save_emptylinenum = 0;
+
+                        QString linenum_string = QString::number(saveprogress);
+                        QString linetitle = "line" + linenum_string;
+                        QString write_target = "content/" + linetitle;
+                        write_doc->setValue(write_target, save_current_line);
+
+                        saveprogress = saveprogress + 1;
+                    }
+                }
+
+
+            }
+}
+
+
+void NPCEditor::on_clear_all_triggered()
+{
+    if (ui->code_preview->document()->isEmpty()){
+        nonrelated_info = "There is no need to clear, the document is already empty";
+    }
+    else{
+        QClipboard *tempsave = QApplication::clipboard();
+        tempsave -> setText(ui->code_preview->document()->toPlainText());
+        ui->code_preview->clear();
+        QMessageBox::information(NULL, "文本操作", "已经将您的工作区域清空。\n如果您无意这么做，请不用担心，我们已经把您的代码备份到了您的剪贴板内，下面是部分平台上用于粘贴的快捷键：\nWindows：同时按住ctrl+V\nmacOS：同时按住command+V", QMessageBox::Ok);
+    }
+}
+
 
