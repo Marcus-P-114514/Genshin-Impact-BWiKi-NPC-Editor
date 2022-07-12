@@ -64,7 +64,7 @@ public:
         NPCEditor->resize(800, 600);
         NPCEditor->setAcceptDrops(true);
         NPCEditor->setAutoFillBackground(true);
-        NPCEditor->setStyleSheet(QString::fromUtf8("color: rgb(0,0,0);"));
+        NPCEditor->setStyleSheet(QString::fromUtf8("color: rgb(231, 191, 159);"));
         open_code = new QAction(NPCEditor);
         open_code->setObjectName(QString::fromUtf8("open_code"));
         save_code = new QAction(NPCEditor);

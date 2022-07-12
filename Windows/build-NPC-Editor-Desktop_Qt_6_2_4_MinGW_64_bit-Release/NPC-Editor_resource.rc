@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	"C:\\Users\\Marcus\\Documents\\GitHub\\Genshin-Impact-BWiKi-NPC-Editor\\Plain Text Editor\\NPC-Editor\\resources\\icons\\application.ico"
+IDI_ICON1	ICON	"E:\\Dev\\Android-Shortcuts\\NPC-Editor\\resources\\icons\\application.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
