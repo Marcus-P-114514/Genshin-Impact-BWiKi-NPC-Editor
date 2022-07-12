@@ -39,7 +39,12 @@ NPCEditor::NPCEditor(QWidget *parent)
     //窗体标题
     setWindowTitle("无标题 - 原神BWIKI NPC图鉴第三方编辑工具");
 
+    //窗口接受拖拽
     setAcceptDrops(true);
+
+    //默认隐藏快速插入
+    ui->insert_special->setEnabled(0);
+    ui->insert_special->setVisible(0);
 }
 
 NPCEditor::~NPCEditor()
@@ -397,4 +402,87 @@ void NPCEditor::dropEvent(QDropEvent*event){
 
 }
 
+
+
+void NPCEditor::on_insert_template_triggered()
+{
+    ui->insert_special->setEnabled(1);
+    ui->insert_special->setVisible(1);
+}
+
+
+void NPCEditor::on_insert_brackets_triggered()
+{
+    QString process_brackets = ui->code_preview->textCursor().selectedText();
+    QString brackets_applied = "「" + process_brackets + "」";
+    if (process_brackets == ""){
+        QTextCursor handleCursor = ui->code_preview->textCursor();
+        handleCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, 1);
+        ui->code_preview->setTextCursor(handleCursor);
+    }
+    ui->code_preview->insertPlainText(brackets_applied);
+
+}
+
+
+void NPCEditor::on_bold_triggered()
+{
+    QString process_bold = ui->code_preview->textCursor().selectedText();
+    QString bold_applied = "'''" + process_bold + "'''";
+    if (process_bold == ""){
+        QTextCursor handleCursor = ui->code_preview->textCursor();
+        handleCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, 3);
+        ui->code_preview->setTextCursor(handleCursor);
+    }
+    ui->code_preview->insertPlainText(bold_applied);
+}
+
+
+void NPCEditor::on_italic_triggered()
+{
+    QString process_italic = ui->code_preview->textCursor().selectedText();
+    QString italic_applied = "''" + process_italic + "''";
+    if (process_italic == ""){
+        QTextCursor handleCursor = ui->code_preview->textCursor();
+        handleCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, 3);
+        ui->code_preview->setTextCursor(handleCursor);
+    }
+    ui->code_preview->insertPlainText(italic_applied);
+}
+
+
+void NPCEditor::on_underline_triggered()
+{
+    QString process_underline = ui->code_preview->textCursor().selectedText();
+    QString underline_applied = "<u>" + process_underline + "</u>";
+    if (process_underline == ""){
+        QTextCursor handleCursor = ui->code_preview->textCursor();
+        handleCursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, 4);
+        ui->code_preview->setTextCursor(handleCursor);
+    }
+    ui->code_preview->insertPlainText(underline_applied);
+}
+
+
+void NPCEditor::on_color_triggered()
+{
+    QString color_selected = QInputDialog::getText(this, "输入要显示的颜色","在这里输入文字颜色，示例：火\n详见：https://wiki.biligame.com/ys/原神WIKI编辑教程/#模板:颜色");
+    QString process_color = ui->code_preview->textCursor().selectedText();
+    if (process_color == ""){
+        QString colored_text = QInputDialog::getText(this, "输入要显示的文字","在这里输入的文字会以选定的颜色显示");
+        QString color_output = "{{颜色|" + color_selected + "|" + colored_text + "}}";
+        ui->code_preview->insertPlainText(color_output);
+    }
+    else{
+        QString color_output = "{{颜色|" + color_selected + "|" + process_color + "}}";
+        ui->code_preview->insertPlainText(color_output);
+    }
+}
+
+
+void NPCEditor::on_close_toolbar_triggered()
+{
+    ui->insert_special->setEnabled(0);
+    ui->insert_special->setVisible(0);
+}
 

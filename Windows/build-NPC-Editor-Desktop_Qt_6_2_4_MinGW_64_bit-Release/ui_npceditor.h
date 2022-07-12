@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +40,12 @@ public:
     QAction *check_update;
     QAction *open_license;
     QAction *assign_npc_name;
+    QAction *insert_brackets;
+    QAction *bold;
+    QAction *italic;
+    QAction *underline;
+    QAction *color;
+    QAction *close_toolbar;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QTextEdit *code_preview;
@@ -48,6 +55,7 @@ public:
     QMenu *menu_3;
     QMenu *menu_4;
     QMenu *menu_5;
+    QToolBar *insert_special;
 
     void setupUi(QMainWindow *NPCEditor)
     {
@@ -87,6 +95,18 @@ public:
         open_license->setObjectName(QString::fromUtf8("open_license"));
         assign_npc_name = new QAction(NPCEditor);
         assign_npc_name->setObjectName(QString::fromUtf8("assign_npc_name"));
+        insert_brackets = new QAction(NPCEditor);
+        insert_brackets->setObjectName(QString::fromUtf8("insert_brackets"));
+        bold = new QAction(NPCEditor);
+        bold->setObjectName(QString::fromUtf8("bold"));
+        italic = new QAction(NPCEditor);
+        italic->setObjectName(QString::fromUtf8("italic"));
+        underline = new QAction(NPCEditor);
+        underline->setObjectName(QString::fromUtf8("underline"));
+        color = new QAction(NPCEditor);
+        color->setObjectName(QString::fromUtf8("color"));
+        close_toolbar = new QAction(NPCEditor);
+        close_toolbar->setObjectName(QString::fromUtf8("close_toolbar"));
         centralwidget = new QWidget(NPCEditor);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -113,6 +133,10 @@ public:
         menu_5 = new QMenu(menubar);
         menu_5->setObjectName(QString::fromUtf8("menu_5"));
         NPCEditor->setMenuBar(menubar);
+        insert_special = new QToolBar(NPCEditor);
+        insert_special->setObjectName(QString::fromUtf8("insert_special"));
+        insert_special->setMinimumSize(QSize(0, 25));
+        NPCEditor->addToolBar(Qt::TopToolBarArea, insert_special);
 
         menubar->addAction(menu->menuAction());
         menubar->addAction(menu_2->menuAction());
@@ -137,6 +161,12 @@ public:
         menu_5->addAction(check_update);
         menu_5->addSeparator();
         menu_5->addAction(open_license);
+        insert_special->addAction(insert_brackets);
+        insert_special->addAction(bold);
+        insert_special->addAction(italic);
+        insert_special->addAction(underline);
+        insert_special->addAction(color);
+        insert_special->addAction(close_toolbar);
 
         retranslateUi(NPCEditor);
 
@@ -251,11 +281,39 @@ public:
 #if QT_CONFIG(shortcut)
         assign_npc_name->setShortcut(QCoreApplication::translate("NPCEditor", "Ctrl+N", nullptr));
 #endif // QT_CONFIG(shortcut)
+        insert_brackets->setText(QCoreApplication::translate("NPCEditor", "\343\200\214\343\200\215", nullptr));
+#if QT_CONFIG(tooltip)
+        insert_brackets->setToolTip(QCoreApplication::translate("NPCEditor", "\346\217\222\345\205\245\345\215\212\346\226\271\346\213\254\345\217\267", nullptr));
+#endif // QT_CONFIG(tooltip)
+        bold->setText(QCoreApplication::translate("NPCEditor", "\345\212\240\347\262\227", nullptr));
+#if QT_CONFIG(tooltip)
+        bold->setToolTip(QCoreApplication::translate("NPCEditor", "\345\212\240\347\262\227\346\226\207\346\234\254", nullptr));
+#endif // QT_CONFIG(tooltip)
+        italic->setText(QCoreApplication::translate("NPCEditor", "\346\226\234\344\275\223", nullptr));
+#if QT_CONFIG(tooltip)
+        italic->setToolTip(QCoreApplication::translate("NPCEditor", "\345\272\224\347\224\250\346\226\234\344\275\223", nullptr));
+#endif // QT_CONFIG(tooltip)
+        underline->setText(QCoreApplication::translate("NPCEditor", "\344\270\213\345\210\222\347\272\277", nullptr));
+#if QT_CONFIG(tooltip)
+        underline->setToolTip(QCoreApplication::translate("NPCEditor", "\346\267\273\345\212\240\344\270\213\345\210\222\347\272\277", nullptr));
+#endif // QT_CONFIG(tooltip)
+        color->setText(QCoreApplication::translate("NPCEditor", "\345\255\227\344\275\223\351\242\234\350\211\262", nullptr));
+#if QT_CONFIG(tooltip)
+        color->setToolTip(QCoreApplication::translate("NPCEditor", "\346\226\260\345\242\236\345\255\227\344\275\223\351\242\234\350\211\262", nullptr));
+#endif // QT_CONFIG(tooltip)
+        close_toolbar->setText(QCoreApplication::translate("NPCEditor", "\345\205\263\351\227\255", nullptr));
+#if QT_CONFIG(tooltip)
+        close_toolbar->setToolTip(QCoreApplication::translate("NPCEditor", "\345\205\263\351\227\255\346\265\256\345\212\250\345\267\245\345\205\267\346\240\217", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        close_toolbar->setShortcut(QCoreApplication::translate("NPCEditor", "Ctrl+Alt+C", nullptr));
+#endif // QT_CONFIG(shortcut)
         menu->setTitle(QCoreApplication::translate("NPCEditor", "\346\226\207\344\273\266", nullptr));
         menu_2->setTitle(QCoreApplication::translate("NPCEditor", "\347\274\226\350\276\221", nullptr));
         menu_3->setTitle(QCoreApplication::translate("NPCEditor", "\344\270\212\344\274\240", nullptr));
         menu_4->setTitle(QCoreApplication::translate("NPCEditor", "\346\211\223\347\202\271", nullptr));
         menu_5->setTitle(QCoreApplication::translate("NPCEditor", "\345\205\263\344\272\216", nullptr));
+        insert_special->setWindowTitle(QCoreApplication::translate("NPCEditor", "toolBar", nullptr));
     } // retranslateUi
 
 };
