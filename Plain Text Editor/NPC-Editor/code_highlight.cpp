@@ -1,11 +1,17 @@
 #include "code_highlight.h"
 
+//判定代码高亮偏好
+
+
+//储存的预设
+QColor format_manifest_default = (76,175,80);
+
 code_highlight::code_highlight(QTextDocument *parent)
     : QSyntaxHighlighter(parent)
 {
     HighlightingRule rule;
 
-    keywordFormat.setForeground(QColor(76,175,80));
+    keywordFormat.setForeground(QColor(format_manifest_default));
     keywordFormat.setFontWeight(QFont::Bold);
     const QString keywordPatternsHead[] = {
         QStringLiteral("{{NPC"), QStringLiteral("{{NPC图鉴"), QStringLiteral("{{NPC图标")
