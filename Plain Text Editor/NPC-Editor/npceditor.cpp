@@ -24,6 +24,9 @@ int saveprogress = 0;
 int save_emptylinenum = 0;
 QString nonrelated_info = "";
 QString npc_name_for_upload = "";
+QString theme_light = "QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QWidget{background: #F6F0E5;}QWidget{color: #E7BF9F;}";
+QString theme_dark = "QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F000000;color:#E7BF9F;}QMenu::item:disabled{background-color:#F000000;color:#ddd}QWidget{background: #000000;}QWidget{color: #E7BF9F;}";
+QString custom_theme = "";
 
 NPCEditor::NPCEditor(QWidget *parent)
     : QMainWindow(parent)
@@ -31,7 +34,19 @@ NPCEditor::NPCEditor(QWidget *parent)
 {
     ui->setupUi(this);
     //解决背景为白色时菜单栏选中字体问题
-    this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QWidget{background: #F6F0E5;}QWidget{color: #E7BF9F;}");
+    QSettings *read_config = new QSettings("./config/global.conf", QSettings::IniFormat);
+    QString theme_selection = read_config->value("global/theme").toString();
+    QString custom_stylesheet = read_config->value("theme/custom").toString();
+    custom_theme = custom_stylesheet;
+    if (theme_selection == "light"){
+        this->setStyleSheet(theme_light);
+    }
+    else if (theme_selection == "dark"){
+        this->setStyleSheet(theme_dark);
+    }
+    else{
+        this->setStyleSheet(custom_theme);
+    }
 
     //应用高亮
     highlighter=new code_highlight (ui->code_preview->document());
