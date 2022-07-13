@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SetupWizard</class>
+ <widget class="QMainWindow" name="SetupWizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SetupWizard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/ui/resources/image/frame.png);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="container">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>691</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/ui/resources/image/bg.png);</string>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>拿属性隐藏掉Tab栏！！</string>
+     </attribute>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>361</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>思源黑体 CN Heavy</family>
+        <pointsize>16</pointsize>
+        <weight>10</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 87 16pt;</string>
+      </property>
+      <property name="text">
+       <string>字号加大加粗 换色 思源宋体 Heavy</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="debug_exit">
+    <property name="geometry">
+     <rect>
+      <x>528</x>
+      <y>40</y>
+      <width>221</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>退出按钮 正式发布时去掉</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

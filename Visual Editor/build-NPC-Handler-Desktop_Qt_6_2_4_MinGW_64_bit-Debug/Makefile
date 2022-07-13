@@ -214,7 +214,7 @@ Makefile: ../NPC-Handler/NPC-Handler.pro D:/Qt/6.2.4/mingw_64/mkspecs/win32-g++/
 		D:/Qt/6.2.4/mingw_64/lib/Qt6Core.prl \
 		D:/Qt/6.2.4/mingw_64/lib/Qt6EntryPoint.prl \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/build_pass.prf \
-		../NPC-Handler/ressources.qrc \
+		../NPC-Handler/resources.qrc \
 		debug/qmake_qmake_qm_files.qrc \
 		release/qmake_qmake_qm_files.qrc
 	$(QMAKE) -o Makefile ..\NPC-Handler\NPC-Handler.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -362,7 +362,7 @@ D:/Qt/6.2.4/mingw_64/lib/Qt6Gui.prl:
 D:/Qt/6.2.4/mingw_64/lib/Qt6Core.prl:
 D:/Qt/6.2.4/mingw_64/lib/Qt6EntryPoint.prl:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/build_pass.prf:
-../NPC-Handler/ressources.qrc:
+../NPC-Handler/resources.qrc:
 debug/qmake_qmake_qm_files.qrc:
 release/qmake_qmake_qm_files.qrc:
 qmake: FORCE
