@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 1.4.1 B</string>
+   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 1.4.4 A</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -50,27 +50,24 @@
          <string notr="true">background-color: rgb(231, 191, 159);</string>
         </property>
         <widget class="QWidget" name="page_7">
-         <widget class="QLabel" name="label">
+         <widget class="QPushButton" name="pushButton">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>0</x>
             <y>0</y>
-            <width>431</width>
-            <height>21</height>
+            <width>89</width>
+            <height>24</height>
            </rect>
           </property>
-          <property name="font">
-           <font>
-            <family>思源宋体 Heavy</family>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
+           <string notr="true">color: rgb(255, 255, 255);
+font: 87 9pt &quot;Source Han Serif SC Heavy&quot;;</string>
           </property>
           <property name="text">
-           <string>原神 BWIKI NPC图鉴编辑器 REL 1.4.3  文件(F) 编辑(E)</string>
+           <string>文件</string>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>

@@ -1,5 +1,6 @@
 #include "setupwizard.h"
 #include "ui_setupwizard.h"
+#include "QFontDatabase"
 
 SetupWizard::SetupWizard(QWidget *parent)
     : QMainWindow(parent)
@@ -16,8 +17,12 @@ SetupWizard::SetupWizard(QWidget *parent)
     font.setFamily("Source Han Serif SC Heavy");
     font.setPixelSize(16);
     font.setBold(1);
+    int font_Id = QFontDatabase::addApplicationFont(":/fonts/resources/fonts/Heavy.otf");
+        QStringList font_list = QFontDatabase::applicationFontFamilies(font_Id);
+    QFont f;
+            f.setFamily(font_list[0]);
 
-    ui->label->setFont(font);
+    ui->label->setFont(f);
 }
 
 SetupWizard::~SetupWizard()

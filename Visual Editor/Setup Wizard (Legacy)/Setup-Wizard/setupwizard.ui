@@ -44,7 +44,7 @@
       </property>
       <property name="font">
        <font>
-        <family>思源黑体 CN Heavy</family>
+        <family>Source Han Serif SC</family>
         <pointsize>16</pointsize>
         <weight>10</weight>
         <italic>false</italic>
@@ -52,7 +52,7 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 87 16pt;</string>
+       <string notr="true">font: 87 16pt &quot;Source Han Serif SC&quot;;</string>
       </property>
       <property name="text">
        <string>字号加大加粗 换色 思源宋体 Heavy</string>

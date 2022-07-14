@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setWindowFlags(Qt::FramelessWindowHint);
+    //this->setWindowFlags(Qt::FramelessWindowHint);
     //setAttribute(Qt::WA_TranslucentBackground,true);
 
     this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QMenu{border-bottom-color: rgb(44, 44, 44); border-bottom: 2px; border-style: solid; background-color: #FFFFF}QWidget{background: #F6F0E5; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color: #E7BF9F;}");
@@ -42,11 +42,23 @@ MainWindow::~MainWindow()
 
 QString window_is_maxiumized = "false";
 
+void MainWindow::on_code_editor_released_clicked()
+{
+    ui->editor_selecter->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_visual_editor_released_clicked()
+{
+    ui->editor_selecter->setCurrentIndex(0);
+}
+
+/**
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        m_point = event->pos();
+        m_point = event->globalPos()-frameGeometry().topLeft();
     }
 }
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
@@ -60,16 +72,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 }
 
 
-void MainWindow::on_code_editor_released_clicked()
-{
-    ui->editor_selecter->setCurrentIndex(1);
-}
 
-
-void MainWindow::on_visual_editor_released_clicked()
-{
-    ui->editor_selecter->setCurrentIndex(0);
-}
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent* e)
 {
@@ -86,3 +89,4 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent* e)
         //qDebug() <<window_is_maxiumized;
     }
 }
+**/
