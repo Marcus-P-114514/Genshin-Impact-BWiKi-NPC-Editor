@@ -18,6 +18,8 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
@@ -29,14 +31,29 @@ class Ui_MainWindow
 {
 public:
     QAction *actionccc;
+    QAction *actionccc_2;
     QWidget *centralwidget;
     QGridLayout *gridLayout_4;
     QGridLayout *gridLayout;
+    QStackedWidget *project_tree;
+    QWidget *page_3;
+    QWidget *layoutWidget;
+    QGridLayout *gridLayout_2;
+    QPushButton *project_name;
+    QFrame *tree_holder;
+    QPushButton *basic_info_switcher;
+    QPushButton *npc_store_switcher;
+    QPushButton *npc_dialog_switcher;
+    QPushButton *cv_table_switcher;
+    QPushButton *npc_location_switcher;
+    QPushButton *extra_switcher;
+    QWidget *page_4;
     QStackedWidget *working_area;
     QWidget *page_5;
     QGridLayout *gridLayout_3;
     QLabel *welcome;
     QWidget *page_6;
+    QGraphicsView *toolbar_shade;
     QStackedWidget *editor_selecter;
     QWidget *page;
     QGridLayout *gridLayout_5;
@@ -52,24 +69,8 @@ public:
     QPushButton *code_editor_selected;
     QSpacerItem *horizontalSpacer_4;
     QPushButton *pushButton_12;
-    QStackedWidget *titlebar_new;
-    QWidget *page_7;
-    QPushButton *pushButton;
-    QWidget *page_8;
-    QGraphicsView *graphicsView;
-    QStackedWidget *project_tree;
-    QWidget *page_3;
-    QWidget *layoutWidget;
-    QGridLayout *gridLayout_2;
-    QPushButton *project_name;
-    QFrame *tree_holder;
-    QPushButton *basic_info_switcher;
-    QPushButton *npc_store_switcher;
-    QPushButton *npc_dialog_switcher;
-    QPushButton *cv_table_switcher;
-    QPushButton *npc_location_switcher;
-    QPushButton *extra_switcher;
-    QWidget *page_4;
+    QMenuBar *menuBar;
+    QMenu *menuqqq;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -78,6 +79,8 @@ public:
         MainWindow->resize(800, 600);
         actionccc = new QAction(MainWindow);
         actionccc->setObjectName(QString::fromUtf8("actionccc"));
+        actionccc_2 = new QAction(MainWindow);
+        actionccc_2->setObjectName(QString::fromUtf8("actionccc_2"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
@@ -91,6 +94,74 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setVerticalSpacing(0);
+        project_tree = new QStackedWidget(centralwidget);
+        project_tree->setObjectName(QString::fromUtf8("project_tree"));
+        project_tree->setMaximumSize(QSize(125, 16777215));
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        layoutWidget = new QWidget(page_3);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 20, 111, 316));
+        gridLayout_2 = new QGridLayout(layoutWidget);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        project_name = new QPushButton(layoutWidget);
+        project_name->setObjectName(QString::fromUtf8("project_name"));
+        project_name->setStyleSheet(QString::fromUtf8(""));
+        project_name->setFlat(true);
+
+        gridLayout_2->addWidget(project_name, 0, 0, 1, 2);
+
+        tree_holder = new QFrame(layoutWidget);
+        tree_holder->setObjectName(QString::fromUtf8("tree_holder"));
+        tree_holder->setFrameShape(QFrame::VLine);
+        tree_holder->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_2->addWidget(tree_holder, 1, 0, 6, 1);
+
+        basic_info_switcher = new QPushButton(layoutWidget);
+        basic_info_switcher->setObjectName(QString::fromUtf8("basic_info_switcher"));
+        basic_info_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(basic_info_switcher, 1, 1, 1, 1);
+
+        npc_store_switcher = new QPushButton(layoutWidget);
+        npc_store_switcher->setObjectName(QString::fromUtf8("npc_store_switcher"));
+        npc_store_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(npc_store_switcher, 2, 1, 1, 1);
+
+        npc_dialog_switcher = new QPushButton(layoutWidget);
+        npc_dialog_switcher->setObjectName(QString::fromUtf8("npc_dialog_switcher"));
+        npc_dialog_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(npc_dialog_switcher, 3, 1, 1, 1);
+
+        cv_table_switcher = new QPushButton(layoutWidget);
+        cv_table_switcher->setObjectName(QString::fromUtf8("cv_table_switcher"));
+        cv_table_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(cv_table_switcher, 4, 1, 1, 1);
+
+        npc_location_switcher = new QPushButton(layoutWidget);
+        npc_location_switcher->setObjectName(QString::fromUtf8("npc_location_switcher"));
+        npc_location_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(npc_location_switcher, 5, 1, 1, 1);
+
+        extra_switcher = new QPushButton(layoutWidget);
+        extra_switcher->setObjectName(QString::fromUtf8("extra_switcher"));
+        extra_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(extra_switcher, 6, 1, 1, 1);
+
+        project_tree->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QString::fromUtf8("page_4"));
+        project_tree->addWidget(page_4);
+
+        gridLayout->addWidget(project_tree, 1, 0, 1, 1);
+
         working_area = new QStackedWidget(centralwidget);
         working_area->setObjectName(QString::fromUtf8("working_area"));
         page_5 = new QWidget();
@@ -115,13 +186,28 @@ public:
 
         gridLayout->addWidget(working_area, 1, 2, 1, 1);
 
+        toolbar_shade = new QGraphicsView(centralwidget);
+        toolbar_shade->setObjectName(QString::fromUtf8("toolbar_shade"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(15);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(toolbar_shade->sizePolicy().hasHeightForWidth());
+        toolbar_shade->setSizePolicy(sizePolicy1);
+        toolbar_shade->setMaximumSize(QSize(45, 16777215));
+        toolbar_shade->setAutoFillBackground(true);
+        toolbar_shade->setStyleSheet(QString::fromUtf8(""));
+        toolbar_shade->setLineWidth(0);
+        toolbar_shade->setOptimizationFlags(QGraphicsView::DontAdjustForAntialiasing);
+
+        gridLayout->addWidget(toolbar_shade, 1, 1, 2, 1);
+
         editor_selecter = new QStackedWidget(centralwidget);
         editor_selecter->setObjectName(QString::fromUtf8("editor_selecter"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(editor_selecter->sizePolicy().hasHeightForWidth());
-        editor_selecter->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(editor_selecter->sizePolicy().hasHeightForWidth());
+        editor_selecter->setSizePolicy(sizePolicy2);
         editor_selecter->setMaximumSize(QSize(16777215, 75));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
@@ -221,168 +307,25 @@ public:
 
         gridLayout->addWidget(editor_selecter, 2, 2, 1, 1);
 
-        titlebar_new = new QStackedWidget(centralwidget);
-        titlebar_new->setObjectName(QString::fromUtf8("titlebar_new"));
-        titlebar_new->setMaximumSize(QSize(16777215, 25));
-        titlebar_new->setStyleSheet(QString::fromUtf8("background-color: rgb(231, 191, 159);"));
-        page_7 = new QWidget();
-        page_7->setObjectName(QString::fromUtf8("page_7"));
-        pushButton = new QPushButton(page_7);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(0, 0, 89, 24));
-        pushButton->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
-"font: 87 9pt \"Source Han Serif SC Heavy\";"));
-        pushButton->setFlat(true);
-        titlebar_new->addWidget(page_7);
-        page_8 = new QWidget();
-        page_8->setObjectName(QString::fromUtf8("page_8"));
-        titlebar_new->addWidget(page_8);
-
-        gridLayout->addWidget(titlebar_new, 0, 0, 1, 3);
-
-        graphicsView = new QGraphicsView(centralwidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        sizePolicy2.setHorizontalStretch(15);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
-        graphicsView->setSizePolicy(sizePolicy2);
-        graphicsView->setMaximumSize(QSize(45, 16777215));
-        graphicsView->setAutoFillBackground(true);
-        graphicsView->setStyleSheet(QString::fromUtf8("border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);"));
-        graphicsView->setLineWidth(0);
-        graphicsView->setOptimizationFlags(QGraphicsView::DontAdjustForAntialiasing);
-
-        gridLayout->addWidget(graphicsView, 1, 1, 2, 1);
-
-        project_tree = new QStackedWidget(centralwidget);
-        project_tree->setObjectName(QString::fromUtf8("project_tree"));
-        project_tree->setMaximumSize(QSize(125, 16777215));
-        page_3 = new QWidget();
-        page_3->setObjectName(QString::fromUtf8("page_3"));
-        layoutWidget = new QWidget(page_3);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 20, 111, 261));
-        gridLayout_2 = new QGridLayout(layoutWidget);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        project_name = new QPushButton(layoutWidget);
-        project_name->setObjectName(QString::fromUtf8("project_name"));
-        project_name->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(231, 191, 159);\n"
-"color: rgb(246, 240, 229);\n"
-"border: 6px;\n"
-"}\n"
-"\n"
-""));
-        project_name->setFlat(true);
-
-        gridLayout_2->addWidget(project_name, 0, 0, 1, 2);
-
-        tree_holder = new QFrame(layoutWidget);
-        tree_holder->setObjectName(QString::fromUtf8("tree_holder"));
-        tree_holder->setFrameShape(QFrame::VLine);
-        tree_holder->setFrameShadow(QFrame::Sunken);
-
-        gridLayout_2->addWidget(tree_holder, 1, 0, 6, 1);
-
-        basic_info_switcher = new QPushButton(layoutWidget);
-        basic_info_switcher->setObjectName(QString::fromUtf8("basic_info_switcher"));
-        basic_info_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(basic_info_switcher, 1, 1, 1, 1);
-
-        npc_store_switcher = new QPushButton(layoutWidget);
-        npc_store_switcher->setObjectName(QString::fromUtf8("npc_store_switcher"));
-        npc_store_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(npc_store_switcher, 2, 1, 1, 1);
-
-        npc_dialog_switcher = new QPushButton(layoutWidget);
-        npc_dialog_switcher->setObjectName(QString::fromUtf8("npc_dialog_switcher"));
-        npc_dialog_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(npc_dialog_switcher, 3, 1, 1, 1);
-
-        cv_table_switcher = new QPushButton(layoutWidget);
-        cv_table_switcher->setObjectName(QString::fromUtf8("cv_table_switcher"));
-        cv_table_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(cv_table_switcher, 4, 1, 1, 1);
-
-        npc_location_switcher = new QPushButton(layoutWidget);
-        npc_location_switcher->setObjectName(QString::fromUtf8("npc_location_switcher"));
-        npc_location_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(npc_location_switcher, 5, 1, 1, 1);
-
-        extra_switcher = new QPushButton(layoutWidget);
-        extra_switcher->setObjectName(QString::fromUtf8("extra_switcher"));
-        extra_switcher->setStyleSheet(QString::fromUtf8("QPushButton{text-align : left;\n"
-"padding: 7px;\n"
-"border-radius: 5px;\n"
-"background-color: rgb(246, 240, 229);\n"
-"color: rgb(231, 191, 159);\n"
-"border: 6px;\n"
-"}\n"
-""));
-
-        gridLayout_2->addWidget(extra_switcher, 6, 1, 1, 1);
-
-        project_tree->addWidget(page_3);
-        page_4 = new QWidget();
-        page_4->setObjectName(QString::fromUtf8("page_4"));
-        project_tree->addWidget(page_4);
-
-        gridLayout->addWidget(project_tree, 1, 0, 1, 1);
-
 
         gridLayout_4->addLayout(gridLayout, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 800, 25));
+        menuqqq = new QMenu(menuBar);
+        menuqqq->setObjectName(QString::fromUtf8("menuqqq"));
+        MainWindow->setMenuBar(menuBar);
+
+        menuBar->addAction(menuqqq->menuAction());
+        menuqqq->addAction(actionccc_2);
 
         retranslateUi(MainWindow);
 
-        working_area->setCurrentIndex(1);
-        editor_selecter->setCurrentIndex(1);
         project_tree->setCurrentIndex(0);
+        working_area->setCurrentIndex(1);
+        editor_selecter->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -390,8 +333,16 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\345\216\237\347\245\236 BWIKI NPC\345\233\276\351\211\264\347\254\254\344\270\211\346\226\271\347\274\226\350\276\221\345\231\250 REL 1.4.4 A", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\345\216\237\347\245\236 BWIKI NPC\345\233\276\351\211\264\347\254\254\344\270\211\346\226\271\347\274\226\350\276\221\345\231\250 REL 1.4.5 B", nullptr));
         actionccc->setText(QCoreApplication::translate("MainWindow", "ccc", nullptr));
+        actionccc_2->setText(QCoreApplication::translate("MainWindow", "ccc", nullptr));
+        project_name->setText(QCoreApplication::translate("MainWindow", "\346\234\252\345\221\275\345\220\215", nullptr));
+        basic_info_switcher->setText(QCoreApplication::translate("MainWindow", "\345\237\272\346\234\254\344\277\241\346\201\257", nullptr));
+        npc_store_switcher->setText(QCoreApplication::translate("MainWindow", "\345\225\206\345\272\227", nullptr));
+        npc_dialog_switcher->setText(QCoreApplication::translate("MainWindow", "\345\257\271\350\257\235", nullptr));
+        cv_table_switcher->setText(QCoreApplication::translate("MainWindow", "CV", nullptr));
+        npc_location_switcher->setText(QCoreApplication::translate("MainWindow", "\344\275\215\347\275\256", nullptr));
+        extra_switcher->setText(QCoreApplication::translate("MainWindow", "\346\235\202\351\241\271", nullptr));
         welcome->setText(QCoreApplication::translate("MainWindow", "\350\257\267\351\200\211\346\213\251\351\234\200\350\246\201\347\274\226\350\276\221\347\232\204\351\203\250\345\210\206\343\200\202\n"
 "\346\210\226\350\200\205\346\202\250\345\217\257\344\273\245\345\234\250\343\200\220\346\211\223\345\274\200\343\200\221\351\200\211\351\241\271\345\215\241\344\270\255\346\211\223\345\274\200\347\216\260\345\255\230\346\226\207\344\273\266\343\200\202", nullptr));
         visual_editor_selected->setText(QCoreApplication::translate("MainWindow", "\345\217\257\350\247\206\345\214\226\347\274\226\350\276\221", nullptr));
@@ -400,14 +351,7 @@ public:
         visual_editor_released->setText(QCoreApplication::translate("MainWindow", "\345\217\257\350\247\206\345\214\226\347\274\226\350\276\221", nullptr));
         code_editor_selected->setText(QCoreApplication::translate("MainWindow", "\344\273\243\347\240\201", nullptr));
         pushButton_12->setText(QCoreApplication::translate("MainWindow", "\345\201\217\345\245\275\350\256\276\347\275\256", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
-        project_name->setText(QCoreApplication::translate("MainWindow", "\346\234\252\345\221\275\345\220\215", nullptr));
-        basic_info_switcher->setText(QCoreApplication::translate("MainWindow", "\345\237\272\346\234\254\344\277\241\346\201\257", nullptr));
-        npc_store_switcher->setText(QCoreApplication::translate("MainWindow", "\345\225\206\345\272\227", nullptr));
-        npc_dialog_switcher->setText(QCoreApplication::translate("MainWindow", "\345\257\271\350\257\235", nullptr));
-        cv_table_switcher->setText(QCoreApplication::translate("MainWindow", "CV", nullptr));
-        npc_location_switcher->setText(QCoreApplication::translate("MainWindow", "\344\275\215\347\275\256", nullptr));
-        extra_switcher->setText(QCoreApplication::translate("MainWindow", "\346\235\202\351\241\271", nullptr));
+        menuqqq->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
     } // retranslateUi
 
 };

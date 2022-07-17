@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 1.4.4 A</string>
+   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 1.4.5 B</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -38,7 +38,7 @@
       <property name="verticalSpacing">
        <number>0</number>
       </property>
-      <item row="3" column="0">
+      <item row="1" column="0">
        <widget class="QStackedWidget" name="project_tree">
         <property name="maximumSize">
          <size>
@@ -146,35 +146,7 @@
         <widget class="QWidget" name="page_4"/>
        </widget>
       </item>
-      <item row="3" column="1" rowspan="2">
-       <widget class="QGraphicsView" name="toolbar_shade">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>15</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>45</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="lineWidth">
-         <number>0</number>
-        </property>
-        <property name="optimizationFlags">
-         <set>QGraphicsView::DontAdjustForAntialiasing</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
+      <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
          <number>1</number>
@@ -206,12 +178,18 @@
         <widget class="QWidget" name="page_6"/>
        </widget>
       </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QStackedWidget" name="topbar">
+      <item row="1" column="1" rowspan="2">
+       <widget class="QGraphicsView" name="toolbar_shade">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>15</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>25</height>
+          <width>45</width>
+          <height>16777215</height>
          </size>
         </property>
         <property name="autoFillBackground">
@@ -220,32 +198,15 @@
         <property name="styleSheet">
          <string notr="true"/>
         </property>
-        <widget class="QWidget" name="page_7">
-         <widget class="QPushButton" name="pushButton">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>89</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);
-font: 87 9pt &quot;Source Han Serif SC Heavy&quot;;</string>
-          </property>
-          <property name="text">
-           <string>文件</string>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="page_8"/>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="optimizationFlags">
+         <set>QGraphicsView::DontAdjustForAntialiasing</set>
+        </property>
        </widget>
       </item>
-      <item row="4" column="2">
+      <item row="2" column="2">
        <widget class="QStackedWidget" name="editor_selecter">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -421,22 +382,6 @@ border: 6px;
         </widget>
        </widget>
       </item>
-      <item row="0" column="0" colspan="3">
-       <widget class="Line" name="line">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="lineWidth">
-         <number>2</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
    </layout>
@@ -447,12 +392,12 @@ border: 6px;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuqqq">
     <property name="title">
-     <string>qqq</string>
+     <string>文件</string>
     </property>
     <addaction name="actionccc_2"/>
    </widget>

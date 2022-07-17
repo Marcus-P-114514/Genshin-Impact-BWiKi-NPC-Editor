@@ -17,7 +17,6 @@ QString ui_btn_frameless = "";
 QString ui_btn_suggested = "";
 QString ui_sidebar_selected = "";
 QString ui_sidebar_released = "";
-QString ui_titlebar_style = "";
 
 void config_theme_for_this_application(){
     //预设的主题
@@ -59,13 +58,12 @@ void config_theme_for_this_application(){
 
     //生成样式表
     //primary_current_16 = converRGB16HexStr(primary_current);
-    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + background_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}";
+    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + primary_current + "; color: " + text_color_current +";}";
     ui_btn_frameless = "QPushButton{border-radius: 5px; background-color: " + background_current + "; color:" + primary_current + ";border: 6px;}";
     ui_btn_suggested = "QPushButton{border-radius: 5px; background-color: " + primary_current + "; color:" + text_color_current + ";border: 6px;}";
 
     ui_sidebar_selected = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_suggested;
     ui_sidebar_released = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_frameless;
-    ui_titlebar_style = "background-color: #2196F3;";
 
 
 }
@@ -87,8 +85,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_dialog_switcher->setStyleSheet(ui_sidebar_released);
     ui->cv_table_switcher->setStyleSheet(ui_sidebar_released);
     ui->npc_location_switcher->setStyleSheet(ui_sidebar_released);
-    ui->extra_switcher->setStyleSheet(ui_sidebar_released);
-    ui->topbar->setStyleSheet("QStackedWidget{background-color:rgb(255,255,255); }");
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
