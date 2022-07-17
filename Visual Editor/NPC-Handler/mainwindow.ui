@@ -73,6 +73,36 @@
              </property>
             </widget>
            </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="npc_location_switcher">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>位置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="npc_store_switcher">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>商店</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QPushButton" name="extra_switcher">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>杂项</string>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="0" rowspan="6">
             <widget class="Line" name="tree_holder">
              <property name="orientation">
@@ -87,16 +117,6 @@
              </property>
              <property name="text">
               <string>基本信息</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="npc_store_switcher">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>商店</string>
              </property>
             </widget>
            </item>
@@ -120,23 +140,10 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
-            <widget class="QPushButton" name="npc_location_switcher">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="file_switcher">
              <property name="text">
-              <string>位置</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QPushButton" name="extra_switcher">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>杂项</string>
+              <string>文件上传</string>
              </property>
             </widget>
            </item>

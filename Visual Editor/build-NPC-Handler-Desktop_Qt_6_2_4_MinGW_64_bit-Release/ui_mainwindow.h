@@ -40,13 +40,14 @@ public:
     QWidget *layoutWidget;
     QGridLayout *gridLayout_2;
     QPushButton *project_name;
+    QPushButton *npc_location_switcher;
+    QPushButton *npc_store_switcher;
+    QPushButton *extra_switcher;
     QFrame *tree_holder;
     QPushButton *basic_info_switcher;
-    QPushButton *npc_store_switcher;
     QPushButton *npc_dialog_switcher;
     QPushButton *cv_table_switcher;
-    QPushButton *npc_location_switcher;
-    QPushButton *extra_switcher;
+    QPushButton *file_switcher;
     QWidget *page_4;
     QStackedWidget *working_area;
     QWidget *page_5;
@@ -112,6 +113,24 @@ public:
 
         gridLayout_2->addWidget(project_name, 0, 0, 1, 2);
 
+        npc_location_switcher = new QPushButton(layoutWidget);
+        npc_location_switcher->setObjectName(QString::fromUtf8("npc_location_switcher"));
+        npc_location_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(npc_location_switcher, 5, 1, 1, 1);
+
+        npc_store_switcher = new QPushButton(layoutWidget);
+        npc_store_switcher->setObjectName(QString::fromUtf8("npc_store_switcher"));
+        npc_store_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(npc_store_switcher, 2, 1, 1, 1);
+
+        extra_switcher = new QPushButton(layoutWidget);
+        extra_switcher->setObjectName(QString::fromUtf8("extra_switcher"));
+        extra_switcher->setStyleSheet(QString::fromUtf8(""));
+
+        gridLayout_2->addWidget(extra_switcher, 6, 1, 1, 1);
+
         tree_holder = new QFrame(layoutWidget);
         tree_holder->setObjectName(QString::fromUtf8("tree_holder"));
         tree_holder->setFrameShape(QFrame::VLine);
@@ -125,12 +144,6 @@ public:
 
         gridLayout_2->addWidget(basic_info_switcher, 1, 1, 1, 1);
 
-        npc_store_switcher = new QPushButton(layoutWidget);
-        npc_store_switcher->setObjectName(QString::fromUtf8("npc_store_switcher"));
-        npc_store_switcher->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_2->addWidget(npc_store_switcher, 2, 1, 1, 1);
-
         npc_dialog_switcher = new QPushButton(layoutWidget);
         npc_dialog_switcher->setObjectName(QString::fromUtf8("npc_dialog_switcher"));
         npc_dialog_switcher->setStyleSheet(QString::fromUtf8(""));
@@ -143,17 +156,10 @@ public:
 
         gridLayout_2->addWidget(cv_table_switcher, 4, 1, 1, 1);
 
-        npc_location_switcher = new QPushButton(layoutWidget);
-        npc_location_switcher->setObjectName(QString::fromUtf8("npc_location_switcher"));
-        npc_location_switcher->setStyleSheet(QString::fromUtf8(""));
+        file_switcher = new QPushButton(layoutWidget);
+        file_switcher->setObjectName(QString::fromUtf8("file_switcher"));
 
-        gridLayout_2->addWidget(npc_location_switcher, 5, 1, 1, 1);
-
-        extra_switcher = new QPushButton(layoutWidget);
-        extra_switcher->setObjectName(QString::fromUtf8("extra_switcher"));
-        extra_switcher->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_2->addWidget(extra_switcher, 6, 1, 1, 1);
+        gridLayout_2->addWidget(file_switcher, 7, 1, 1, 1);
 
         project_tree->addWidget(page_3);
         page_4 = new QWidget();
@@ -337,12 +343,13 @@ public:
         actionccc->setText(QCoreApplication::translate("MainWindow", "ccc", nullptr));
         actionccc_2->setText(QCoreApplication::translate("MainWindow", "ccc", nullptr));
         project_name->setText(QCoreApplication::translate("MainWindow", "\346\234\252\345\221\275\345\220\215", nullptr));
-        basic_info_switcher->setText(QCoreApplication::translate("MainWindow", "\345\237\272\346\234\254\344\277\241\346\201\257", nullptr));
+        npc_location_switcher->setText(QCoreApplication::translate("MainWindow", "\344\275\215\347\275\256", nullptr));
         npc_store_switcher->setText(QCoreApplication::translate("MainWindow", "\345\225\206\345\272\227", nullptr));
+        extra_switcher->setText(QCoreApplication::translate("MainWindow", "\346\235\202\351\241\271", nullptr));
+        basic_info_switcher->setText(QCoreApplication::translate("MainWindow", "\345\237\272\346\234\254\344\277\241\346\201\257", nullptr));
         npc_dialog_switcher->setText(QCoreApplication::translate("MainWindow", "\345\257\271\350\257\235", nullptr));
         cv_table_switcher->setText(QCoreApplication::translate("MainWindow", "CV", nullptr));
-        npc_location_switcher->setText(QCoreApplication::translate("MainWindow", "\344\275\215\347\275\256", nullptr));
-        extra_switcher->setText(QCoreApplication::translate("MainWindow", "\346\235\202\351\241\271", nullptr));
+        file_switcher->setText(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266\344\270\212\344\274\240", nullptr));
         welcome->setText(QCoreApplication::translate("MainWindow", "\350\257\267\351\200\211\346\213\251\351\234\200\350\246\201\347\274\226\350\276\221\347\232\204\351\203\250\345\210\206\343\200\202\n"
 "\346\210\226\350\200\205\346\202\250\345\217\257\344\273\245\345\234\250\343\200\220\346\211\223\345\274\200\343\200\221\351\200\211\351\241\271\345\215\241\344\270\255\346\211\223\345\274\200\347\216\260\345\255\230\346\226\207\344\273\266\343\200\202", nullptr));
         visual_editor_selected->setText(QCoreApplication::translate("MainWindow", "\345\217\257\350\247\206\345\214\226\347\274\226\350\276\221", nullptr));

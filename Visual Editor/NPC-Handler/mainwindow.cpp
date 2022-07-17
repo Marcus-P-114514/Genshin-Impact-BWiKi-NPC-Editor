@@ -85,6 +85,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_dialog_switcher->setStyleSheet(ui_sidebar_released);
     ui->cv_table_switcher->setStyleSheet(ui_sidebar_released);
     ui->npc_location_switcher->setStyleSheet(ui_sidebar_released);
+    ui->extra_switcher->setStyleSheet(ui_sidebar_released);
+    ui->file_switcher->setStyleSheet(ui_sidebar_released);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
