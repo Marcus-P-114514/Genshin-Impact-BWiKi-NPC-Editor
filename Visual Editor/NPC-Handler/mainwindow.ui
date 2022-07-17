@@ -247,15 +247,18 @@ border: 6px;
        </widget>
       </item>
       <item row="0" column="0" colspan="3">
-       <widget class="QStackedWidget" name="titlebar_new">
+       <widget class="QStackedWidget" name="topbar">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
           <height>25</height>
          </size>
         </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(231, 191, 159);</string>
+         <string notr="true"/>
         </property>
         <widget class="QWidget" name="page_7">
          <widget class="QPushButton" name="pushButton">
@@ -283,7 +286,7 @@ font: 87 9pt &quot;Source Han Serif SC Heavy&quot;;</string>
        </widget>
       </item>
       <item row="1" column="1" rowspan="2">
-       <widget class="QGraphicsView" name="graphicsView">
+       <widget class="QGraphicsView" name="toolbar_shade">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>15</horstretch>
@@ -300,7 +303,7 @@ font: 87 9pt &quot;Source Han Serif SC Heavy&quot;;</string>
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);</string>
+         <string notr="true"/>
         </property>
         <property name="lineWidth">
          <number>0</number>
@@ -328,22 +331,14 @@ font: 87 9pt &quot;Source Han Serif SC Heavy&quot;;</string>
             <x>10</x>
             <y>20</y>
             <width>111</width>
-            <height>261</height>
+            <height>316</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0" colspan="2">
             <widget class="QPushButton" name="project_name">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(231, 191, 159);
-color: rgb(246, 240, 229);
-border: 6px;
-}
-
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>未命名</string>
@@ -363,14 +358,7 @@ border: 6px;
            <item row="1" column="1">
             <widget class="QPushButton" name="basic_info_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>基本信息</string>
@@ -380,14 +368,7 @@ border: 6px;
            <item row="2" column="1">
             <widget class="QPushButton" name="npc_store_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>商店</string>
@@ -397,14 +378,7 @@ border: 6px;
            <item row="3" column="1">
             <widget class="QPushButton" name="npc_dialog_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>对话</string>
@@ -414,14 +388,7 @@ border: 6px;
            <item row="4" column="1">
             <widget class="QPushButton" name="cv_table_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>CV</string>
@@ -431,14 +398,7 @@ border: 6px;
            <item row="5" column="1">
             <widget class="QPushButton" name="npc_location_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>位置</string>
@@ -448,14 +408,7 @@ border: 6px;
            <item row="6" column="1">
             <widget class="QPushButton" name="extra_switcher">
              <property name="styleSheet">
-              <string notr="true">QPushButton{text-align : left;
-padding: 7px;
-border-radius: 5px;
-background-color: rgb(246, 240, 229);
-color: rgb(231, 191, 159);
-border: 6px;
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>杂项</string>
@@ -472,7 +425,29 @@ border: 6px;
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuqqq">
+    <property name="title">
+     <string>qqq</string>
+    </property>
+    <addaction name="actionccc_2"/>
+   </widget>
+   <addaction name="menuqqq"/>
+  </widget>
   <action name="actionccc">
+   <property name="text">
+    <string>ccc</string>
+   </property>
+  </action>
+  <action name="actionccc_2">
    <property name="text">
     <string>ccc</string>
    </property>
