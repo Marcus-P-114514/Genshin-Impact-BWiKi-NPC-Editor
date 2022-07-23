@@ -7,7 +7,7 @@
         "-I",
         "/Applications/Qt/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-ValPmx/clang-uiheader-pfNJmW",
+        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-wvPRHV/clang-uiheader-SDfNrj",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -28,7 +28,7 @@
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler",
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler",
         "-I",
         "/Applications/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers",
         "-I",
@@ -65,10 +65,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/main.cpp"
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/main.cpp"
     ],
     "directory": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/build-NPC-Handler-Qt_6_2_4_for_macOS-Release/.qtc_clangd",
-    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/main.cpp"
+    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/main.cpp"
 },
 {
     "arguments": [
@@ -78,7 +78,7 @@
         "-I",
         "/Applications/Qt/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-ValPmx/clang-uiheader-pfNJmW",
+        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-wvPRHV/clang-uiheader-SDfNrj",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -99,7 +99,7 @@
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler",
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler",
         "-I",
         "/Applications/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers",
         "-I",
@@ -136,10 +136,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/mainwindow.cpp"
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/mainwindow.cpp"
     ],
     "directory": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/build-NPC-Handler-Qt_6_2_4_for_macOS-Release/.qtc_clangd",
-    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/mainwindow.cpp"
+    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/mainwindow.cpp"
 },
 {
     "arguments": [
@@ -149,7 +149,7 @@
         "-I",
         "/Applications/Qt/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-ValPmx/clang-uiheader-pfNJmW",
+        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-wvPRHV/clang-uiheader-SDfNrj",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -170,7 +170,7 @@
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler",
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler",
         "-I",
         "/Applications/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers",
         "-I",
@@ -207,10 +207,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/mainwindow.h"
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/mainwindow.h"
     ],
     "directory": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/build-NPC-Handler-Qt_6_2_4_for_macOS-Release/.qtc_clangd",
-    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler/mainwindow.h"
+    "file": "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler/mainwindow.h"
 },
 {
     "arguments": [
@@ -220,7 +220,7 @@
         "-I",
         "/Applications/Qt/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-ValPmx/clang-uiheader-pfNJmW",
+        "/private/var/folders/1b/3495v7f9007dlgnygy1ybr580000gn/T/QtCreator-wvPRHV/clang-uiheader-SDfNrj",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -241,7 +241,7 @@
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual Editor/NPC-Handler",
+        "/Users/marcus/Documents/Dev/Repo/Genshin-Impact-BWiKi-NPC-Editor/Visual-Editor/NPC-Handler",
         "-I",
         "/Applications/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers",
         "-I",
