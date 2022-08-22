@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/ui">
-        <file>resources/image/frame.png</file>
-        <file>resources/image/bg.png</file>
-    </qresource>
-    <qresource prefix="/fonts">
-        <file>resources/fonts/Heavy.otf</file>
-    </qresource>
-</RCC>
