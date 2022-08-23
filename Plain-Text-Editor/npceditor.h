@@ -47,6 +47,20 @@ private slots:
 
     void on_open_license_triggered();
 
+    void on_insert_template_triggered();
+
+    void on_insert_brackets_triggered();
+
+    void on_bold_triggered();
+
+    void on_italic_triggered();
+
+    void on_underline_triggered();
+
+    void on_color_triggered();
+
+    void on_close_toolbar_triggered();
+
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;
