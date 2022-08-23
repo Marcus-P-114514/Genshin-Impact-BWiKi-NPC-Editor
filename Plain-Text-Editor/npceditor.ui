@@ -10,16 +10,29 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
-   <string>原神BWIKI NPC图鉴第三方编辑工具 REL 1.0.0 Alpha</string>
+   <string>原神BWIKI NPC图鉴第三方编辑工具</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">color: rgb(231, 191, 159);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTextEdit" name="code_preview"/>
+     <widget class="QTextEdit" name="code_preview">
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(231, 191, 159);</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -29,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

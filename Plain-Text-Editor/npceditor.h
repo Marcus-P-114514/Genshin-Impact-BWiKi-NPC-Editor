@@ -50,5 +50,9 @@ private slots:
 private:
     Ui::NPCEditor *ui;
     code_highlight *highlighter;
+
+protected:
+    void dragEnterEvent(QDragEnterEvent*event);
+    void dropEvent(QDropEvent*event);
 };
 #endif // NPCEDITOR_H

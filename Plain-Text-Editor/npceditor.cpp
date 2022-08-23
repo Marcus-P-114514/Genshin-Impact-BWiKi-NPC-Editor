@@ -14,6 +14,8 @@
 #include "QDialog"
 #include "QInputDialog"
 #include "QDesktopServices"
+#include "QDragEnterEvent"
+#include "QMimeData"
 
 QString version = "1.0";
 int read_progress = 0;
@@ -29,13 +31,15 @@ NPCEditor::NPCEditor(QWidget *parent)
 {
     ui->setupUi(this);
     //解决背景为白色时菜单栏选中字体问题
-    this->setStyleSheet("QMenu::item:selected{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd");
+    this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QWidget{background: #F6F0E5;}QWidget{color: #E7BF9F;}");
 
     //应用高亮
     highlighter=new code_highlight (ui->code_preview->document());
 
     //窗体标题
     setWindowTitle("无标题 - 原神BWIKI NPC图鉴第三方编辑工具");
+
+    setAcceptDrops(true);
 }
 
 NPCEditor::~NPCEditor()
@@ -43,6 +47,13 @@ NPCEditor::~NPCEditor()
     delete ui;
 }
 
+void NPCEditor::dragEnterEvent(QDragEnterEvent* event)
+{
+    if(!event->mimeData()->urls()[0].fileName().right(7).compare("npcedit"))
+           event->acceptProposedAction();
+        else
+           event->ignore();
+}
 
 void NPCEditor::on_open_code_triggered()
 {
@@ -333,6 +344,57 @@ void NPCEditor::on_open_license_triggered()
     QDesktopServices::openUrl(QUrl(QString("https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/main/LICENSE")));
 }
 
+void NPCEditor::dropEvent(QDropEvent*event){
+    const QMimeData *droppeddoc = event->mimeData();
+    QString droppath = droppeddoc ->urls()[0].toLocalFile();
 
+    filepath = droppath;
+    QSettings *read_doc = new QSettings(droppath, QSettings::IniFormat);
+    QString type = read_doc->value("manifest/type").toString();
+    QString sector = read_doc->value("manifest/sector").toString();
+    QString min_required_version = read_doc->value("manifest/min_version").toString();
+    QString npc_name_for_windowtitle = read_doc->value("manifest/name").toString();
+    if (npc_name_for_windowtitle == ""){
+        setWindowTitle("无标题 - 原神BWIKI NPC图鉴第三方编辑工具");
+    }
+    else{
+        QString windowtitle = npc_name_for_windowtitle + " - 原神BWIKI NPC图鉴第三方编辑工具";
+        setWindowTitle(windowtitle);
+        npc_name_for_upload = npc_name_for_windowtitle;
+    }
+    if (type != "npcedit"){
+        QMessageBox::critical(NULL, "打开文件失败", "错误：所选文件似乎不是此编辑器所支持的类型。\n错误#1", QMessageBox::Ok);
+    }
+    else{
+        if (sector != "npc"){
+            QMessageBox::critical(NULL, "打开文件失败", "错误：所选文件不是NPC图鉴中的一员，其可能是其他类型的图鉴。\n错误#2", QMessageBox::Ok);
+        }
+        else{
+            if (min_required_version != "1.0"){
+                QMessageBox::critical(NULL, "打开文件失败", "错误：打开所选文件需要更新版本的工具，请考虑检查更新。\n错误#3", QMessageBox::Ok);
+            }
+            else{
+                bool read_done = false;
+                ui->code_preview->clear();
+                    while (read_done != true) {
+                        QString read_progress_string = QString::number(read_progress);
+                        QString current_target = "content/line"+read_progress_string;
+                        QString read_current_line = read_doc->value(current_target).toString();
+                        if (read_current_line == "this_is_the_end_of_content"){
+                            read_done = true;
+                        }
+                        else{
+                            ui->code_preview->insertPlainText(read_current_line);
+                            ui->code_preview->insertHtml("<br/>");
+                            read_progress = read_progress + 1;
+                        }
+                    }
+            }
+        }
+    }
+    read_progress = 0;
+    delete read_doc;
+
+}
 
 
