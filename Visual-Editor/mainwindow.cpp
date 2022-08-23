@@ -8,6 +8,7 @@
 //预定义字段 - 仅供读取主题
 QString primary_current = "";
 QString background_current = "";
+QString toolbar_current;
 QString text_color_current = "";
 QString primary_current_16 = "";
 QString toolbar_shade_current = "";
@@ -34,7 +35,7 @@ QString npc_system = "[[无]]";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
-QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 1.4.5 B";
+QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.1";
 
 void config_theme_for_this_application(){
     //预设的主题
@@ -43,6 +44,7 @@ void config_theme_for_this_application(){
     QString background_light = "#F6F0E5";
     QString text_color_selected_light = "#FFFFFF";
     QString theme_pref = "";
+    QString toolbar_light="rgb(46,47,48)";
 
     //深色
 
@@ -59,6 +61,7 @@ void config_theme_for_this_application(){
         primary_current = primary_light;
         background_current = background_light;
         text_color_current = text_color_selected_light;
+        toolbar_current = toolbar_light;
         toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
     }
     else if (theme_pref == "dark"){
@@ -71,12 +74,14 @@ void config_theme_for_this_application(){
         primary_current = primary_light;
         background_current = background_light;
         text_color_current = text_color_selected_light;
+        toolbar_current = toolbar_light;
         toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
     }
 
     //生成样式表
     //primary_current_16 = converRGB16HexStr(primary_current);
-    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + primary_current + "; color: " + text_color_current +";}";
+    //ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + primary_current + "; color: " + text_color_current +";}";
+    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  toolbar_current + "; color: " + primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + toolbar_current + "; color: " + primary_current +";}";
     ui_btn_frameless = "QPushButton{border-radius: 5px; background-color: " + background_current + "; color:" + primary_current + ";border: 6px;}";
     ui_btn_suggested = "QPushButton{border-radius: 5px; background-color: " + primary_current + "; color:" + text_color_current + ";border: 6px;}";
     ui_radio_selected = ui_btn_suggested;

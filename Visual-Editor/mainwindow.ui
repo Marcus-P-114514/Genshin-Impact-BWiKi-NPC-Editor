@@ -14,7 +14,7 @@
    <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.0</string>
+   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
