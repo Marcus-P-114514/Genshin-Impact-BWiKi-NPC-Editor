@@ -10,13 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    npc_gift_option.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    npc_gift_option.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    npc_gift_option.ui
 
 TRANSLATIONS += \
     NPC-Handler_en_US.ts

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <npc_gift_option.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -42,13 +43,13 @@ private slots:
 
     void on_npc_gender_female_clicked();
 
-    void on_npcname_input_textEdited(const QString &arg1);
+    //void on_npcname_input_textEdited(const QString &arg1);
 
-    void on_nickname_input_cursorPositionChanged(int arg1, int arg2);
+    //void on_nickname_input_cursorPositionChanged(int arg1, int arg2);
 
-    void on_job_input_textEdited(const QString &arg1);
+    //void on_job_input_textEdited(const QString &arg1);
 
-    void on_location_input_textEdited(const QString &arg1);
+    //void on_location_input_textEdited(const QString &arg1);
 
     void on_npc_country_option_unknown_clicked();
 
@@ -65,6 +66,44 @@ private slots:
     void on_npc_country_option_nata_clicked();
 
     void on_npc_country_option_snezhnayan_clicked();
+
+    void on_npc_system_option_none_clicked();
+
+    void on_npc_system_option_commission_clicked();
+
+    void on_npc_system_option_frame_clicked();
+
+    void on_npc_system_option_activity_clicked();
+
+    void on_npc_system_option_store_clicked();
+
+    void on_npc_system_option_cook_clicked();
+
+    void on_npc_system_option_serenitea_pot_clicked();
+
+    void on_organization_input_textChanged(const QString &arg1);
+
+    void on_npcname_input_textChanged(const QString &arg1);
+
+    void on_nickname_input_textChanged(const QString &arg1);
+
+    void on_job_input_textChanged(const QString &arg1);
+
+    void on_location_input_textChanged(const QString &arg1);
+
+    void on_npc_gift_option_none_clicked();
+
+    void on_npc_gift_option_exist_clicked();
+
+    void on_gift_single_edit_name_textChanged(const QString &arg1);
+
+    void on_gift_single_edit_amount_textChanged(const QString &arg1);
+
+    void on_multiple_gift_edit_clicked();
+
+    void on_version_input_textChanged(const QString &arg1);
+
+    void generate_code();
 
 protected:
 

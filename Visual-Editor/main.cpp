@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QFontDatabase>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +19,12 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
+    int fontId = QFontDatabase::addApplicationFont("E:/interface.ttc");
+        QString target_font = QFontDatabase::applicationFontFamilies(fontId).at(0);
+        QFont app_font(target_font);
+        QApplication::setFont(app_font);
+
     MainWindow w;
     w.show();
     return a.exec();
