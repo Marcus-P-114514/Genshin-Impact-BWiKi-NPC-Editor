@@ -14,7 +14,7 @@
    <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.2</string>
+   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -2414,7 +2414,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>文件</string>
     </property>
-    <addaction name="action_placeholder"/>
+    <addaction name="generate_wiki_content"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -2442,9 +2442,9 @@ p, li { white-space: pre-wrap; }
    </widget>
    <addaction name="menuqqq"/>
    <addaction name="menu"/>
+   <addaction name="menu_4"/>
    <addaction name="menu_2"/>
    <addaction name="menu_3"/>
-   <addaction name="menu_4"/>
   </widget>
   <action name="action_placeholder">
    <property name="text">
@@ -2460,6 +2460,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="generate_wiki_content">
+   <property name="text">
+    <string>生成WIKI可识别的格式</string>
+   </property>
+   <property name="toolTip">
+    <string>生成WIKI可识别的格式</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
  </widget>

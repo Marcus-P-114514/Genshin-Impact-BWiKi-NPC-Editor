@@ -5,6 +5,8 @@
 #include "QSettings"
 #include "QColor"
 #include "QDesktopServices"
+#include "QFileDialog"
+#include "QFile"
 
 //预定义字段 - 仅供读取主题
 QString primary_current = "";
@@ -59,7 +61,7 @@ QString npc_location_disp_approach = "地图";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
-QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.2";
+QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.1.0";
 QString target_url_for_open;
 
 void config_theme_for_this_application(){
@@ -1313,4 +1315,10 @@ void MainWindow::on_submit_npc_location_not_detailed_clicked()
 {
     target_url_for_open = "https://wiki.biligame.com/ys/文件:" + npc_name + "位置.png";
     QDesktopServices::openUrl(QUrl(target_url_for_open));
+}
+
+void MainWindow::on_generate_wiki_content_triggered()
+{
+    QString wiki_file_name = npc_name + ".txt";
+    QString wiki_file_dir = QFileDialog::getSaveFileName(this, tr("保存文件为WIKI可识别格式"), wiki_file_name, tr("纯文本文件 (*.txt)"));
 }

@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    int fontId = QFontDatabase::addApplicationFont("E:/interface.ttc");
+    int fontId = QFontDatabase::addApplicationFont("./fonts/interface.ttc");
         QString target_font = QFontDatabase::applicationFontFamilies(fontId).at(0);
         QFont app_font(target_font);
         QApplication::setFont(app_font);

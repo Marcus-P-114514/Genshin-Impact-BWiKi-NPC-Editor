@@ -174,6 +174,8 @@ private slots:
 
     void on_submit_npc_location_not_detailed_clicked();
 
+    void on_generate_wiki_content_triggered();
+
 protected:
 
 
