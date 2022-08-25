@@ -188,6 +188,28 @@ private slots:
 
     void open_project_ini();
 
+    void on_release_to_WIKI_triggered();
+
+    void on_welcome_screen_linkActivated(const QString &link);
+
+    void dropEvent(QDropEvent *drop_event_1);
+
+    void dragEnterEvent(QDragEnterEvent *drop_event_1);
+
+    void on_insert_templates_triggered();
+
+    void on_insert_brackets_triggered();
+
+    void on_insert_bold_triggered();
+
+    void on_insert_italic_triggered();
+
+    void on_insert_underline_triggered();
+
+    void on_apply_font_color_triggered();
+
+    void on_close_quick_insert_triggered();
+
 protected:
 
 

@@ -10,6 +10,9 @@
 #include "iostream"
 #include "QTextStream"
 #include "QProcess"
+#include "QMimeData"
+#include "QClipboard"
+#include "QInputDialog"
 
 using namespace std;
 
@@ -31,10 +34,11 @@ QString ui_combobox = "";
 QString ui_radio_selected = "";
 QString ui_radio_released = "";
 QString ui_textedit;
+QString ui_quickinsert;
 
 //预定义字段 - 仅供生成代码
 QString npc_gender = "未知";
-QString npc_name;
+QString npc_name = "未命名";
 QString npc_nickname = "无";
 QString npc_job = "未知";
 QString npc_location = "未知";
@@ -125,6 +129,7 @@ void config_theme_for_this_application(){
     ui_lineedit = "padding: 3px; border: 2px solid " + primary_current + "; border-radius: 5px;";
     ui_combobox = "QComboBox::down-arrow{border: 2px solid "+ primary_current + "; border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + "; min-width: 10px;} QComboBox{border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + ";}";
     ui_textedit = ui_lineedit;
+    ui_quickinsert = "background: " + primary_current + "; color: " + text_color_current + ";";
 
 
 }
@@ -228,12 +233,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->submit_npc_avatar->setStyleSheet(ui_btn_suggested);
     ui->submit_npc_model->setStyleSheet(ui_btn_suggested);
     ui->submit_npc_location_not_detailed->setStyleSheet(ui_btn_suggested);
+    ui->quickinsert->setStyleSheet(ui_quickinsert);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
     ui->gift_single_edit_name->setVisible(0);
     ui->gift_single_edit_amount->setVisible(0);
     ui->multiple_gift_edit->setVisible(0);
+    ui->quickinsert->setVisible(0);
 
     ui->working_area->setCurrentIndex(0);
     ui->hide_store_info->setCurrentIndex(1);
@@ -249,6 +256,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_dialog_content_edit->insertPlainText("|待机语音=");
     ui->npc_dialog_content_edit->insertPlainText("\n");
     ui->npc_dialog_content_edit->insertPlainText("}}");
+
+    setAcceptDrops(true);
 }
 
 MainWindow::~MainWindow()
@@ -1873,4 +1882,84 @@ void MainWindow::on_open_project_triggered()
 {
     save_file_target = QFileDialog::getOpenFileName(this, tr("打开工程..."), "", tr("NPC文件 (*.npcedit)"));
     open_project_ini();
+}
+
+void MainWindow::on_release_to_WIKI_triggered()
+{
+    target_url_for_open = "https://wiki.biligame.com/ys/index.php?title=" + npc_name + "&action=edit";
+    QDesktopServices::openUrl(QUrl(target_url_for_open));
+}
+
+void MainWindow::on_welcome_screen_linkActivated(const QString &link)
+{
+    save_file_target = QFileDialog::getOpenFileName(this, tr("打开工程..."), "", tr("NPC文件 (*.npcedit)"));
+    open_project_ini();
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *drop_event_1)
+{
+    if(drop_event_1->mimeData()->hasFormat("text/uri-list"))
+        drop_event_1->acceptProposedAction();
+}
+
+void MainWindow::dropEvent(QDropEvent *drop_event_1)
+{
+    QList<QUrl> dropped_file = drop_event_1->mimeData()->urls();
+    if (dropped_file.isEmpty()) {
+        bool ok;
+    }
+    else {
+        QString save_file_target = dropped_file.first().toLocalFile();
+        open_project_ini();
+    }
+
+}
+
+void MainWindow::on_insert_templates_triggered()
+{
+    ui->quickinsert->setVisible(1);
+}
+
+void MainWindow::on_insert_brackets_triggered()
+{
+    QClipboard* clip_brackets = QApplication::clipboard();
+    clip_brackets->setText("「」");
+}
+
+void MainWindow::on_insert_bold_triggered()
+{
+    QString bold_progress = QInputDialog::getText(this, "加粗", "输入要加粗的内容，将会自动复制到剪切板。");
+    QString bold_progress_2 = "'''" + bold_progress + "'''";
+    QClipboard* clip_bold = QApplication::clipboard();
+    clip_bold->setText(bold_progress_2);
+}
+
+void MainWindow::on_insert_italic_triggered()
+{
+    QString italic_progress = QInputDialog::getText(this, "斜体", "输入要转换为斜体的内容，将会自动复制到剪切板。");
+    QString italic_progress_2 = "''" + italic_progress + "''";
+    QClipboard* clip_italic = QApplication::clipboard();
+    clip_italic->setText(italic_progress_2);
+}
+
+void MainWindow::on_insert_underline_triggered()
+{
+    QString underline_progress = QInputDialog::getText(this, "下划线", "输入要添加下划线的内容，将会自动复制到剪切板。");
+    QString underline_progress_2 = "<u>" + underline_progress + "</u>";
+    QClipboard* clip_underline = QApplication::clipboard();
+    clip_underline->setText(underline_progress_2);
+}
+
+void MainWindow::on_apply_font_color_triggered()
+{
+    QString color_input = QInputDialog::getText(this, "颜色", "期望的颜色，将会自动复制到剪切板。\n支持原神BWIKI所支持的颜色，例如：火，详细情况请移步详见：https://wiki.biligame.com/ys/原神WIKI编辑教程/#模板:颜色\n亦可输入CSS支持的颜色");
+    QString color_progress = QInputDialog::getText(this, "文本", "输入要添加颜色的内容，将会自动复制到剪切板。");
+    QString color_text = "{{颜色|" + color_input + "|" + color_progress + "}}";
+    QClipboard* clip_color = QApplication::clipboard();
+    clip_color->setText(color_text);
+}
+
+void MainWindow::on_close_quick_insert_triggered()
+{
+    ui->quickinsert->setVisible(0);
 }
