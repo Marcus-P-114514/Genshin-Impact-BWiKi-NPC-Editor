@@ -103,7 +103,7 @@
           <item row="0" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <property name="bottomMargin">
-             <number>5</number>
+             <number>15</number>
             </property>
             <item>
              <widget class="QPushButton" name="visual_editor_selected">
