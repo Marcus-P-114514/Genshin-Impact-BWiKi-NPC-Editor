@@ -2434,8 +2434,9 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="about"/>
     <addaction name="about_Qt"/>
-    <addaction name="separator"/>
     <addaction name="changelog"/>
+    <addaction name="license"/>
+    <addaction name="update_check"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
@@ -2636,6 +2637,22 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>打开更新日志</string>
+   </property>
+  </action>
+  <action name="license">
+   <property name="text">
+    <string>许可证</string>
+   </property>
+   <property name="toolTip">
+    <string>打开许可页面</string>
+   </property>
+  </action>
+  <action name="update_check">
+   <property name="text">
+    <string>检查更新</string>
+   </property>
+   <property name="toolTip">
+    <string>检查更新</string>
    </property>
   </action>
  </widget>

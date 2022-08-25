@@ -219,6 +219,10 @@ private slots:
 
     void on_changelog_triggered();
 
+    void on_license_triggered();
+
+    void on_update_check_triggered();
+
 protected:
 
 

@@ -39,3 +39,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+ICON = ./resources/icons/application.icns
+
+RC_ICONS = ./resources/icons/application.ico

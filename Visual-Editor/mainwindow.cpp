@@ -2020,3 +2020,13 @@ void MainWindow::on_changelog_triggered()
     QString about_content="v.1.0 这个版本仅提供纯文本编辑（外加代码高亮），以及继承了一些额外小工具来帮助您快速在本地编辑NPC图鉴。\nv.1.1 更新界面、支持拖拽读取文件\nv.1.2 现在可以插入特殊字符了\nv.1.2.1-b 此版本允许您在安卓平板上快速编辑原神BWIKI的NPC图鉴\nv.2.2.3 此版本提供了更好的图形化界面";
     QMessageBox::information(this, about_title,about_content, QMessageBox::Ok,QMessageBox::NoButton);
 }
+
+void MainWindow::on_license_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/Desktop-Universal/LICENSE"));
+}
+
+void MainWindow::on_update_check_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3/%E6%9B%B4%E6%96%B0/2.3.2"));
+}
