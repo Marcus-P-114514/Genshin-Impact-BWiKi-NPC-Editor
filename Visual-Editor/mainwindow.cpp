@@ -13,10 +13,14 @@
 #include "QMimeData"
 #include "QClipboard"
 #include "QInputDialog"
+#include "QDebug"
+#include "QDialog"
+#include "QMessageBox"
 
 using namespace std;
 
 //预定义字段 - 仅供读取主题
+QString theme_pref;
 QString primary_current = "";
 QString background_current = "";
 QString toolbar_current;
@@ -71,28 +75,47 @@ QString npc_location_disp_approach = "地图";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
-QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.1.0";
+QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.2";
 QString target_url_for_open;
 QString save_file_target;
 
 void config_theme_for_this_application(){
+
+
+
+}
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
     //预设的主题
     //浅色
     QString primary_light = "#E7BF9F";
     QString background_light = "#F6F0E5";
     QString text_color_selected_light = "#FFFFFF";
-    QString theme_pref = "";
     QString toolbar_light="#E7BF9F";
 
     //深色
+    QString primary_dark = "#E7BF9F";
+    QString background_dark = "rgb(69,69,69)";
+    QString text_color_selected_dark = "#FFFFFF";
+    QString toolbar_dark="#E7BF9F";
 
     //黑色
+    QString primary_black = "#E7BF9F";
+    QString background_black = "rgb(0,0,0)";
+    QString text_color_selected_black = "#FFFFFF";
+    QString toolbar_black="#rgb(0,0,0)";
 
     //读取主题
     QSettings *config_theme = new QSettings ( "./config/global.conf", QSettings::IniFormat);
-    QString theme_pref_read = config_theme -> value ( "theme/type").toString();
+    QString theme_pref_read = config_theme -> value ( "theme/name").toString();
     theme_pref_read = theme_pref;
-    delete config_theme;
+    qDebug()<<theme_pref_read;
+
 
     //应用预设
     if (theme_pref == "light"){
@@ -103,10 +126,26 @@ void config_theme_for_this_application(){
         toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
     }
     else if (theme_pref == "dark"){
-
+        primary_current = primary_dark;
+        background_current = background_dark;
+        text_color_current = text_color_selected_dark;
+        toolbar_current = toolbar_dark;
     }
     else if (theme_pref == "black"){
-
+        primary_current = primary_black;
+        background_current = background_black;
+        text_color_current = text_color_selected_black;
+        toolbar_current = toolbar_black;
+    }
+    else if (theme_pref == "custom"){
+        QString primary_custom = config_theme -> value ( "custom/primary").toString();
+        QString background_custom = config_theme -> value ( "custom/background").toString();
+        QString text_color_selected_custom = config_theme -> value ( "custom/text_color").toString();
+        QString toolbar_custom = config_theme -> value ( "custom/toolbar").toString();
+        primary_current = primary_custom;
+        background_current = background_custom;
+        text_color_current = text_color_selected_custom;
+        toolbar_current = toolbar_custom;
     }
     else{
         primary_current = primary_light;
@@ -115,6 +154,8 @@ void config_theme_for_this_application(){
         toolbar_current = toolbar_light;
         toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
     }
+
+    delete config_theme;
 
     //生成样式表
     //primary_current_16 = converRGB16HexStr(primary_current);
@@ -130,15 +171,6 @@ void config_theme_for_this_application(){
     ui_combobox = "QComboBox::down-arrow{border: 2px solid "+ primary_current + "; border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + "; min-width: 10px;} QComboBox{border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + ";}";
     ui_textedit = ui_lineedit;
     ui_quickinsert = "background: " + primary_current + "; color: " + text_color_current + ";";
-
-
-}
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
 
     //初始化界面
     //this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QMenu{border-bottom-color: rgb(44, 44, 44); border-bottom: 2px; border-style: solid; background-color: #FFFFF}QWidget{background: #F6F0E5; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color: #E7BF9F;}");
@@ -1962,4 +1994,29 @@ void MainWindow::on_apply_font_color_triggered()
 void MainWindow::on_close_quick_insert_triggered()
 {
     ui->quickinsert->setVisible(0);
+}
+
+void MainWindow::on_config_theme_triggered()
+{
+    theme *theme_cfg = new theme;
+    theme_cfg->show();
+}
+
+void MainWindow::on_about_triggered()
+{
+    QString about_title="关于";
+    QString about_content="原神BWIKI NPC图鉴编辑器 ver. 2.3.2\n这个项目是给原神BWiKi开发的，其目的为降低NPC图鉴编辑门槛，提供了一个编辑向导。\nby：屑机主\n许可：GPL v.2";
+    QMessageBox::information(this, about_title,about_content, QMessageBox::Ok,QMessageBox::NoButton);
+}
+
+void MainWindow::on_about_Qt_triggered()
+{
+    qApp->aboutQt();
+}
+
+void MainWindow::on_changelog_triggered()
+{
+    QString about_title="关于";
+    QString about_content="v.1.0 这个版本仅提供纯文本编辑（外加代码高亮），以及继承了一些额外小工具来帮助您快速在本地编辑NPC图鉴。\nv.1.1 更新界面、支持拖拽读取文件\nv.1.2 现在可以插入特殊字符了\nv.1.2.1-b 此版本允许您在安卓平板上快速编辑原神BWIKI的NPC图鉴\nv.2.2.3 此版本提供了更好的图形化界面";
+    QMessageBox::information(this, about_title,about_content, QMessageBox::Ok,QMessageBox::NoButton);
 }

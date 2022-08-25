@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <npc_gift_option.h>
 #include <npc_store_multi_exchange.h>
+#include <theme.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -209,6 +210,14 @@ private slots:
     void on_apply_font_color_triggered();
 
     void on_close_quick_insert_triggered();
+
+    void on_config_theme_triggered();
+
+    void on_about_triggered();
+
+    void on_about_Qt_triggered();
+
+    void on_changelog_triggered();
 
 protected:
 
