@@ -350,7 +350,7 @@
       <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
-         <number>6</number>
+         <number>7</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -2105,6 +2105,9 @@ p, li { white-space: pre-wrap; }
                 <height>30</height>
                </size>
               </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="placeholderText">
                <string>此为附加选项，没有或未知请留空</string>
               </property>
@@ -2128,6 +2131,9 @@ p, li { white-space: pre-wrap; }
                 <width>0</width>
                 <height>30</height>
                </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
               </property>
               <property name="placeholderText">
                <string>此为附加选项，没有或未知请留空</string>
@@ -2153,6 +2159,9 @@ p, li { white-space: pre-wrap; }
                 <height>30</height>
                </size>
               </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="placeholderText">
                <string>此为附加选项，没有或未知请留空</string>
               </property>
@@ -2176,6 +2185,9 @@ p, li { white-space: pre-wrap; }
                 <width>0</width>
                 <height>30</height>
                </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
               </property>
               <property name="placeholderText">
                <string>请填写您编辑此文档时的原神版本，例：3.0</string>
@@ -2262,22 +2274,84 @@ p, li { white-space: pre-wrap; }
          </layout>
         </widget>
         <widget class="QWidget" name="page_12">
-         <widget class="QLabel" name="label_8">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>20</y>
-            <width>591</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 18pt;</string>
-          </property>
-          <property name="text">
-           <string>文件上传</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="styleSheet">
+             <string notr="true">font: 18pt;</string>
+            </property>
+            <property name="text">
+             <string>文件上传</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_36">
+            <property name="text">
+             <string>最大允许的文件大小：8MB，格式：png
+上传前您需要先指定NPC名称。</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="submit_npc_avatar">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>头像（125像素×125像素）</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="submit_npc_model">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>建模（240像素×500像素）</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="submit_npc_location_not_detailed">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>位置（1920像素×1080像素）</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>423</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="page_13">
          <widget class="QLabel" name="label_9">

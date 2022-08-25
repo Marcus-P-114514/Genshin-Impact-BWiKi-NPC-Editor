@@ -60,6 +60,7 @@ QString npc_location_disp_approach = "地图";
 //预定义字段 - 用于程序运行
 int current_section = 0;
 QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.2";
+QString target_url_for_open;
 
 void config_theme_for_this_application(){
     //预设的主题
@@ -215,6 +216,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->last_edit_ver_edit->setStyleSheet(ui_lineedit);
     ui->file_iscompleted->setStyleSheet(ui_radio_released);
     ui->file_requires_work->setStyleSheet(ui_radio_selected);
+    ui->submit_npc_avatar->setStyleSheet(ui_btn_suggested);
+    ui->submit_npc_model->setStyleSheet(ui_btn_suggested);
+    ui->submit_npc_location_not_detailed->setStyleSheet(ui_btn_suggested);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -1291,4 +1295,22 @@ void MainWindow::on_file_requires_work_clicked()
 
     //更改字段
     document_iscompleted = "否";
+}
+
+void MainWindow::on_submit_npc_avatar_clicked()
+{
+    target_url_for_open = "https://wiki.biligame.com/ys/文件:" + npc_name + ".png";
+    QDesktopServices::openUrl(QUrl(target_url_for_open));
+}
+
+void MainWindow::on_submit_npc_model_clicked()
+{
+    target_url_for_open = "https://wiki.biligame.com/ys/文件:" + npc_name + "建模.png";
+    QDesktopServices::openUrl(QUrl(target_url_for_open));
+}
+
+void MainWindow::on_submit_npc_location_not_detailed_clicked()
+{
+    target_url_for_open = "https://wiki.biligame.com/ys/文件:" + npc_name + "位置.png";
+    QDesktopServices::openUrl(QUrl(target_url_for_open));
 }

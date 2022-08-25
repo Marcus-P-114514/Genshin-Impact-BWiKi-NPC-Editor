@@ -168,6 +168,12 @@ private slots:
 
     void on_file_requires_work_clicked();
 
+    void on_submit_npc_avatar_clicked();
+
+    void on_submit_npc_model_clicked();
+
+    void on_submit_npc_location_not_detailed_clicked();
+
 protected:
 
 
