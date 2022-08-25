@@ -152,6 +152,22 @@ private slots:
 
     void on_upload_npc_pic_location_clicked();
 
+    void on_npc_activity_yes_clicked();
+
+    void on_npc_activity_no_clicked();
+
+    void on_npc_frame_sys_edit_textChanged(const QString &arg1);
+
+    void on_npc_commision_sys_edit_textChanged(const QString &arg1);
+
+    void on_npc_trounce_edit_textChanged(const QString &arg1);
+
+    void on_last_edit_ver_edit_textChanged(const QString &arg1);
+
+    void on_file_iscompleted_clicked();
+
+    void on_file_requires_work_clicked();
+
 protected:
 
 

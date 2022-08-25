@@ -44,6 +44,12 @@ QString npc_cv_English = "未知";
 QString npc_cv_Korean = "未知";
 QString npc_exist_time = "全天";
 QString npc_coordinate;
+QString npc_activity = "否";
+QString npc_frame_sys;
+QString npc_commision_sys;
+QString npc_trounce_sys;
+QString user_last_edited;
+QString document_iscompleted = "否";
 
 
 //预定义字段 - 用于生成判定
@@ -201,6 +207,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_location_usepic->setStyleSheet(ui_radio_released);
     ui->npc_location_map_edit->setStyleSheet(ui_lineedit);
     ui->upload_npc_pic_location->setStyleSheet(ui_btn_suggested);
+    ui->npc_activity_yes->setStyleSheet(ui_radio_released);
+    ui->npc_activity_no->setStyleSheet(ui_radio_selected);
+    ui->npc_frame_sys_edit->setStyleSheet(ui_lineedit);
+    ui->npc_commision_sys_edit->setStyleSheet(ui_lineedit);
+    ui->npc_trounce_edit->setStyleSheet(ui_lineedit);
+    ui->last_edit_ver_edit->setStyleSheet(ui_lineedit);
+    ui->file_iscompleted->setStyleSheet(ui_radio_released);
+    ui->file_requires_work->setStyleSheet(ui_radio_selected);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -334,6 +348,40 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText(npc_name);
     ui->code_output->insertPlainText("位置}}");
     ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|活动限定=");
+    ui->code_output->insertPlainText(npc_activity);
+    ui->code_output->insertPlainText("\n");
+    if (npc_frame_sys != "") {
+        ui->code_output->insertPlainText("|声望系统=");
+        ui->code_output->insertPlainText(npc_frame_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    if (npc_commision_sys != "") {
+        ui->code_output->insertPlainText("|居民委托=");
+        ui->code_output->insertPlainText(npc_commision_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    if (npc_trounce_sys != "") {
+        ui->code_output->insertPlainText("|讨伐悬赏=");
+        ui->code_output->insertPlainText(npc_trounce_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    ui->code_output->insertPlainText("|最后编辑版本=");
+    ui->code_output->insertPlainText(user_last_edited);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|是否完善=");
+    ui->code_output->insertPlainText(document_iscompleted);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("}}");
 
 }
 
@@ -1183,4 +1231,64 @@ void MainWindow::on_upload_npc_pic_location_clicked()
 {
     QString npc_location_pic_target = "https://wiki.biligame.com/ys/文件:NPC-具体位置-" + npc_name + "-" + npc_exist_time + ".png";
     QDesktopServices::openUrl(QUrl(npc_location_pic_target));
+}
+
+void MainWindow::on_npc_activity_yes_clicked()
+{
+    //应用样式表
+    ui->npc_activity_yes->setStyleSheet(ui_radio_selected);
+    ui->npc_activity_no->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_activity = "是";
+}
+
+void MainWindow::on_npc_activity_no_clicked()
+{
+    //应用样式表
+    ui->npc_activity_yes->setStyleSheet(ui_radio_released);
+    ui->npc_activity_no->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    npc_activity = "否";
+}
+
+void MainWindow::on_npc_frame_sys_edit_textChanged(const QString &arg1)
+{
+    npc_frame_sys = ui->npc_frame_sys_edit->text();
+}
+
+void MainWindow::on_npc_commision_sys_edit_textChanged(const QString &arg1)
+{
+    npc_commision_sys = ui->npc_commision_sys_edit->text();
+}
+
+void MainWindow::on_npc_trounce_edit_textChanged(const QString &arg1)
+{
+    npc_trounce_sys = ui->npc_trounce_edit->text();
+}
+
+void MainWindow::on_last_edit_ver_edit_textChanged(const QString &arg1)
+{
+    user_last_edited = ui->last_edit_ver_edit->text();
+}
+
+void MainWindow::on_file_iscompleted_clicked()
+{
+    //应用样式表
+    ui->file_iscompleted->setStyleSheet(ui_radio_selected);
+    ui->file_requires_work->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    document_iscompleted = "是";
+}
+
+void MainWindow::on_file_requires_work_clicked()
+{
+    //应用样式表
+    ui->file_iscompleted->setStyleSheet(ui_radio_released);
+    ui->file_requires_work->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    document_iscompleted = "否";
 }
