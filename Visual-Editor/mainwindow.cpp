@@ -1396,7 +1396,7 @@ void MainWindow::on_save_project_triggered()
 {
     if (save_file_target == "") {
         QString save_file_name = npc_name + ".npcedit";
-        save_file_target = QFileDialog::getSaveFileName(this, tr("保存工程"), save_file_name, tr("NPC文件 (*.npcedit)"));
+        save_file_target = QFileDialog::getSaveFileName(this, tr("保存工程..."), save_file_name, tr("NPC文件 (*.npcedit)"));
     }
     else {
         bool ok;
@@ -1407,6 +1407,6 @@ void MainWindow::on_save_project_triggered()
 void MainWindow::on_save_project_as_triggered()
 {
     QString save_file_name = npc_name + ".npcedit";
-    save_file_target = QFileDialog::getSaveFileName(this, tr("保存工程"), save_file_name, tr("NPC文件 (*.npcedit)"));
+    save_file_target = QFileDialog::getSaveFileName(this, tr("工程另存为..."), save_file_name, tr("NPC文件 (*.npcedit)"));
     save_project_ini();
 }
