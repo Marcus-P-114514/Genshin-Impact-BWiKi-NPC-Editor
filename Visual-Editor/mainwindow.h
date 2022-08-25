@@ -176,6 +176,8 @@ private slots:
 
     void on_generate_wiki_content_triggered();
 
+    void on_new_project_triggered();
+
 protected:
 
 

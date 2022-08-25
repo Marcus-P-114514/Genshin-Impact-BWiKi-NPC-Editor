@@ -350,7 +350,7 @@
       <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
-         <number>7</number>
+         <number>9</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -2414,6 +2414,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>文件</string>
     </property>
+    <addaction name="new_project"/>
     <addaction name="generate_wiki_content"/>
    </widget>
    <widget class="QMenu" name="menu">
@@ -2464,13 +2465,24 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="generate_wiki_content">
    <property name="text">
-    <string>生成WIKI可识别的格式</string>
+    <string>导出为WIKI可识别的格式</string>
    </property>
    <property name="toolTip">
     <string>生成WIKI可识别的格式</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="new_project">
+   <property name="text">
+    <string>新建工程</string>
+   </property>
+   <property name="toolTip">
+    <string>新建一个NPC，您未保存的工作将会消失。</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

@@ -7,6 +7,11 @@
 #include "QDesktopServices"
 #include "QFileDialog"
 #include "QFile"
+#include "iostream"
+#include "QTextStream"
+#include "QProcess"
+
+using namespace std;
 
 //预定义字段 - 仅供读取主题
 QString primary_current = "";
@@ -1044,7 +1049,7 @@ void MainWindow::on_npc_store_multi_exchanger_clicked()
 
 void MainWindow::on_open_mapview_triggered()
 {
-
+    QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/%E5%8E%9F%E7%A5%9E%E5%9C%B0%E5%9B%BE%E5%B7%A5%E5%85%B7_%E5%85%A8%E5%9C%B0%E6%A0%87%E4%BD%8D%E7%BD%AE%E7%82%B9"));
 }
 
 void MainWindow::on_npc_dialog_none_clicked()
@@ -1319,6 +1324,19 @@ void MainWindow::on_submit_npc_location_not_detailed_clicked()
 
 void MainWindow::on_generate_wiki_content_triggered()
 {
+    generate_code();
     QString wiki_file_name = npc_name + ".txt";
     QString wiki_file_dir = QFileDialog::getSaveFileName(this, tr("保存文件为WIKI可识别格式"), wiki_file_name, tr("纯文本文件 (*.txt)"));
+    QFile wiki_file_target(wiki_file_dir);
+    if(wiki_file_target.open(QIODevice::WriteOnly | QIODevice::Text) ) {
+            QTextStream out(&wiki_file_target);
+             out << ui->code_output->document()->toPlainText() << endl;
+            wiki_file_target.close();
+    }
+}
+
+void MainWindow::on_new_project_triggered()
+{
+    qApp->closeAllWindows();
+    QProcess::startDetached(qApp->applicationFilePath(), QStringList());
 }
