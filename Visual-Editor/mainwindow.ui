@@ -350,7 +350,7 @@
       <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
-         <number>4</number>
+         <number>6</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -2414,6 +2414,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>文件</string>
     </property>
+    <addaction name="open_project"/>
     <addaction name="new_project"/>
     <addaction name="save_project"/>
     <addaction name="save_project_as"/>
@@ -2507,6 +2508,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="open_project">
+   <property name="text">
+    <string>打开工程</string>
+   </property>
+   <property name="toolTip">
+    <string>打开一个工程</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
  </widget>

@@ -412,7 +412,7 @@ void MainWindow::save_project_ini() {
     config_save->setValue("Basic/Location", npc_location);
     config_save->setValue("Basic/Country", npc_country);
     config_save->setValue("Basic/Organization", npc_organization);
-    config_save->setValue("Basic/Syatem", npc_system);
+    config_save->setValue("Basic/System", npc_system);
     config_save->setValue("Basic/Gift", npc_gift);
     config_save->setValue("Basic/Version", npc_version);
 
@@ -445,6 +445,464 @@ void MainWindow::save_project_ini() {
     config_save->setValue("Extras/IsCompleted", document_iscompleted);
 
     delete config_save;
+}
+
+void MainWindow::open_project_ini() {
+    QSettings *config_open = new QSettings ( save_file_target, QSettings::IniFormat);
+    //读取：文件头
+        QString file_section_read = config_open->value("File/Section").toString();
+        QString file_version_read = config_open->value("File/Version").toString();
+        //读取：基本信息
+        QString file_name_read = config_open->value("Basic/Name").toString();
+        QString file_nickname_read = config_open->value("Basic/Nickname").toString();
+        QString file_gender_read = config_open->value("Basic/Gender").toString();
+        QString file_job_read = config_open->value("Basic/Job").toString();
+        QString file_location_read = config_open->value("Basic/Location").toString();
+        QString file_country_read = config_open->value("Basic/Country").toString();
+        QString file_org_read = config_open->value("Basic/Organization").toString();
+        QString file_system_read = config_open->value("Basic/System").toString();
+        QString file_gift_read = config_open->value("Basic/Gift").toString();
+        QString file_version_npc_read = config_open->value("Basic/Version").toString();
+
+        //读取：商店
+        QString file_store_exist_read = config_open->value("Store/Exist").toString();
+        QString file_store_content_read = config_open->value("Store/Content").toString();
+
+        //读取：对话
+        QString file_dialog_exist_read = config_open->value("Dialog/Exist").toString();
+        QString file_dialog_content_read = config_open->value("Dialog/Content").toString();
+
+        //读取：CV表
+        QString file_CV_Chinese_read = config_open->value("CV_Table/Chinese").toString();
+        QString file_CV_Japanese_read = config_open->value("CV_Table/Japanese").toString();
+        QString file_CV_English_read = config_open->value("CV_Table/English").toString();
+        QString file_CV_Korean_read = config_open->value("CV_Table/Korean").toString();
+
+        //读取：位置
+        QString file_time_read = config_open->value("Location/Time").toString();
+        QString file_type_read = config_open->value("Location/Type").toString();
+        QString file_coordinate_read = config_open->value("Location/Coordinate").toString();
+
+        //读取：杂项
+        QString file_activity_read = config_open->value("Extras/Activity").toString();
+        QString file_frame_read = config_open->value("Extras/Frame").toString();
+        QString file_commision_read = config_open->value("Extras/Commision").toString();
+        QString file_trounce_read = config_open->value("Extras/Trounce").toString();
+        QString file_last_edit_read = config_open->value("Extras/Last_Edited").toString();
+        QString file_iscompleted_read = config_open->value("Extras/IsCompleted").toString();
+
+    delete config_open;
+        //处理：界面
+        ui->npcname_input->setText(file_name_read);
+        ui->nickname_input->setText(file_nickname_read);
+        if (file_gender_read == "女") {
+            //应用样式表
+            ui->npc_gender_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_gender_male->setStyleSheet(ui_radio_released);
+            ui->npc_gender_female->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_gender = "女";
+        }
+        else if (file_gender_read == "男") {
+            //应用样式表
+            ui->npc_gender_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_gender_male->setStyleSheet(ui_radio_selected);
+            ui->npc_gender_female->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_gender = "男";
+        }
+        else {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "未知";
+        }
+        ui->job_input->setText(file_job_read);
+        ui->location_input->setText(file_location_read);
+        if (file_country_read == "蒙德") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "蒙德";
+        }
+        else if (file_country_read == "璃月") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "璃月";
+        }
+        else if (file_country_read == "稻妻") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "稻妻";
+        }
+        else if (file_country_read == "须弥") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "须弥";
+        }
+        else if (file_country_read == "枫丹") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "枫丹";
+        }
+        else if (file_country_read == "纳塔") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "纳塔";
+        }
+        else if (file_country_read == "至冬") {
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_country = "至冬";
+        }
+        else{
+            //应用样式表
+            ui->npc_country_option_unknown->setStyleSheet(ui_radio_selected);
+            ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+            ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_country = "未知";
+        }
+        ui->organization_input->setText(file_org_read);
+        if (file_gift_read == "无") {
+            //应用样式表
+            ui->npc_gift_option_none->setStyleSheet(ui_radio_selected);
+            ui->npc_gift_option_exist->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_gift = "无";
+
+            //更改界面
+            ui->gift_single_edit_name->setVisible(0);
+            ui->gift_single_edit_amount->setVisible(0);
+            ui->multiple_gift_edit->setVisible(0);
+        }
+        else {
+            //应用样式表
+            ui->npc_gift_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_gift_option_exist->setStyleSheet(ui_radio_selected);
+
+            //更改界面
+            ui->gift_single_edit_name->setVisible(1);
+            ui->gift_single_edit_amount->setVisible(1);
+            ui->multiple_gift_edit->setVisible(1);
+            ui->gift_single_edit_amount->setText("<READ_FROM_FILE>");
+            ui->gift_single_edit_name->setText("<READ_FROM_FILE>");
+
+            //更改字段
+            npc_gift = file_gift_read;
+        }
+        if (file_system_read == "[[委托]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "[[委托]]";
+        }
+        else if (file_system_read == "[[声望]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "[[声望]]";
+        }
+        else if (file_system_read == "[[活动]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "[[活动]]";
+        }
+        else if (file_system_read == "[[商店]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "[[商店]]";
+        }
+        else if (file_system_read == "[[烹饪]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "[[烹饪]]";
+        }
+        else if (file_system_read == "[[尘歌壶]]") {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_system = "[[尘歌壶]]";
+        }
+        else {
+            //应用样式表
+            ui->npc_system_option_none->setStyleSheet(ui_radio_selected);
+            ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+            ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_system = "无";
+        }
+        ui->version_input->setText(file_version_npc_read);
+        if (file_store_exist_read == "否") {
+            //应用样式表
+            ui->npc_store_isexist->setStyleSheet(ui_radio_released);
+            ui->npc_store_none->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_store_exist = "否";
+
+            //启用组件
+            ui->hide_store_info->setCurrentIndex(1);
+        }
+        else {
+            //应用样式表
+            ui->npc_store_isexist->setStyleSheet(ui_radio_selected);
+            ui->npc_store_none->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_store_exist = "是";
+
+            //启用组件
+            ui->hide_store_info->setCurrentIndex(0);
+        }
+        ui->npc_store_list->clear();
+        ui->npc_store_list->insertPlainText(file_store_content_read);
+        if (file_dialog_exist_read == "否") {
+            //应用样式表
+            ui->npc_dialog_isexist->setStyleSheet(ui_radio_released);
+            ui->npc_dialog_none->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_dialog_exist = "否";
+
+            //显示面板
+            ui->npc_dialog_mainframe->setCurrentIndex(0);
+        }
+        else {
+            //应用样式表
+            ui->npc_dialog_isexist->setStyleSheet(ui_radio_selected);
+            ui->npc_dialog_none->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_dialog_exist = "是";
+
+            //显示面板
+            ui->npc_dialog_mainframe->setCurrentIndex(1);
+        }
+        ui->npc_dialog_content_edit->clear();
+        ui->npc_dialog_content_edit->insertPlainText(file_dialog_content_read);
+        ui->Chinese_cv_edit->setText(file_CV_Chinese_read);
+        ui->Japanese_cv_edit->setText(file_CV_Japanese_read);
+        ui->English_cv_edit->setText(file_CV_English_read);
+        ui->Korean_cv_edit->setText(file_CV_Korean_read);
+        if (file_time_read == "白天") {
+            //应用样式表
+            ui->npc_appear_isfull_day->setStyleSheet(ui_radio_released);
+            ui->npc_appear_isday->setStyleSheet(ui_radio_selected);
+            ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_exist_time = "白天";
+        }
+        else if (file_time_read == "夜晚") {
+            //应用样式表
+            ui->npc_appear_isfull_day->setStyleSheet(ui_radio_released);
+            ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+            ui->npc_appear_isnight->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_exist_time = "夜晚";
+        }
+        else {
+            //应用样式表
+            ui->npc_appear_isfull_day->setStyleSheet(ui_radio_selected);
+            ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+            ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_exist_time = "全天";
+        }
+        if (file_type_read == "地图") {
+            //应用样式表
+            ui->npc_location_usemap->setStyleSheet(ui_radio_selected);
+            ui->npc_location_usepic->setStyleSheet(ui_radio_released);
+
+            //更新界面
+            ui->npc_map_main_frame->setCurrentIndex(0);
+
+            //更改字段
+            npc_location_disp_approach = "地图";
+        }
+        else {
+            //应用样式表
+            ui->npc_location_usemap->setStyleSheet(ui_radio_released);
+            ui->npc_location_usepic->setStyleSheet(ui_radio_selected);
+
+            //更新界面
+            ui->npc_map_main_frame->setCurrentIndex(1);
+
+            //更改字段
+            npc_location_disp_approach = "图片";
+        }
+        ui->npc_location_map_edit->setText(file_coordinate_read);
+        if (file_activity_read == "是") {
+            //应用样式表
+            ui->npc_activity_yes->setStyleSheet(ui_radio_selected);
+            ui->npc_activity_no->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            npc_activity = "是";
+        }
+        else {
+            //应用样式表
+            ui->npc_activity_yes->setStyleSheet(ui_radio_released);
+            ui->npc_activity_no->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            npc_activity = "否";
+        }
+        ui->npc_frame_sys_edit->setText(file_frame_read);
+        ui->npc_commision_sys_edit->setText(file_commision_read);
+        ui->npc_trounce_edit->setText(file_trounce_read);
+        ui->last_edit_ver_edit->setText(file_last_edit_read);
+        if (file_iscompleted_read =="是") {
+            //应用样式表
+            ui->file_iscompleted->setStyleSheet(ui_radio_selected);
+            ui->file_requires_work->setStyleSheet(ui_radio_released);
+
+            //更改字段
+            document_iscompleted = "是";
+        }
+        else {
+            //应用样式表
+            ui->file_iscompleted->setStyleSheet(ui_radio_released);
+            ui->file_requires_work->setStyleSheet(ui_radio_selected);
+
+            //更改字段
+            document_iscompleted = "否";
+        }
+
+        //处理：代码
+        generate_code();
 }
 
 void MainWindow::on_code_editor_released_clicked()
@@ -1409,4 +1867,10 @@ void MainWindow::on_save_project_as_triggered()
     QString save_file_name = npc_name + ".npcedit";
     save_file_target = QFileDialog::getSaveFileName(this, tr("工程另存为..."), save_file_name, tr("NPC文件 (*.npcedit)"));
     save_project_ini();
+}
+
+void MainWindow::on_open_project_triggered()
+{
+    save_file_target = QFileDialog::getOpenFileName(this, tr("打开工程..."), "", tr("NPC文件 (*.npcedit)"));
+    open_project_ini();
 }
