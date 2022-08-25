@@ -4,6 +4,7 @@
 #include "QGraphicsDropShadowEffect"
 #include "QSettings"
 #include "QColor"
+#include "QDesktopServices"
 
 //预定义字段 - 仅供读取主题
 QString primary_current = "";
@@ -27,9 +28,9 @@ QString ui_textedit;
 //预定义字段 - 仅供生成代码
 QString npc_gender = "未知";
 QString npc_name;
-QString npc_nickname;
-QString npc_job;
-QString npc_location;
+QString npc_nickname = "无";
+QString npc_job = "未知";
+QString npc_location = "未知";
 QString npc_country = "未知";
 QString npc_organization = "未知";
 QString npc_system = "无";
@@ -41,11 +42,14 @@ QString npc_cv_Chinese = "未知";
 QString npc_cv_Japanese = "未知";
 QString npc_cv_English = "未知";
 QString npc_cv_Korean = "未知";
+QString npc_exist_time = "全天";
+QString npc_coordinate;
 
 
 //预定义字段 - 用于生成判定
 QString npc_store_prices;
 QString npc_dialog_current_line_islast_line = "否";
+QString npc_location_disp_approach = "地图";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
@@ -190,6 +194,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->Japanese_cv_edit->setStyleSheet(ui_lineedit);
     ui->English_cv_edit->setStyleSheet(ui_lineedit);
     ui->Korean_cv_edit->setStyleSheet(ui_lineedit);
+    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_selected);
+    ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+    ui->npc_location_usemap->setStyleSheet(ui_radio_selected);
+    ui->npc_location_usepic->setStyleSheet(ui_radio_released);
+    ui->npc_location_map_edit->setStyleSheet(ui_lineedit);
+    ui->upload_npc_pic_location->setStyleSheet(ui_btn_suggested);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -200,6 +211,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->working_area->setCurrentIndex(0);
     ui->hide_store_info->setCurrentIndex(1);
     ui->npc_dialog_mainframe->setCurrentIndex(0);
+    ui->npc_map_main_frame->setCurrentIndex(0);
 
     ui->npc_dialog_content_edit->insertPlainText("{{NPC对话");
     ui->npc_dialog_content_edit->insertPlainText("\n");
@@ -302,6 +314,25 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText("\n");
     ui->code_output->insertPlainText("|韩文CV=");
     ui->code_output->insertPlainText(npc_cv_Korean);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|出现时间=");
+    ui->code_output->insertPlainText(npc_exist_time);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|出现地点={{NPC位置|出现时间：");
+    ui->code_output->insertPlainText(npc_exist_time);
+    ui->code_output->insertPlainText("|");
+    ui->code_output->insertPlainText(npc_location_disp_approach);
+    ui->code_output->insertPlainText("|");
+    if (npc_location_disp_approach == "地图") {
+        ui->code_output->insertPlainText(npc_coordinate);
+    }
+    else {
+        QString npc_get_location_pic_detailed = "NPC-具体位置-" + npc_name + "-" + npc_exist_time;
+        ui->code_output->insertPlainText(npc_get_location_pic_detailed);
+    }
+    ui->code_output->insertPlainText("|");
+    ui->code_output->insertPlainText(npc_name);
+    ui->code_output->insertPlainText("位置}}");
     ui->code_output->insertPlainText("\n");
 
 }
@@ -1082,4 +1113,74 @@ void MainWindow::on_English_cv_edit_textChanged(const QString &arg1)
 void MainWindow::on_Korean_cv_edit_textChanged(const QString &arg1)
 {
     npc_cv_Korean = ui->Korean_cv_edit->text();
+}
+
+void MainWindow::on_npc_appear_isfull_day_clicked()
+{
+    //应用样式表
+    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_selected);
+    ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_exist_time = "全天";
+}
+
+void MainWindow::on_npc_appear_isday_clicked()
+{
+    //应用样式表
+    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isday->setStyleSheet(ui_radio_selected);
+    ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_exist_time = "白天";
+}
+
+void MainWindow::on_npc_appear_isnight_clicked()
+{
+    //应用样式表
+    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isnight->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    npc_exist_time = "夜晚";
+}
+
+void MainWindow::on_npc_location_usemap_clicked()
+{
+    //应用样式表
+    ui->npc_location_usemap->setStyleSheet(ui_radio_selected);
+    ui->npc_location_usepic->setStyleSheet(ui_radio_released);
+
+    //更新界面
+    ui->npc_map_main_frame->setCurrentIndex(0);
+
+    //更改字段
+    npc_location_disp_approach = "地图";
+}
+
+void MainWindow::on_npc_location_usepic_clicked()
+{
+    //应用样式表
+    ui->npc_location_usemap->setStyleSheet(ui_radio_released);
+    ui->npc_location_usepic->setStyleSheet(ui_radio_selected);
+
+    //更新界面
+    ui->npc_map_main_frame->setCurrentIndex(1);
+
+    //更改字段
+    npc_location_disp_approach = "图片";
+}
+
+void MainWindow::on_npc_location_map_edit_textChanged(const QString &arg1)
+{
+    npc_coordinate = ui->npc_location_map_edit->text();
+}
+
+void MainWindow::on_upload_npc_pic_location_clicked()
+{
+    QString npc_location_pic_target = "https://wiki.biligame.com/ys/文件:NPC-具体位置-" + npc_name + "-" + npc_exist_time + ".png";
+    QDesktopServices::openUrl(QUrl(npc_location_pic_target));
 }

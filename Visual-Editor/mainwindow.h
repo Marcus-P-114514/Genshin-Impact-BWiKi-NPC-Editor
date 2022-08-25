@@ -138,6 +138,20 @@ private slots:
 
     void on_Korean_cv_edit_textChanged(const QString &arg1);
 
+    void on_npc_appear_isfull_day_clicked();
+
+    void on_npc_appear_isday_clicked();
+
+    void on_npc_appear_isnight_clicked();
+
+    void on_npc_location_usemap_clicked();
+
+    void on_npc_location_usepic_clicked();
+
+    void on_npc_location_map_edit_textChanged(const QString &arg1);
+
+    void on_upload_npc_pic_location_clicked();
+
 protected:
 
 
