@@ -2416,6 +2416,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="new_project"/>
     <addaction name="save_project"/>
+    <addaction name="save_project_as"/>
     <addaction name="generate_wiki_content"/>
    </widget>
    <widget class="QMenu" name="menu">
@@ -2495,6 +2496,17 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="save_project_as">
+   <property name="text">
+    <string>工程另存为</string>
+   </property>
+   <property name="toolTip">
+    <string>储存您工作的副本</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
  </widget>

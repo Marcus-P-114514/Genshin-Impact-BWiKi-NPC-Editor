@@ -182,6 +182,8 @@ private slots:
 
     void on_save_project_triggered();
 
+    void on_save_project_as_triggered();
+
 protected:
 
 
