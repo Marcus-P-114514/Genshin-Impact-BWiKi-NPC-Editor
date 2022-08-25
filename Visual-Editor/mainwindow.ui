@@ -74,6 +74,9 @@
           </property>
           <item row="0" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
             <item>
              <widget class="QPushButton" name="visual_editor_selected">
               <property name="styleSheet">
@@ -347,7 +350,7 @@
       <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
-         <number>3</number>
+         <number>4</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -1487,6 +1490,9 @@
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
                <widget class="QTextEdit" name="npc_dialog_content_edit">
+                <property name="cursor" stdset="0">
+                 <cursorShape>CrossCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font: 9pt app_font;</string>
                 </property>
@@ -1518,6 +1524,9 @@ p, li { white-space: pre-wrap; }
                     <height>16777215</height>
                    </size>
                   </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
                   <property name="placeholderText">
                    <string>讲话者</string>
                   </property>
@@ -1530,6 +1539,9 @@ p, li { white-space: pre-wrap; }
                     <width>0</width>
                     <height>30</height>
                    </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
                   </property>
                   <property name="placeholderText">
                    <string>内容</string>
@@ -1621,22 +1633,139 @@ p, li { white-space: pre-wrap; }
          </layout>
         </widget>
         <widget class="QWidget" name="page_9">
-         <widget class="QLabel" name="label_5">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>20</y>
-            <width>591</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 18pt;</string>
-          </property>
-          <property name="text">
-           <string>CV表</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="styleSheet">
+             <string notr="true">font: 18pt;</string>
+            </property>
+            <property name="text">
+             <string>CV表</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>中文CV：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="Chinese_cv_edit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
+              <property name="placeholderText">
+               <string>在这里输入该NPC的中文CV，未知请留空</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_14">
+            <item>
+             <widget class="QLabel" name="label_24">
+              <property name="text">
+               <string>日文CV：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="Japanese_cv_edit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
+              <property name="placeholderText">
+               <string>在这里输入该NPC的日文CV，未知请留空</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <item>
+             <widget class="QLabel" name="label_25">
+              <property name="text">
+               <string>英文CV：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="English_cv_edit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
+              <property name="placeholderText">
+               <string>在这里输入该NPC的英文CV，未知请留空</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <widget class="QLabel" name="label_26">
+              <property name="text">
+               <string>韩文CV：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="Korean_cv_edit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
+              <property name="placeholderText">
+               <string>在这里输入该NPC的韩文CV，未知请留空</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>417</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="page_10">
          <widget class="QLabel" name="label_6">

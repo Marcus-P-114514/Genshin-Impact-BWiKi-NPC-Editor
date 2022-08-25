@@ -130,6 +130,14 @@ private slots:
 
     void on_npc_dialog_append_npc_option_clicked();
 
+    void on_Chinese_cv_edit_textChanged(const QString &arg1);
+
+    void on_Japanese_cv_edit_textChanged(const QString &arg1);
+
+    void on_English_cv_edit_textChanged(const QString &arg1);
+
+    void on_Korean_cv_edit_textChanged(const QString &arg1);
+
 protected:
 
 

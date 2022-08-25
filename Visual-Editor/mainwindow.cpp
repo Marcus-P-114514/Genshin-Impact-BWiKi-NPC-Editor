@@ -37,6 +37,11 @@ QString npc_gift = "无";
 QString npc_version = "未知";
 QString npc_store_exist = "否";
 QString npc_dialog_exist = "否";
+QString npc_cv_Chinese = "未知";
+QString npc_cv_Japanese = "未知";
+QString npc_cv_English = "未知";
+QString npc_cv_Korean = "未知";
+
 
 //预定义字段 - 用于生成判定
 QString npc_store_prices;
@@ -181,6 +186,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_dialog_insert->setStyleSheet(ui_btn_suggested);
     ui->npc_dialog_append_npc_dialog->setStyleSheet(ui_btn_suggested);
     ui->npc_dialog_append_npc_option->setStyleSheet(ui_btn_suggested);
+    ui->Chinese_cv_edit->setStyleSheet(ui_lineedit);
+    ui->Japanese_cv_edit->setStyleSheet(ui_lineedit);
+    ui->English_cv_edit->setStyleSheet(ui_lineedit);
+    ui->Korean_cv_edit->setStyleSheet(ui_lineedit);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -282,6 +291,19 @@ void MainWindow::generate_code(){
         ui->code_output->insertPlainText(npc_dialog_received_2);
         ui->code_output->insertPlainText("\n");
     }
+    ui->code_output->insertPlainText("|中文CV=");
+    ui->code_output->insertPlainText(npc_cv_Chinese);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|日文CV=");
+    ui->code_output->insertPlainText(npc_cv_Japanese);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|英文CV=");
+    ui->code_output->insertPlainText(npc_cv_English);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|韩文CV=");
+    ui->code_output->insertPlainText(npc_cv_Korean);
+    ui->code_output->insertPlainText("\n");
+
 }
 
 void MainWindow::on_code_editor_released_clicked()
@@ -1040,4 +1062,24 @@ void MainWindow::on_npc_dialog_append_npc_option_clicked()
     ui->npc_dialog_content_edit->insertPlainText("|剧情4=");
     ui->npc_dialog_content_edit->insertPlainText("\n");
     ui->npc_dialog_content_edit->insertPlainText("}}");
+}
+
+void MainWindow::on_Chinese_cv_edit_textChanged(const QString &arg1)
+{
+    npc_cv_Chinese = ui->Chinese_cv_edit->text();
+}
+
+void MainWindow::on_Japanese_cv_edit_textChanged(const QString &arg1)
+{
+    npc_cv_Japanese = ui->Japanese_cv_edit->text();
+}
+
+void MainWindow::on_English_cv_edit_textChanged(const QString &arg1)
+{
+    npc_cv_English = ui->English_cv_edit->text();
+}
+
+void MainWindow::on_Korean_cv_edit_textChanged(const QString &arg1)
+{
+    npc_cv_Korean = ui->Korean_cv_edit->text();
 }
