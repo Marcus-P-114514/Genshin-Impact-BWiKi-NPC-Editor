@@ -57,6 +57,7 @@ QString npc_commision_sys;
 QString npc_trounce_sys;
 QString user_last_edited;
 QString document_iscompleted = "否";
+QString npc_dialog_received_2;
 
 
 //预定义字段 - 用于生成判定
@@ -68,6 +69,7 @@ QString npc_location_disp_approach = "地图";
 int current_section = 0;
 QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.1.0";
 QString target_url_for_open;
+QString save_file_target;
 
 void config_theme_for_this_application(){
     //预设的主题
@@ -324,7 +326,7 @@ void MainWindow::generate_code(){
         ui->code_output->insertPlainText("|存在对话=是");
         ui->code_output->insertPlainText("\n");
         ui->code_output->insertPlainText("|对话内容=");
-        QString npc_dialog_received_2 = ui->npc_dialog_content_edit->document()->toPlainText();
+        npc_dialog_received_2 = ui->npc_dialog_content_edit->document()->toPlainText();
         ui->code_output->insertPlainText(npc_dialog_received_2);
         ui->code_output->insertPlainText("\n");
     }
@@ -394,6 +396,55 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText("\n");
     ui->code_output->insertPlainText("}}");
 
+}
+
+void MainWindow::save_project_ini() {
+    generate_code();
+    QSettings *config_save = new QSettings ( save_file_target, QSettings::IniFormat);
+    //处理：文件头
+    config_save->setValue("File/Section", "NPC");
+    config_save->setValue("File/Version", "2.0");
+    //处理：基本信息
+    config_save->setValue("Basic/Name", npc_name);
+    config_save->setValue("Basic/Nickname", npc_nickname);
+    config_save->setValue("Basic/Gender", npc_gender);
+    config_save->setValue("Basic/Job", npc_job);
+    config_save->setValue("Basic/Location", npc_location);
+    config_save->setValue("Basic/Country", npc_country);
+    config_save->setValue("Basic/Organization", npc_organization);
+    config_save->setValue("Basic/Syatem", npc_system);
+    config_save->setValue("Basic/Gift", npc_gift);
+    config_save->setValue("Basic/Version", npc_version);
+
+    //处理：商店
+    config_save->setValue("Store/Exist", npc_store_exist);
+    QString save_store_content = ui->npc_store_list->document()->toPlainText();
+    config_save->setValue("Store/Content", save_store_content);
+
+    //处理：对话
+    config_save->setValue("Dialog/Exist", npc_dialog_exist);
+    config_save->setValue("Dialog/Content", npc_dialog_received_2);
+
+    //处理：CV表
+    config_save->setValue("CV_Table/Chinese", npc_cv_Chinese);
+    config_save->setValue("CV_Table/Japanese", npc_cv_Japanese);
+    config_save->setValue("CV_Table/English", npc_cv_English);
+    config_save->setValue("CV_Table/Korean", npc_cv_Korean);
+
+    //处理：位置
+    config_save->setValue("Location/Time", npc_exist_time);
+    config_save->setValue("Location/Type", npc_location_disp_approach);
+    config_save->setValue("Location/Coordinate", npc_coordinate);
+
+    //处理：杂项
+    config_save->setValue("Extras/Activity", npc_activity);
+    config_save->setValue("Extras/Frame", npc_frame_sys);
+    config_save->setValue("Extras/Commision", npc_commision_sys);
+    config_save->setValue("Extras/Trounce", npc_trounce_sys);
+    config_save->setValue("Extras/Last_Edited", user_last_edited);
+    config_save->setValue("Extras/IsCompleted", document_iscompleted);
+
+    delete config_save;
 }
 
 void MainWindow::on_code_editor_released_clicked()
@@ -1339,4 +1390,11 @@ void MainWindow::on_new_project_triggered()
 {
     qApp->closeAllWindows();
     QProcess::startDetached(qApp->applicationFilePath(), QStringList());
+}
+
+void MainWindow::on_save_project_triggered()
+{
+    QString save_file_name = npc_name + ".npcedit";
+    save_file_target = QFileDialog::getSaveFileName(this, tr("保存工程"), save_file_name, tr("NPC文件 (*.npcedit)"));
+    save_project_ini();
 }

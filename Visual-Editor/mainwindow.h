@@ -178,6 +178,10 @@ private slots:
 
     void on_new_project_triggered();
 
+    void save_project_ini();
+
+    void on_save_project_triggered();
+
 protected:
 
 
