@@ -55,6 +55,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLineEdit" name="npc_multi_gift">
+       <property name="cursor">
+        <cursorShape>CrossCursor</cursorShape>
+       </property>
        <property name="statusTip">
         <string>在这里输入赠礼名称</string>
        </property>
@@ -71,6 +74,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="npc_multi_amount">
+       <property name="cursor">
+        <cursorShape>CrossCursor</cursorShape>
+       </property>
        <property name="statusTip">
         <string>在这里输入赠礼数量</string>
        </property>

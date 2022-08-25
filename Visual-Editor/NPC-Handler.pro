@@ -11,15 +11,18 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    npc_gift_option.cpp
+    npc_gift_option.cpp \
+    npc_store_multi_exchange.cpp
 
 HEADERS += \
     mainwindow.h \
-    npc_gift_option.h
+    npc_gift_option.h \
+    npc_store_multi_exchange.h
 
 FORMS += \
     mainwindow.ui \
-    npc_gift_option.ui
+    npc_gift_option.ui \
+    npc_store_multi_exchange.ui
 
 TRANSLATIONS += \
     NPC-Handler_en_US.ts

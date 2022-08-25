@@ -35,6 +35,10 @@ QString npc_organization = "未知";
 QString npc_system = "无";
 QString npc_gift = "无";
 QString npc_version = "未知";
+QString npc_store_exist = "否";
+
+//预定义字段 - 用于生成判定
+QString npc_store_prices;
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
@@ -153,6 +157,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->multiple_gift_edit->setStyleSheet(ui_btn_suggested);
     ui->version_input->setStyleSheet(ui_lineedit);
     ui->code_output->setStyleSheet(ui_textedit);
+    ui->npc_store_list->setStyleSheet(ui_textedit);
+    ui->npc_store_commodity_name_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_min_sale_unit->setStyleSheet(ui_lineedit);
+    ui->npc_store_exchanger_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_price_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_limit_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_refresh_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_etc_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_multi_exchanger->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_submit_current->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_clear_list->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_store_none->setStyleSheet(ui_radio_selected);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -161,6 +178,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->multiple_gift_edit->setVisible(0);
 
     ui->working_area->setCurrentIndex(0);
+    ui->hide_store_info->setCurrentIndex(1);
 }
 
 MainWindow::~MainWindow()
@@ -216,6 +234,20 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText("|相关系统=");
     ui->code_output->insertPlainText(npc_system);
     ui->code_output->insertPlainText("\n");
+    if  (npc_store_exist == "否") {
+        ui->code_output->insertPlainText("|存在商店=否");
+        ui->code_output->insertPlainText("\n");
+    }
+    else{
+        ui->code_output->insertPlainText("|存在商店=是");
+        ui->code_output->insertPlainText("\n");
+        ui->code_output->insertPlainText("|商店内容=");
+        ui->code_output->insertPlainText(ui->npc_store_list->document()->toPlainText());
+        QTextCursor npc_store_handle_last_line = ui->code_output->textCursor();
+        npc_store_handle_last_line.deletePreviousChar();
+        npc_store_handle_last_line.deletePreviousChar();
+        ui->code_output->insertPlainText("\n");
+    }
 }
 
 void MainWindow::on_code_editor_released_clicked()
@@ -786,4 +818,90 @@ void MainWindow::on_version_input_textChanged(const QString &arg1)
 {
     QString npc_version_received = ui->version_input->text();
     npc_version = npc_version_received;
+}
+
+void MainWindow::on_npc_store_isexist_clicked()
+{
+    //应用样式表
+    ui->npc_store_isexist->setStyleSheet(ui_radio_selected);
+    ui->npc_store_none->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_store_exist = "是";
+
+    //启用组件
+    ui->hide_store_info->setCurrentIndex(0);
+}
+
+void MainWindow::on_npc_store_none_clicked()
+{
+    //应用样式表
+    ui->npc_store_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_store_none->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    npc_store_exist = "否";
+
+    //启用组件
+    ui->hide_store_info->setCurrentIndex(1);
+}
+
+void MainWindow::on_npc_store_clear_list_clicked()
+{
+    ui->npc_store_list->clear();
+    ui->npc_store_commodity_name_input->clear();
+    ui->npc_store_min_sale_unit->clear();
+    ui->npc_store_exchanger_input->clear();
+    ui->npc_store_price_input->clear();
+    ui->npc_store_limit_input->clear();
+    ui->npc_store_refresh_input->clear();
+    ui->npc_store_etc_input->clear();
+}
+
+void MainWindow::on_npc_store_submit_current_clicked()
+{
+    QString npc_store_commodity_name_received = ui->npc_store_commodity_name_input->text();
+    QString npc_store_min_sale_unit_received = ui->npc_store_min_sale_unit->text();
+    QString npc_store_exchanger_received = ui->npc_store_exchanger_input->text();
+    QString npc_store_price_received = ui->npc_store_price_input->text();
+    QString npc_store_limit_received = ui->npc_store_limit_input->text();
+    QString npc_store_refresh_received = ui->npc_store_refresh_input->text();
+    QString npc_store_etc_received = ui->npc_store_etc_input->text();
+    if (npc_store_exchanger_received != "<SEPARATE_WINDOW>") {
+        QString store_list_current_line = npc_store_commodity_name_received + "*" + npc_store_min_sale_unit_received + "," + npc_store_exchanger_received + "*" + npc_store_price_received + "," + npc_store_limit_received + "," + npc_store_refresh_received + "," + npc_store_etc_received  + "+";
+        ui->npc_store_list->insertPlainText(store_list_current_line);
+        ui->npc_store_list->insertPlainText("\n");
+    }
+    else {
+        QSettings *config_commit_id_2 = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
+        QString slot_commit_read_3 = config_commit_id_2 -> value ( "generate/npc_store").toString();
+        QString npc_store_target_cache_read = "./commit/npc_store/commit_" + slot_commit_read_3 + ".commit";
+        delete config_commit_id_2;
+        QSettings *config_multi_store = new QSettings (npc_store_target_cache_read, QSettings::IniFormat);
+        npc_store_prices = config_multi_store -> value ( "npc_store/current").toString();
+        delete config_multi_store;
+        QString store_list_current_line = npc_store_commodity_name_received + "*" + npc_store_min_sale_unit_received + "," + npc_store_prices + "," + npc_store_limit_received + "," + npc_store_refresh_received + "," + npc_store_etc_received  + "+";
+        ui->npc_store_list->insertPlainText(store_list_current_line);
+        ui->npc_store_list->insertPlainText("\n");
+    }
+    ui->npc_store_commodity_name_input->clear();
+    ui->npc_store_min_sale_unit->clear();
+    ui->npc_store_exchanger_input->clear();
+    ui->npc_store_price_input->clear();
+    ui->npc_store_limit_input->clear();
+    ui->npc_store_refresh_input->clear();
+    ui->npc_store_etc_input->clear();
+}
+
+void MainWindow::on_npc_store_multi_exchanger_clicked()
+{
+    ui->npc_store_exchanger_input->setText("<SEPARATE_WINDOW>");
+    ui->npc_store_price_input->setText("<SEPARATE_WINDOW>");
+    npc_store_multi_exchange *store_multi_exchange = new npc_store_multi_exchange;
+    store_multi_exchange->show();
+}
+
+void MainWindow::on_open_mapview_triggered()
+{
+
 }

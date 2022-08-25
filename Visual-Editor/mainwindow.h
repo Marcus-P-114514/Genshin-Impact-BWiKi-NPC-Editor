@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <npc_gift_option.h>
+#include <npc_store_multi_exchange.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -104,6 +105,18 @@ private slots:
     void on_version_input_textChanged(const QString &arg1);
 
     void generate_code();
+
+    void on_npc_store_isexist_clicked();
+
+    void on_npc_store_none_clicked();
+
+    void on_npc_store_clear_list_clicked();
+
+    void on_npc_store_submit_current_clicked();
+
+    void on_npc_store_multi_exchanger_clicked();
+
+    void on_open_mapview_triggered();
 
 protected:
 

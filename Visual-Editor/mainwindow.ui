@@ -14,7 +14,7 @@
    <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.1</string>
+   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.0.2</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -347,7 +347,7 @@
       <item row="1" column="2">
        <widget class="QStackedWidget" name="working_area">
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -396,6 +396,9 @@
             </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="npcname_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="placeholderText">
                <string>为NPC头顶的白色部分</string>
               </property>
@@ -410,6 +413,9 @@
             </item>
             <item row="1" column="1">
              <widget class="QLineEdit" name="nickname_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -530,6 +536,9 @@
             </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="job_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -547,6 +556,9 @@
             </item>
             <item row="1" column="1">
              <widget class="QLineEdit" name="location_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -744,6 +756,9 @@
             </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="organization_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -999,6 +1014,9 @@
                 <height>30</height>
                </size>
               </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -1014,6 +1032,9 @@
                 <width>16777215</width>
                 <height>30</height>
                </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
               </property>
               <property name="styleSheet">
                <string notr="true"/>
@@ -1074,6 +1095,9 @@
             </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="version_input">
+              <property name="cursor">
+               <cursorShape>CrossCursor</cursorShape>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -1100,22 +1124,281 @@
          </layout>
         </widget>
         <widget class="QWidget" name="page_7">
-         <widget class="QLabel" name="label_3">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>20</y>
-            <width>591</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 18pt;</string>
-          </property>
-          <property name="text">
-           <string>商店</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">font: 18pt;</string>
+            </property>
+            <property name="text">
+             <string>商店</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>存在商店：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="npc_store_isexist">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>是</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="npc_store_none">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>否</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>728</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QStackedWidget" name="hide_store_info">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="page_15">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="rightMargin">
+               <number>31</number>
+              </property>
+              <item>
+               <widget class="QTextEdit" name="npc_store_list">
+                <property name="cursor" stdset="0">
+                 <cursorShape>CrossCursor</cursorShape>
+                </property>
+                <property name="placeholderText">
+                 <string>您可以在此手动编辑，请忽略最后一行结尾的+，生成时会自动去除。</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_commodity_name_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>名称</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_min_sale_unit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>最小销售单元</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_exchanger_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>交换物</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_price_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>价格</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_limit_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>限购数量</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_refresh_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>刷新时间</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="npc_store_etc_input">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>CrossCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>限制</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="npc_store_multi_exchanger">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>10</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>多交换物模式</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="npc_store_submit_current">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>10</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>70</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>提交</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="npc_store_clear_list">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>10</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>70</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>清空</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_16"/>
+           </widget>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="page_8">
          <widget class="QLabel" name="label_4">
@@ -1288,14 +1571,32 @@
     </property>
     <addaction name="action_placeholder"/>
    </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>打点</string>
+    </property>
+    <addaction name="open_mapview"/>
+   </widget>
    <addaction name="menuqqq"/>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
    <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
   </widget>
   <action name="action_placeholder">
    <property name="text">
     <string>Placeholder</string>
+   </property>
+  </action>
+  <action name="open_mapview">
+   <property name="text">
+    <string>打开大地图</string>
+   </property>
+   <property name="toolTip">
+    <string>在内建的浏览器中打开大地图。</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
    </property>
   </action>
  </widget>

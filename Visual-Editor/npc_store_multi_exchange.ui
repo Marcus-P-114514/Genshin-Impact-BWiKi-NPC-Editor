@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>npc_store_multi_exchange</class>
+ <widget class="QDialog" name="npc_store_multi_exchange">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>806</width>
+    <height>249</height>
+   </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>CrossCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>NPC商店编辑器</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(46,47,48);</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="npt_store_multi_price_input_1">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：所需求的交换物数量；编号：1</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：所需求的交换物数量；编号：1</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>价格1</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="npt_store_multi_price_input_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：所需求的交换物数量；编号：3</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：所需求的交换物数量；编号：3</string>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>价格3</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLineEdit" name="npc_store_multi_exchanger_input_5">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：交换物名称；编号：5</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：交换物名称；编号：5</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>交换物5</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="npt_store_multi_price_input_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：所需求的交换物数量；编号：4</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：所需求的交换物数量；编号：4</string>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>价格4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLineEdit" name="npc_store_multi_exchanger_input_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：交换物名称；编号：3</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：交换物名称；编号：3</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>交换物3</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLineEdit" name="npc_store_multi_exchange_code_out">
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>代码输出将会显示在这里</string>
+     </property>
+     <property name="whatsThis">
+      <string>代码输出将会显示在这里</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>输入时若没有请留空。您的编辑会被实时保存，重新打开本窗口将会清空所有数据。</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLineEdit" name="npc_store_multi_exchanger_input_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：交换物名称；编号：4</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：交换物名称；编号：4</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>交换物4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="npt_store_multi_price_input_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：所需求的交换物数量；编号：2</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：所需求的交换物数量；编号：2</string>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>价格2</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLineEdit" name="npc_store_multi_exchanger_input_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：交换物名称；编号：2</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：交换物名称；编号：2</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>交换物2</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLineEdit" name="npc_store_multi_exchanger_input_1">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：交换物名称；编号：1</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：交换物名称；编号：1</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>交换物1</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="npt_store_multi_price_input_5">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>CrossCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string>接受输入：所需求的交换物数量；编号：5</string>
+     </property>
+     <property name="whatsThis">
+      <string>接受输入：所需求的交换物数量；编号：5</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 3px; border: 2px solid #E7BF9F; border-radius: 5px; color: #E7BF9F;</string>
+     </property>
+     <property name="placeholderText">
+      <string>价格5</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
