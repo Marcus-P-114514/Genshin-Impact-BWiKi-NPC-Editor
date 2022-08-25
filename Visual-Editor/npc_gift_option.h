@@ -20,6 +20,8 @@ private slots:
 
     void on_npc_multi_clear_gift_clicked();
 
+    void on_npc_gift_mult_submit_final_clicked();
+
 private:
     Ui::npc_gift_option *ui;
 };

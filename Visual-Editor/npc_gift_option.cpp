@@ -6,6 +6,7 @@
 int slot_commit_current;
 QString commit_slot_write;
 QString npc_gift_target_cache = "";
+QString npc_gift_multi_result;
 
 npc_gift_option::npc_gift_option(QWidget *parent) :
     QDialog(parent),
@@ -57,16 +58,21 @@ void npc_gift_option::on_npc_multi_insert_gift_clicked()
     ui->gift_code_output->setText(npc_multi_gift_current_line);
     ui->npc_multi_gift->clear();
     ui->npc_multi_amount->clear();
-    QString npc_gift_multi_result = ui->gift_code_output->text();
+    npc_gift_multi_result = ui->gift_code_output->text();
+}
+
+void npc_gift_option::on_npc_multi_clear_gift_clicked()
+{
+    ui->gift_code_output->clear();
+}
+
+void npc_gift_option::on_npc_gift_mult_submit_final_clicked()
+{
     QSettings *config_npc_gift = new QSettings (npc_gift_target_cache, QSettings::IniFormat);
     config_npc_gift->setValue("npc_gift/current", npc_gift_multi_result);
     delete config_npc_gift;
     QSettings *config_lck_npc_gift = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
     config_lck_npc_gift->setValue("verification/npc_gift", "no");
     delete config_lck_npc_gift;
-}
-
-void npc_gift_option::on_npc_multi_clear_gift_clicked()
-{
-    ui->gift_code_output->clear();
+    QWidget::close();
 }

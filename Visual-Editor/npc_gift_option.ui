@@ -55,6 +55,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLineEdit" name="npc_multi_gift">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="cursor">
         <cursorShape>CrossCursor</cursorShape>
        </property>
@@ -74,6 +80,12 @@
      </item>
      <item>
       <widget class="QLineEdit" name="npc_multi_amount">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="cursor">
         <cursorShape>CrossCursor</cursorShape>
        </property>
@@ -105,7 +117,7 @@
        <property name="minimumSize">
         <size>
          <width>50</width>
-         <height>0</height>
+         <height>30</height>
         </size>
        </property>
        <property name="statusTip">
@@ -137,7 +149,7 @@ padding: 5px;</string>
        <property name="minimumSize">
         <size>
          <width>50</width>
-         <height>0</height>
+         <height>30</height>
         </size>
        </property>
        <property name="statusTip">
@@ -159,6 +171,26 @@ padding: 5px;</string>
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="npc_gift_mult_submit_final">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 5px;
+background-color: #E7BF9F;
+color: rgb(255, 255, 255);
+border: 6px;
+padding: 5px;</string>
+     </property>
+     <property name="text">
+      <string>提交</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

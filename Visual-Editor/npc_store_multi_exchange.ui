@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>806</width>
-    <height>249</height>
+    <height>293</height>
    </rect>
   </property>
   <property name="cursor">
@@ -169,7 +169,7 @@
       <bool>true</bool>
      </property>
      <property name="placeholderText">
-      <string>输入时若没有请留空。您的编辑会被实时保存，重新打开本窗口将会清空所有数据。</string>
+      <string>输入时若没有请留空，重新打开本窗口将会清空所有数据。</string>
      </property>
     </widget>
    </item>
@@ -298,6 +298,26 @@
      </property>
      <property name="placeholderText">
       <string>价格5</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QPushButton" name="npc_gift_multi_price_submit">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 5px;
+background-color: #E7BF9F;
+color: rgb(255, 255, 255);
+border: 6px;
+padding: 5px;</string>
+     </property>
+     <property name="text">
+      <string>提交</string>
      </property>
     </widget>
    </item>

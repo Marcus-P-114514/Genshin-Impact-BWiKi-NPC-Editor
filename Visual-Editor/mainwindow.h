@@ -118,6 +118,18 @@ private slots:
 
     void on_open_mapview_triggered();
 
+    void on_npc_dialog_none_clicked();
+
+    void on_npc_dialog_isexist_clicked();
+
+    void on_npc_dialog_islast_line_clicked();
+
+    void on_npc_dialog_insert_clicked();
+
+    void on_npc_dialog_append_npc_dialog_clicked();
+
+    void on_npc_dialog_append_npc_option_clicked();
+
 protected:
 
 

@@ -38,6 +38,8 @@ private slots:
 
     void on_npt_store_multi_price_input_5_textChanged(const QString &arg1);
 
+    void on_npc_gift_multi_price_submit_clicked();
+
 private:
     Ui::npc_store_multi_exchange *ui;
 };

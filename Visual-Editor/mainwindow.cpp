@@ -36,9 +36,11 @@ QString npc_system = "无";
 QString npc_gift = "无";
 QString npc_version = "未知";
 QString npc_store_exist = "否";
+QString npc_dialog_exist = "否";
 
 //预定义字段 - 用于生成判定
 QString npc_store_prices;
+QString npc_dialog_current_line_islast_line = "否";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
@@ -170,6 +172,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->npc_store_clear_list->setStyleSheet(ui_btn_suggested);
     ui->npc_store_isexist->setStyleSheet(ui_radio_released);
     ui->npc_store_none->setStyleSheet(ui_radio_selected);
+    ui->npc_dialog_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_dialog_none->setStyleSheet(ui_radio_selected);
+    ui->npc_dialog_content_edit->setStyleSheet(ui_textedit);
+    ui->npc_dialog_speaker_edit->setStyleSheet(ui_lineedit);
+    ui->npc_dialog_line_edit->setStyleSheet(ui_lineedit);
+    ui->npc_dialog_islast_line->setStyleSheet(ui_radio_released);
+    ui->npc_dialog_insert->setStyleSheet(ui_btn_suggested);
+    ui->npc_dialog_append_npc_dialog->setStyleSheet(ui_btn_suggested);
+    ui->npc_dialog_append_npc_option->setStyleSheet(ui_btn_suggested);
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -179,6 +190,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->working_area->setCurrentIndex(0);
     ui->hide_store_info->setCurrentIndex(1);
+    ui->npc_dialog_mainframe->setCurrentIndex(0);
+
+    ui->npc_dialog_content_edit->insertPlainText("{{NPC对话");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|标题=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|内容=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|待机语音=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("}}");
 }
 
 MainWindow::~MainWindow()
@@ -246,6 +268,18 @@ void MainWindow::generate_code(){
         QTextCursor npc_store_handle_last_line = ui->code_output->textCursor();
         npc_store_handle_last_line.deletePreviousChar();
         npc_store_handle_last_line.deletePreviousChar();
+        ui->code_output->insertPlainText("\n");
+    }
+    if (npc_dialog_exist == "否") {
+        ui->code_output->insertPlainText("|存在对话=否");
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        ui->code_output->insertPlainText("|存在对话=是");
+        ui->code_output->insertPlainText("\n");
+        ui->code_output->insertPlainText("|对话内容=");
+        QString npc_dialog_received_2 = ui->npc_dialog_content_edit->document()->toPlainText();
+        ui->code_output->insertPlainText(npc_dialog_received_2);
         ui->code_output->insertPlainText("\n");
     }
 }
@@ -904,4 +938,106 @@ void MainWindow::on_npc_store_multi_exchanger_clicked()
 void MainWindow::on_open_mapview_triggered()
 {
 
+}
+
+void MainWindow::on_npc_dialog_none_clicked()
+{
+    //应用样式表
+    ui->npc_dialog_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_dialog_none->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    npc_dialog_exist = "否";
+
+    //显示面板
+    ui->npc_dialog_mainframe->setCurrentIndex(0);
+}
+
+void MainWindow::on_npc_dialog_isexist_clicked()
+{
+    //应用样式表
+    ui->npc_dialog_isexist->setStyleSheet(ui_radio_selected);
+    ui->npc_dialog_none->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_dialog_exist = "是";
+
+    //显示面板
+    ui->npc_dialog_mainframe->setCurrentIndex(1);
+}
+
+void MainWindow::on_npc_dialog_islast_line_clicked()
+{
+    if (npc_dialog_current_line_islast_line == "否") {
+        npc_dialog_current_line_islast_line = "是";
+        ui->npc_dialog_islast_line->setStyleSheet(ui_radio_selected);
+    }
+    else {
+        npc_dialog_current_line_islast_line = "否";
+        ui->npc_dialog_islast_line->setStyleSheet(ui_radio_released);
+    }
+}
+
+void MainWindow::on_npc_dialog_insert_clicked()
+{
+    ui->npc_dialog_content_edit->insertPlainText("'''");
+    QString npc_dialog_speaker_received = ui->npc_dialog_speaker_edit->text();
+    ui->npc_dialog_content_edit->insertPlainText(npc_dialog_speaker_received);
+    ui->npc_dialog_content_edit->insertPlainText("'''");
+    ui->npc_dialog_content_edit->insertPlainText("：");
+    QString npc_dialog_line_received = ui->npc_dialog_line_edit->text();
+    ui->npc_dialog_content_edit->insertPlainText(npc_dialog_line_received);
+    if (npc_dialog_current_line_islast_line == "是") {
+        bool ok;
+    }
+    else {
+        ui->npc_dialog_content_edit->insertPlainText("<br/>");
+        ui->npc_dialog_content_edit->insertPlainText("\n");
+    }
+}
+
+void MainWindow::on_npc_dialog_append_npc_dialog_clicked()
+{
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("{{NPC对话");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|标题=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|内容=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|待机语音=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("}}");
+}
+
+void MainWindow::on_npc_dialog_append_npc_option_clicked()
+{
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("{{NPC剧情");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项1=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项1图标=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|剧情1=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项2=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项2图标=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|剧情2=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项3=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项3图标=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|剧情3=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项4=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|选项4图标=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|剧情4=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("}}");
 }

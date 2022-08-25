@@ -90,12 +90,7 @@ void npc_store_multi_exchange::update_multi_exchange() {
     ui->npc_store_multi_exchange_code_out->clear();
     ui->npc_store_multi_exchange_code_out->setText(npc_store_multi_price_out);
 
-    QSettings *config_npc_store = new QSettings (npc_store_target_cache, QSettings::IniFormat);
-    config_npc_store->setValue("npc_store/current", npc_store_multi_price_out);
-    delete config_npc_store;
-    QSettings *config_lck_npc_store = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
-    config_lck_npc_store->setValue("verification/npc_store", "no");
-    delete config_lck_npc_store;
+
 }
 
 npc_store_multi_exchange::~npc_store_multi_exchange()
@@ -151,4 +146,15 @@ void npc_store_multi_exchange::on_npc_store_multi_exchanger_input_5_textChanged(
 void npc_store_multi_exchange::on_npt_store_multi_price_input_5_textChanged(const QString &arg1)
 {
     update_multi_exchange();
+}
+
+void npc_store_multi_exchange::on_npc_gift_multi_price_submit_clicked()
+{
+    QSettings *config_npc_store = new QSettings (npc_store_target_cache, QSettings::IniFormat);
+    config_npc_store->setValue("npc_store/current", npc_store_multi_price_out);
+    delete config_npc_store;
+    QSettings *config_lck_npc_store = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
+    config_lck_npc_store->setValue("verification/npc_store", "no");
+    delete config_lck_npc_store;
+    QWidget::close();
 }
