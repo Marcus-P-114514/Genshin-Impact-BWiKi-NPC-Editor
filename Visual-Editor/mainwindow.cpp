@@ -112,9 +112,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     //读取主题
     QSettings *config_theme = new QSettings ( "./config/global.conf", QSettings::IniFormat);
-    QString theme_pref_read = config_theme -> value ( "theme/name").toString();
-    theme_pref_read = theme_pref;
-    qDebug()<<theme_pref_read;
+    //QString theme_pref_read = config_theme -> value ( "theme/name").toString();
+    //theme_pref_read = theme_pref;
+    //qDebug()<<theme_pref_read;
+
+    QSettings *config_theme_n = new QSettings ( "./config/global.conf", QSettings::IniFormat);
+    theme_pref = config_theme -> value ( "theme/name").toString();
+    delete config_theme_n;
 
 
     //应用预设

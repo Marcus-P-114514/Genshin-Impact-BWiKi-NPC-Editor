@@ -20,6 +20,8 @@ private slots:
 
     void on_setTheme_Dark_clicked();
 
+    void on_setTheme_Black_clicked();
+
 private:
     Ui::theme *ui;
 };

@@ -174,3 +174,27 @@ void theme::on_setTheme_Dark_clicked()
     ui->theme_instruction->setStyleSheet(text_emu);
     ui->apply_theme->setStyleSheet(btn_emu_selected);
 }
+
+void theme::on_setTheme_Black_clicked()
+{
+    QSettings *config_theme_2 = new QSettings ( "./config/global.conf", QSettings::IniFormat);
+    config_theme_2->setValue("theme/name", "black");
+    delete config_theme_2;
+    btn_emu_selected = "QPushButton{border-radius: 5px; background-color: #E7BF9F; color: #FFFFFF;border: 6px;}";
+    btn_emu_released = "QPushButton{border-radius: 5px; background-color: rgb(0,0,0); color: #E7BF9F;border: 6px;}";
+    lineedit_emu = "padding: 3px; border: 2px solid  solid #F6F0E5; border-radius: 5px;";
+    box_emu = "border: 2px solid  solid rgb(0,0,0); border-radius: 5px;";
+    this->setStyleSheet("background-color: rgb(0,0,0); color: #E7BF9F;");
+    ui->setTheme_light->setStyleSheet(btn_emu_released);
+    ui->setTheme_Dark->setStyleSheet(btn_emu_released);
+    ui->setTheme_Black->setStyleSheet(btn_emu_selected);
+    ui->setTheme_Custom->setStyleSheet(btn_emu_released);
+    ui->primary_input->setStyleSheet(lineedit_emu);
+    ui->background_input->setStyleSheet(lineedit_emu);
+    ui->text_input->setStyleSheet(lineedit_emu);
+    ui->toolbar_input->setStyleSheet(lineedit_emu);
+    ui->groupBox->setStyleSheet(box_emu);
+    ui->groupBox_2->setStyleSheet(box_emu);
+    ui->theme_instruction->setStyleSheet(text_emu);
+    ui->apply_theme->setStyleSheet(btn_emu_selected);
+}

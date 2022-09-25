@@ -14,7 +14,7 @@
    <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.2</string>
+   <string>原神 WIKI NPC图鉴第三方编辑器 REL 2.3.4 Beta</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -2407,7 +2407,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1216</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuqqq">
@@ -2444,9 +2444,16 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="open_mapview"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>偏好设置</string>
+    </property>
+    <addaction name="config_theme"/>
+   </widget>
    <addaction name="menuqqq"/>
    <addaction name="menu"/>
    <addaction name="menu_4"/>
+   <addaction name="menu_2"/>
    <addaction name="menu_3"/>
   </widget>
   <widget class="QToolBar" name="quickinsert">
