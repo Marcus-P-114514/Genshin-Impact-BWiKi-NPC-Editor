@@ -1,7 +1,7 @@
 [We have English version here, click here to switch to English version if you want.](README_EN.MD)
 
-[![standard-readme compliant](https://img.shields.io/badge/version-0.9.2-brightgreen)](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor) [![standard-readme compliant](https://img.shields.io/badge/User%20Guide-https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)](https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3) [![standard-readme compliant](https://img.shields.io/badge/Made%20With-Love-critical)]()
-[![standard-readme compliant](https://img.shields.io/badge/Qt%20Version-6.2.4-9cf)]()
+[![standard-readme compliant](https://img.shields.io/badge/version-2.3.4-brightgreen)](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor) [![standard-readme compliant](https://img.shields.io/badge/User%20Guide-https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)](https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3) [![standard-readme compliant](https://img.shields.io/badge/Made%20With-Love-critical)]()
+[![standard-readme compliant](https://img.shields.io/badge/Qt%20Version-5.15.2-9cf)]()
 # 目录
 
  - [开发背景](#%E5%BC%80%E5%8F%91%E8%83%8C%E6%99%AF)
