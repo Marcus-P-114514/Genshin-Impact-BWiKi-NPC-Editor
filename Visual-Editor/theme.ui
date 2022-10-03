@@ -29,41 +29,22 @@
       <string>主题选择</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="setTheme_light">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
+      <item row="6" column="0">
+       <widget class="QLabel" name="theme_instruction">
         <property name="statusTip">
-         <string>设置浅色主题</string>
+         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
         </property>
         <property name="whatsThis">
-         <string>设置浅色主题</string>
+         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
         </property>
         <property name="text">
-         <string>浅色</string>
+         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
         </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="setTheme_Dark">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
-        <property name="statusTip">
-         <string>设置深色主题</string>
-        </property>
-        <property name="whatsThis">
-         <string>设置深色主题</string>
-        </property>
-        <property name="text">
-         <string>深色</string>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -86,8 +67,8 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="setTheme_Custom">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="setTheme_Dark">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -95,18 +76,40 @@
          </size>
         </property>
         <property name="statusTip">
-         <string>设置自定义主题</string>
+         <string>设置深色主题</string>
         </property>
         <property name="whatsThis">
-         <string>设置自定义主题</string>
+         <string>设置深色主题</string>
         </property>
         <property name="text">
-         <string>自定义</string>
+         <string>深色</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="setTheme_light">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>设置浅色主题</string>
+        </property>
+        <property name="whatsThis">
+         <string>设置浅色主题</string>
+        </property>
+        <property name="text">
+         <string>浅色</string>
         </property>
        </widget>
       </item>
       <item row="4" column="0">
        <widget class="QGroupBox" name="groupBox_2">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="statusTip">
          <string>自定义颜色框</string>
         </property>
@@ -224,25 +227,6 @@
         </property>
        </spacer>
       </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="theme_instruction">
-        <property name="statusTip">
-         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
-        </property>
-        <property name="whatsThis">
-         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
-        </property>
-        <property name="text">
-         <string>若要应用主题，请点击「应用」，您重启程序以后新的设置才会生效。</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="7" column="0">
        <widget class="QPushButton" name="apply_theme">
         <property name="minimumSize">
@@ -259,6 +243,28 @@
         </property>
         <property name="text">
          <string>应用</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="setTheme_Custom">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>设置自定义主题</string>
+        </property>
+        <property name="whatsThis">
+         <string>设置自定义主题</string>
+        </property>
+        <property name="text">
+         <string>自定义</string>
         </property>
        </widget>
       </item>

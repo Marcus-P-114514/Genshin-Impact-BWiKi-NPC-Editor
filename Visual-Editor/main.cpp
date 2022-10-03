@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     int fontId = QFontDatabase::addApplicationFont("./fonts/interface.ttc");
         QString target_font = QFontDatabase::applicationFontFamilies(fontId).at(0);
         QFont app_font(target_font);
+        QFont fallback_font("宋体");
         QApplication::setFont(app_font);
 
     MainWindow w;

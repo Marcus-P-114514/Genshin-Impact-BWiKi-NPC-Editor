@@ -7,12 +7,16 @@ QString btn_emu_released;
 QString lineedit_emu;
 QString box_emu;
 QString text_emu = "border: none;";
+bool custom_theme_enabled = false;
 
 theme::theme(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::theme)
 {
     ui->setupUi(this);
+
+    ui->groupBox_2->setVisible(0);
+    ui->setTheme_Custom->setVisible(0);
 
     QSettings *config_theme_2 = new QSettings ( "./config/global.conf", QSettings::IniFormat);
     QString theme_pref_read_2 = config_theme_2 -> value ( "theme/name").toString();
