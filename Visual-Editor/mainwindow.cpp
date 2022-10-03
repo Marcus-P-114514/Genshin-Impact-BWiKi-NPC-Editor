@@ -66,6 +66,7 @@ QString npc_trounce_sys;
 QString user_last_edited;
 QString document_iscompleted = "否";
 QString npc_dialog_received_2;
+QString npc_avatar_patch = "否";
 
 
 //预定义字段 - 用于生成判定
@@ -75,7 +76,7 @@ QString npc_location_disp_approach = "地图";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
-QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.2";
+QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.4";
 QString target_url_for_open;
 QString save_file_target;
 
@@ -270,6 +271,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->submit_npc_model->setStyleSheet(ui_btn_suggested);
     ui->submit_npc_location_not_detailed->setStyleSheet(ui_btn_suggested);
     ui->quickinsert->setStyleSheet(ui_quickinsert);
+    ui->patch_avatar_false->setStyleSheet(ui_radio_selected);
+    ui->patch_avatar_true->setStyleSheet(ui_radio_released);
+    ui->patch_avatar_intro->setStyleSheet(ui_btn_frameless);
+
 
     ui->editor_selecter->setCurrentIndex(0);
     ui->tree_holder->setVisible(0);
@@ -438,6 +443,13 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText("\n");
     ui->code_output->insertPlainText("|是否完善=");
     ui->code_output->insertPlainText(document_iscompleted);
+    if (npc_avatar_patch=="是"){
+       ui->code_output->insertPlainText("\n");
+       ui->code_output->insertPlainText("|修补头像=是");
+    }
+    else{
+        bool ok;
+    }
     ui->code_output->insertPlainText("\n");
     ui->code_output->insertPlainText("}}");
 
@@ -2033,4 +2045,29 @@ void MainWindow::on_license_triggered()
 void MainWindow::on_update_check_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3/%E6%9B%B4%E6%96%B0/2.3.2"));
+}
+
+void MainWindow::on_patch_avatar_false_clicked()
+{
+    //应用样式表
+    ui->patch_avatar_false->setStyleSheet(ui_radio_selected);
+    ui->patch_avatar_true->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_avatar_patch = "否";
+}
+
+void MainWindow::on_patch_avatar_true_clicked()
+{
+    //应用样式表
+    ui->patch_avatar_true->setStyleSheet(ui_radio_selected);
+    ui->patch_avatar_false->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_avatar_patch = "是";
+}
+
+void MainWindow::on_patch_avatar_intro_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3/%E4%BF%AE%E8%A1%A5%E5%A4%B4%E5%83%8F"));
 }

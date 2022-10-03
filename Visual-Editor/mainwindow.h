@@ -223,6 +223,12 @@ private slots:
 
     void on_update_check_triggered();
 
+    void on_patch_avatar_false_clicked();
+
+    void on_patch_avatar_true_clicked();
+
+    void on_patch_avatar_intro_clicked();
+
 protected:
 
 
