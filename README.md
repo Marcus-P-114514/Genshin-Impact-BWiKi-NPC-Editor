@@ -45,7 +45,7 @@
 
 # 开源协议
 
-[### GNU General Public License v3.0](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/main/LICENSE) (c) Marcus-P-114514
+[### GNU General Public License v2.0](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/main/LICENSE) (c) Marcus-P-114514
 
 # 更新日志
 
