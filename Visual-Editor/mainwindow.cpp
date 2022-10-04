@@ -67,7 +67,7 @@ QString user_last_edited;
 QString document_iscompleted = "否";
 QString npc_dialog_received_2;
 QString npc_avatar_patch = "否";
-
+QString npc_current_country = "未知";
 
 //预定义字段 - 用于生成判定
 QString npc_store_prices;
@@ -76,7 +76,7 @@ QString npc_location_disp_approach = "地图";
 
 //预定义字段 - 用于程序运行
 int current_section = 0;
-QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.4";
+QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.5";
 QString target_url_for_open;
 QString save_file_target;
 
@@ -274,6 +274,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->patch_avatar_false->setStyleSheet(ui_radio_selected);
     ui->patch_avatar_true->setStyleSheet(ui_radio_released);
     ui->patch_avatar_intro->setStyleSheet(ui_btn_frameless);
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
 
 
     ui->editor_selecter->setCurrentIndex(0);
@@ -327,6 +335,9 @@ void MainWindow::generate_code(){
     ui->code_output->insertPlainText("\n");
     ui->code_output->insertPlainText("|所属国家=");
     ui->code_output->insertPlainText(npc_country);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|所在国家=");
+    ui->code_output->insertPlainText(npc_current_country);
     ui->code_output->insertPlainText("\n");
     if (npc_gift !="multi") {
         ui->code_output->insertPlainText("|对话赠礼=");
@@ -2070,4 +2081,132 @@ void MainWindow::on_patch_avatar_true_clicked()
 void MainWindow::on_patch_avatar_intro_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3/%E4%BF%AE%E8%A1%A5%E5%A4%B4%E5%83%8F"));
+}
+
+void MainWindow::on_npc_country_current_option_unknown_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "未知";
+}
+
+void MainWindow::on_npc_country_current_option_mondstat_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "蒙德";
+}
+
+void MainWindow::on_npc_country_current_option_liyue_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "璃月";
+}
+
+void MainWindow::on_npc_country_current_option_inazuman_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "稻妻";
+}
+
+void MainWindow::on_npc_country_current_option_sumeru_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "须弥";
+}
+
+void MainWindow::on_npc_country_current_option_fortaine_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "枫丹";
+}
+
+void MainWindow::on_npc_country_current_option_nata_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+    //更改字段
+    npc_current_country = "纳塔";
+}
+
+void MainWindow::on_npc_country_current_option_snezhnayan_clicked()
+{
+    //应用样式表
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_selected);
+
+    //更改字段
+    npc_current_country = "至冬";
 }

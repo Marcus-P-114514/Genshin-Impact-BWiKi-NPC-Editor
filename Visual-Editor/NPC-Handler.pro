@@ -43,3 +43,9 @@ RESOURCES += \
 ICON = ./resources/icons/application.icns
 
 RC_ICONS = ./resources/icons/application.ico
+
+VERSION = 2.3.5
+
+QMAKE_TARGET_PRODUCT = NPC-Editor
+
+QMAKE_TARGET_COPYRIGHT = XJZ

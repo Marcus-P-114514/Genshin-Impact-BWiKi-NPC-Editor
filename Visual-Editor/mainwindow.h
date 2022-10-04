@@ -229,6 +229,22 @@ private slots:
 
     void on_patch_avatar_intro_clicked();
 
+    void on_npc_country_current_option_unknown_clicked();
+
+    void on_npc_country_current_option_mondstat_clicked();
+
+    void on_npc_country_current_option_liyue_clicked();
+
+    void on_npc_country_current_option_inazuman_clicked();
+
+    void on_npc_country_current_option_sumeru_clicked();
+
+    void on_npc_country_current_option_fortaine_clicked();
+
+    void on_npc_country_current_option_nata_clicked();
+
+    void on_npc_country_current_option_snezhnayan_clicked();
+
 protected:
 
 
