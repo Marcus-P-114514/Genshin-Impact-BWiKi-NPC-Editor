@@ -5,6 +5,7 @@
 #include <npc_gift_option.h>
 #include <npc_store_multi_exchange.h>
 #include <theme.h>
+#include <license.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    license.cpp \
     main.cpp \
     mainwindow.cpp \
     npc_gift_option.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     theme.cpp
 
 HEADERS += \
+    license.h \
     mainwindow.h \
     npc_gift_option.h \
     npc_store_multi_exchange.h \
     theme.h
 
 FORMS += \
+    license.ui \
     mainwindow.ui \
     npc_gift_option.ui \
     npc_store_multi_exchange.ui \

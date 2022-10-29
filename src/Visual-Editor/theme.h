@@ -22,6 +22,8 @@ private slots:
 
     void on_setTheme_Black_clicked();
 
+    void on_apply_theme_clicked();
+
 private:
     Ui::theme *ui;
 };

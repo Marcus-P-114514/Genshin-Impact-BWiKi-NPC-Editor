@@ -152,6 +152,7 @@ void theme::on_setTheme_light_clicked()
     ui->groupBox_2->setStyleSheet(box_emu);
     ui->theme_instruction->setStyleSheet(text_emu);
     ui->apply_theme->setStyleSheet(btn_emu_selected);
+    //QWidget::close();
 
 }
 
@@ -177,6 +178,7 @@ void theme::on_setTheme_Dark_clicked()
     ui->groupBox_2->setStyleSheet(box_emu);
     ui->theme_instruction->setStyleSheet(text_emu);
     ui->apply_theme->setStyleSheet(btn_emu_selected);
+    //QWidget::close();
 }
 
 void theme::on_setTheme_Black_clicked()
@@ -201,4 +203,11 @@ void theme::on_setTheme_Black_clicked()
     ui->groupBox_2->setStyleSheet(box_emu);
     ui->theme_instruction->setStyleSheet(text_emu);
     ui->apply_theme->setStyleSheet(btn_emu_selected);
+    //QWidget::close();
 }
+
+void theme::on_apply_theme_clicked()
+{
+    QWidget::close();
+}
+

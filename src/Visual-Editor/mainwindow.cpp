@@ -16,6 +16,7 @@
 #include "QDebug"
 #include "QDialog"
 #include "QMessageBox"
+#include "QTextStream"
 
 using namespace std;
 
@@ -2072,7 +2073,8 @@ void MainWindow::on_changelog_triggered()
 
 void MainWindow::on_license_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/Desktop-Universal/LICENSE"));
+    license *read_license = new license;
+    read_license->show();
 }
 
 void MainWindow::on_update_check_triggered()
