@@ -6,6 +6,7 @@
 #include <npc_store_multi_exchange.h>
 #include <theme.h>
 #include <license.h>
+#include <changelog.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

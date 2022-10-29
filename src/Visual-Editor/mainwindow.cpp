@@ -640,6 +640,7 @@ MainWindow::MainWindow(QWidget *parent)
     //this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QMenu{border-bottom-color: rgb(44, 44, 44); border-bottom: 2px; border-style: solid; background-color: #FFFFF}QWidget{background: #F6F0E5; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color: #E7BF9F;}");
     config_theme_for_this_application();
     this->setStyleSheet(ui_stylesheet_general);
+    this->setStyleSheet(ui_btn_suggested);
     ui->toolbar_shade->setStyleSheet(toolbar_shade_current);
     ui->project_name->setStyleSheet(ui_sidebar_selected);
     ui->basic_info_switcher->setStyleSheet(ui_sidebar_released);
@@ -2066,9 +2067,8 @@ void MainWindow::on_about_Qt_triggered()
 
 void MainWindow::on_changelog_triggered()
 {
-    QString about_title="关于";
-    QString about_content="v.1.0 这个版本仅提供纯文本编辑（外加代码高亮），以及继承了一些额外小工具来帮助您快速在本地编辑NPC图鉴。\nv.1.1 更新界面、支持拖拽读取文件\nv.1.2 现在可以插入特殊字符了\nv.1.2.1-b 此版本允许您在安卓平板上快速编辑原神BWIKI的NPC图鉴\nv.2.2.3 此版本提供了更好的图形化界面";
-    QMessageBox::information(this, about_title,about_content, QMessageBox::Ok,QMessageBox::NoButton);
+    changelog *open_changelog = new changelog;
+    open_changelog->show();
 }
 
 void MainWindow::on_license_triggered()
