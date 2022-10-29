@@ -1,0 +1,46 @@
+更新日志
+
+v.1.0
+第一版。
+这个版本仅提供纯文本编辑（外加代码高亮），以及集成了一些额外小工具来帮助您快速在本地编辑NPC图鉴。
+
+v.1.1
+更新界面
+支持拖拽读取文件
+
+v.1.2
+现在可以插入特殊字符了
+
+v.2.3.2
+新增：可视化编辑
+
+v.2.3.5
+适应WIKI模板新参数
+
+v.2.3.6
+修复了读取工程文件时不显示特定参数的问题
+可以默认打开工程文件
+
+
+Changelog
+
+v.1.0
+Init commit.
+This version is just a plain text editor with highlighter and other tools helps you to edit quickly offline.
+
+v.1.1
+UI improvement.
+Support for Drag 'n Drop to open an existing file.
+
+v.1.2
+Now you can insert special characters.
+
+v.2.3.2
+Added: Visual Editor.
+
+v.2.3.5
+Adapted new arguments on the template.
+
+v.2.3.6
+Fixed an issue where certain parameters were not displayed when reading project files.
+Project files can be opened by default.
