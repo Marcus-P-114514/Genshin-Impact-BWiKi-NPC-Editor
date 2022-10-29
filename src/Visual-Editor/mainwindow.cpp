@@ -2056,7 +2056,7 @@ void MainWindow::on_config_theme_triggered()
 void MainWindow::on_about_triggered()
 {
     QString about_title="关于";
-    QString about_content="原神BWIKI NPC图鉴编辑器 ver. 2.3.2\n这个项目是给原神BWiKi开发的，其目的为降低NPC图鉴编辑门槛，提供了一个编辑向导。\nby：屑机主\n许可：GPL v.2";
+    QString about_content="原神BWIKI NPC图鉴编辑器 ver. 2.3.6\n\n关于此版本的简要说明\n这个项目是给原神BWiKi开发的，其目的为降低NPC图鉴编辑门槛，提供了一个编辑向导。\n\n安装\nWindows版为便携版，解压即用。\n对于Mac版，请先将程序从dmg中拖拽到/Applications。\n\n更新日志\n修复了读取工程文件时不显示特定参数的问题\n可以默认打开工程文件";
     QMessageBox::information(this, about_title,about_content, QMessageBox::Ok,QMessageBox::NoButton);
 }
 
@@ -2079,7 +2079,7 @@ void MainWindow::on_license_triggered()
 
 void MainWindow::on_update_check_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3/%E6%9B%B4%E6%96%B0/2.3.2"));
+    QDesktopServices::openUrl(QUrl("https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"));
 }
 
 void MainWindow::on_patch_avatar_false_clicked()
