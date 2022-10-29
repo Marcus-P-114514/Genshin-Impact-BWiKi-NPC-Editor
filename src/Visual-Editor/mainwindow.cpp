@@ -79,443 +79,10 @@ int current_section = 0;
 QString window_title_default = "原神 BWIKI NPC图鉴第三方编辑器 REL 2.3.6";
 QString target_url_for_open;
 QString save_file_target;
-
-void config_theme_for_this_application(){
-
-
-
-}
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-
-    //预设的主题
-    //浅色
-    QString primary_light = "#E7BF9F";
-    QString background_light = "#F6F0E5";
-    QString text_color_selected_light = "#FFFFFF";
-    QString toolbar_light="#E7BF9F";
-
-    //深色
-    QString primary_dark = "#E7BF9F";
-    QString background_dark = "rgb(69,69,69)";
-    QString text_color_selected_dark = "#FFFFFF";
-    QString toolbar_dark="#E7BF9F";
-
-    //黑色
-    QString primary_black = "#E7BF9F";
-    QString background_black = "rgb(0,0,0)";
-    QString text_color_selected_black = "#FFFFFF";
-    QString toolbar_black="#rgb(0,0,0)";
-
-    //读取主题
-    QSettings *config_theme = new QSettings ( "./config/global.conf", QSettings::IniFormat);
-    //QString theme_pref_read = config_theme -> value ( "theme/name").toString();
-    //theme_pref_read = theme_pref;
-    //qDebug()<<theme_pref_read;
-
-    QSettings *config_theme_n = new QSettings ( "./config/global.conf", QSettings::IniFormat);
-    theme_pref = config_theme -> value ( "theme/name").toString();
-    delete config_theme_n;
-
-
-    //应用预设
-    if (theme_pref == "light"){
-        primary_current = primary_light;
-        background_current = background_light;
-        text_color_current = text_color_selected_light;
-        toolbar_current = toolbar_light;
-        toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
-    }
-    else if (theme_pref == "dark"){
-        primary_current = primary_dark;
-        background_current = background_dark;
-        text_color_current = text_color_selected_dark;
-        toolbar_current = toolbar_dark;
-    }
-    else if (theme_pref == "black"){
-        primary_current = primary_black;
-        background_current = background_black;
-        text_color_current = text_color_selected_black;
-        toolbar_current = toolbar_black;
-    }
-    else if (theme_pref == "custom"){
-        QString primary_custom = config_theme -> value ( "custom/primary").toString();
-        QString background_custom = config_theme -> value ( "custom/background").toString();
-        QString text_color_selected_custom = config_theme -> value ( "custom/text_color").toString();
-        QString toolbar_custom = config_theme -> value ( "custom/toolbar").toString();
-        primary_current = primary_custom;
-        background_current = background_custom;
-        text_color_current = text_color_selected_custom;
-        toolbar_current = toolbar_custom;
-    }
-    else{
-        primary_current = primary_light;
-        background_current = background_light;
-        text_color_current = text_color_selected_light;
-        toolbar_current = toolbar_light;
-        toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
-    }
-
-    delete config_theme;
-
-    //生成样式表
-    //primary_current_16 = converRGB16HexStr(primary_current);
-    //ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + primary_current + "; color: " + text_color_current +";}";
-    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  toolbar_current + "; color: " + primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + toolbar_current + "; color: " + text_color_current +";}";
-    ui_btn_frameless = "QPushButton{border-radius: 5px; background-color: " + background_current + "; color:" + primary_current + ";border: 6px;}";
-    ui_btn_suggested = "QPushButton{border-radius: 5px; background-color: " + primary_current + "; color:" + text_color_current + ";border: 6px;}";
-    ui_radio_selected = ui_btn_suggested;
-    ui_radio_released = ui_btn_frameless;
-    ui_sidebar_selected = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_suggested;
-    ui_sidebar_released = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_frameless;
-    ui_lineedit = "padding: 3px; border: 2px solid " + primary_current + "; border-radius: 5px;";
-    ui_combobox = "QComboBox::down-arrow{border: 2px solid "+ primary_current + "; border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + "; min-width: 10px;} QComboBox{border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + ";}";
-    ui_textedit = ui_lineedit;
-    ui_quickinsert = "background: " + primary_current + "; color: " + text_color_current + ";";
-
-    //初始化界面
-    //this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QMenu{border-bottom-color: rgb(44, 44, 44); border-bottom: 2px; border-style: solid; background-color: #FFFFF}QWidget{background: #F6F0E5; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color: #E7BF9F;}");
-    config_theme_for_this_application();
-    this->setStyleSheet(ui_stylesheet_general);
-    ui->toolbar_shade->setStyleSheet(toolbar_shade_current);
-    ui->project_name->setStyleSheet(ui_sidebar_selected);
-    ui->basic_info_switcher->setStyleSheet(ui_sidebar_released);
-    ui->npc_store_switcher->setStyleSheet(ui_sidebar_released);
-    ui->npc_dialog_switcher->setStyleSheet(ui_sidebar_released);
-    ui->cv_table_switcher->setStyleSheet(ui_sidebar_released);
-    ui->npc_location_switcher->setStyleSheet(ui_sidebar_released);
-    ui->extra_switcher->setStyleSheet(ui_sidebar_released);
-    ui->file_switcher->setStyleSheet(ui_sidebar_released);
-    ui->visual_editor_selected->setStyleSheet(ui_sidebar_selected);
-    ui->visual_editor_released->setStyleSheet(ui_sidebar_released);
-    ui->code_editor_released->setStyleSheet(ui_sidebar_released);
-    ui->code_editor_selected->setStyleSheet(ui_sidebar_selected);
-    ui->conf_panel_one->setStyleSheet(ui_sidebar_released);
-    ui->conf_panel_two->setStyleSheet(ui_sidebar_released);
-    ui->npcname_input->setStyleSheet(ui_lineedit);
-    ui->nickname_input->setStyleSheet(ui_lineedit);
-    ui->npc_gender_option_unknown->setStyleSheet(ui_radio_selected);
-    ui->npc_gender_male->setStyleSheet(ui_radio_released);
-    ui->npc_gender_female->setStyleSheet(ui_radio_released);
-    ui->job_input->setStyleSheet(ui_lineedit);
-    ui->location_input->setStyleSheet(ui_lineedit);
-    ui->npc_country_option_unknown->setStyleSheet(ui_radio_selected);
-    ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
-    ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
-    ui->organization_input->setStyleSheet(ui_lineedit);
-    ui->npc_system_option_none->setStyleSheet(ui_radio_selected);
-    ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
-    ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
-    ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
-    ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
-    ui->npc_system_option_store->setStyleSheet(ui_radio_released);
-    ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
-    ui->npc_gift_option_none->setStyleSheet(ui_radio_selected);
-    ui->npc_gift_option_exist->setStyleSheet(ui_radio_released);
-    ui->gift_single_edit_name->setStyleSheet(ui_lineedit);
-    ui->gift_single_edit_amount->setStyleSheet(ui_lineedit);
-    ui->multiple_gift_edit->setStyleSheet(ui_btn_suggested);
-    ui->version_input->setStyleSheet(ui_lineedit);
-    ui->code_output->setStyleSheet(ui_textedit);
-    ui->npc_store_list->setStyleSheet(ui_textedit);
-    ui->npc_store_commodity_name_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_min_sale_unit->setStyleSheet(ui_lineedit);
-    ui->npc_store_exchanger_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_price_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_limit_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_refresh_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_etc_input->setStyleSheet(ui_lineedit);
-    ui->npc_store_multi_exchanger->setStyleSheet(ui_btn_suggested);
-    ui->npc_store_submit_current->setStyleSheet(ui_btn_suggested);
-    ui->npc_store_clear_list->setStyleSheet(ui_btn_suggested);
-    ui->npc_store_isexist->setStyleSheet(ui_radio_released);
-    ui->npc_store_none->setStyleSheet(ui_radio_selected);
-    ui->npc_dialog_isexist->setStyleSheet(ui_radio_released);
-    ui->npc_dialog_none->setStyleSheet(ui_radio_selected);
-    ui->npc_dialog_content_edit->setStyleSheet(ui_textedit);
-    ui->npc_dialog_speaker_edit->setStyleSheet(ui_lineedit);
-    ui->npc_dialog_line_edit->setStyleSheet(ui_lineedit);
-    ui->npc_dialog_islast_line->setStyleSheet(ui_radio_released);
-    ui->npc_dialog_insert->setStyleSheet(ui_btn_suggested);
-    ui->npc_dialog_append_npc_dialog->setStyleSheet(ui_btn_suggested);
-    ui->npc_dialog_append_npc_option->setStyleSheet(ui_btn_suggested);
-    ui->Chinese_cv_edit->setStyleSheet(ui_lineedit);
-    ui->Japanese_cv_edit->setStyleSheet(ui_lineedit);
-    ui->English_cv_edit->setStyleSheet(ui_lineedit);
-    ui->Korean_cv_edit->setStyleSheet(ui_lineedit);
-    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_selected);
-    ui->npc_appear_isday->setStyleSheet(ui_radio_released);
-    ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
-    ui->npc_location_usemap->setStyleSheet(ui_radio_selected);
-    ui->npc_location_usepic->setStyleSheet(ui_radio_released);
-    ui->npc_location_map_edit->setStyleSheet(ui_lineedit);
-    ui->upload_npc_pic_location->setStyleSheet(ui_btn_suggested);
-    ui->npc_activity_yes->setStyleSheet(ui_radio_released);
-    ui->npc_activity_no->setStyleSheet(ui_radio_selected);
-    ui->npc_frame_sys_edit->setStyleSheet(ui_lineedit);
-    ui->npc_commision_sys_edit->setStyleSheet(ui_lineedit);
-    ui->npc_trounce_edit->setStyleSheet(ui_lineedit);
-    ui->last_edit_ver_edit->setStyleSheet(ui_lineedit);
-    ui->file_iscompleted->setStyleSheet(ui_radio_released);
-    ui->file_requires_work->setStyleSheet(ui_radio_selected);
-    ui->submit_npc_avatar->setStyleSheet(ui_btn_suggested);
-    ui->submit_npc_model->setStyleSheet(ui_btn_suggested);
-    ui->submit_npc_location_not_detailed->setStyleSheet(ui_btn_suggested);
-    ui->quickinsert->setStyleSheet(ui_quickinsert);
-    ui->patch_avatar_false->setStyleSheet(ui_radio_selected);
-    ui->patch_avatar_true->setStyleSheet(ui_radio_released);
-    ui->patch_avatar_intro->setStyleSheet(ui_btn_frameless);
-    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_selected);
-    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
-    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
-
-
-    ui->editor_selecter->setCurrentIndex(0);
-    ui->tree_holder->setVisible(0);
-    ui->gift_single_edit_name->setVisible(0);
-    ui->gift_single_edit_amount->setVisible(0);
-    ui->multiple_gift_edit->setVisible(0);
-    ui->quickinsert->setVisible(0);
-
-    ui->working_area->setCurrentIndex(0);
-    ui->hide_store_info->setCurrentIndex(1);
-    ui->npc_dialog_mainframe->setCurrentIndex(0);
-    ui->npc_map_main_frame->setCurrentIndex(0);
-
-    ui->npc_dialog_content_edit->insertPlainText("{{NPC对话");
-    ui->npc_dialog_content_edit->insertPlainText("\n");
-    ui->npc_dialog_content_edit->insertPlainText("|标题=");
-    ui->npc_dialog_content_edit->insertPlainText("\n");
-    ui->npc_dialog_content_edit->insertPlainText("|内容=");
-    ui->npc_dialog_content_edit->insertPlainText("\n");
-    ui->npc_dialog_content_edit->insertPlainText("|待机语音=");
-    ui->npc_dialog_content_edit->insertPlainText("\n");
-    ui->npc_dialog_content_edit->insertPlainText("}}");
-
-    setAcceptDrops(true);
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-void MainWindow::generate_code(){
-    ui->code_output->clear();
-    ui->code_output->insertPlainText("{{NPC");
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|名称=");
-    ui->code_output->insertPlainText(npc_name);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|称号=");
-    ui->code_output->insertPlainText(npc_nickname);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|性别=");
-    ui->code_output->insertPlainText(npc_gender);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|职业=");
-    ui->code_output->insertPlainText(npc_job);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|位置=");
-    ui->code_output->insertPlainText(npc_location);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|所属国家=");
-    ui->code_output->insertPlainText(npc_country);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|所在国家=");
-    ui->code_output->insertPlainText(npc_current_country);
-    ui->code_output->insertPlainText("\n");
-    if (npc_gift !="multi") {
-        ui->code_output->insertPlainText("|对话赠礼=");
-        ui->code_output->insertPlainText(npc_gift);
-        ui->code_output->insertPlainText("\n");
-    }
-    else{
-        QSettings *config_commit_id = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
-        QString slot_commit_read = config_commit_id -> value ( "generate/npc_gift").toString();
-        QString npc_gift_target_cache_read = "./commit/npc_gift/commit_" + slot_commit_read + ".commit";
-        delete config_commit_id;
-        QSettings *config_multi_gift = new QSettings (npc_gift_target_cache_read, QSettings::IniFormat);
-        npc_gift = config_multi_gift -> value ( "npc_gift/current").toString();
-        delete config_multi_gift;
-        ui->code_output->insertPlainText("|对话赠礼=");
-        ui->code_output->insertPlainText(npc_gift);
-        ui->code_output->insertPlainText("\n");
-    }
-    ui->code_output->insertPlainText("|实装版本=");
-    ui->code_output->insertPlainText(npc_version);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|所属组织=");
-    ui->code_output->insertPlainText(npc_organization);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|相关系统=");
-    ui->code_output->insertPlainText(npc_system);
-    ui->code_output->insertPlainText("\n");
-    if  (npc_store_exist == "否") {
-        ui->code_output->insertPlainText("|存在商店=否");
-        ui->code_output->insertPlainText("\n");
-    }
-    else{
-        ui->code_output->insertPlainText("|存在商店=是");
-        ui->code_output->insertPlainText("\n");
-        ui->code_output->insertPlainText("|商店内容=");
-        ui->code_output->insertPlainText(ui->npc_store_list->document()->toPlainText());
-        QTextCursor npc_store_handle_last_line = ui->code_output->textCursor();
-        npc_store_handle_last_line.deletePreviousChar();
-        npc_store_handle_last_line.deletePreviousChar();
-        ui->code_output->insertPlainText("\n");
-    }
-    if (npc_dialog_exist == "否") {
-        ui->code_output->insertPlainText("|存在对话=否");
-        ui->code_output->insertPlainText("\n");
-    }
-    else {
-        ui->code_output->insertPlainText("|存在对话=是");
-        ui->code_output->insertPlainText("\n");
-        ui->code_output->insertPlainText("|对话内容=");
-        npc_dialog_received_2 = ui->npc_dialog_content_edit->document()->toPlainText();
-        ui->code_output->insertPlainText(npc_dialog_received_2);
-        ui->code_output->insertPlainText("\n");
-    }
-    ui->code_output->insertPlainText("|中文CV=");
-    ui->code_output->insertPlainText(npc_cv_Chinese);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|日文CV=");
-    ui->code_output->insertPlainText(npc_cv_Japanese);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|英文CV=");
-    ui->code_output->insertPlainText(npc_cv_English);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|韩文CV=");
-    ui->code_output->insertPlainText(npc_cv_Korean);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|出现时间=");
-    ui->code_output->insertPlainText(npc_exist_time);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|出现地点={{NPC位置|出现时间：");
-    ui->code_output->insertPlainText(npc_exist_time);
-    ui->code_output->insertPlainText("|");
-    ui->code_output->insertPlainText(npc_location_disp_approach);
-    ui->code_output->insertPlainText("|");
-    if (npc_location_disp_approach == "地图") {
-        ui->code_output->insertPlainText(npc_coordinate);
-    }
-    else {
-        QString npc_get_location_pic_detailed = "NPC-具体位置-" + npc_name + "-" + npc_exist_time;
-        ui->code_output->insertPlainText(npc_get_location_pic_detailed);
-    }
-    ui->code_output->insertPlainText("|");
-    ui->code_output->insertPlainText(npc_name);
-    ui->code_output->insertPlainText("位置}}");
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|活动限定=");
-    ui->code_output->insertPlainText(npc_activity);
-    ui->code_output->insertPlainText("\n");
-    if (npc_frame_sys != "") {
-        ui->code_output->insertPlainText("|声望系统=");
-        ui->code_output->insertPlainText(npc_frame_sys);
-        ui->code_output->insertPlainText("\n");
-    }
-    else {
-        bool ok;
-    }
-    if (npc_commision_sys != "") {
-        ui->code_output->insertPlainText("|居民委托=");
-        ui->code_output->insertPlainText(npc_commision_sys);
-        ui->code_output->insertPlainText("\n");
-    }
-    else {
-        bool ok;
-    }
-    if (npc_trounce_sys != "") {
-        ui->code_output->insertPlainText("|讨伐悬赏=");
-        ui->code_output->insertPlainText(npc_trounce_sys);
-        ui->code_output->insertPlainText("\n");
-    }
-    else {
-        bool ok;
-    }
-    ui->code_output->insertPlainText("|最后编辑版本=");
-    ui->code_output->insertPlainText(user_last_edited);
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("|是否完善=");
-    ui->code_output->insertPlainText(document_iscompleted);
-    if (npc_avatar_patch=="是"){
-       ui->code_output->insertPlainText("\n");
-       ui->code_output->insertPlainText("|修补头像=是");
-    }
-    else{
-        bool ok;
-    }
-    ui->code_output->insertPlainText("\n");
-    ui->code_output->insertPlainText("}}");
-
-}
-
-void MainWindow::save_project_ini() {
-    generate_code();
-    QSettings *config_save = new QSettings ( save_file_target, QSettings::IniFormat);
-    //处理：文件头
-    config_save->setValue("File/Section", "NPC");
-    config_save->setValue("File/Version", "2.0");
-    //处理：基本信息
-    config_save->setValue("Basic/Name", npc_name);
-    config_save->setValue("Basic/Nickname", npc_nickname);
-    config_save->setValue("Basic/Gender", npc_gender);
-    config_save->setValue("Basic/Job", npc_job);
-    config_save->setValue("Basic/Location", npc_location);
-    config_save->setValue("Basic/Country", npc_country);
-    config_save->setValue("Basic/Organization", npc_organization);
-    config_save->setValue("Basic/System", npc_system);
-    config_save->setValue("Basic/Gift", npc_gift);
-    config_save->setValue("Basic/Version", npc_version);
-
-    //处理：商店
-    config_save->setValue("Store/Exist", npc_store_exist);
-    QString save_store_content = ui->npc_store_list->document()->toPlainText();
-    config_save->setValue("Store/Content", save_store_content);
-
-    //处理：对话
-    config_save->setValue("Dialog/Exist", npc_dialog_exist);
-    config_save->setValue("Dialog/Content", npc_dialog_received_2);
-
-    //处理：CV表
-    config_save->setValue("CV_Table/Chinese", npc_cv_Chinese);
-    config_save->setValue("CV_Table/Japanese", npc_cv_Japanese);
-    config_save->setValue("CV_Table/English", npc_cv_English);
-    config_save->setValue("CV_Table/Korean", npc_cv_Korean);
-
-    //处理：位置
-    config_save->setValue("Location/Time", npc_exist_time);
-    config_save->setValue("Location/Type", npc_location_disp_approach);
-    config_save->setValue("Location/Coordinate", npc_coordinate);
-
-    //处理：杂项
-    config_save->setValue("Extras/Activity", npc_activity);
-    config_save->setValue("Extras/Frame", npc_frame_sys);
-    config_save->setValue("Extras/Commision", npc_commision_sys);
-    config_save->setValue("Extras/Trounce", npc_trounce_sys);
-    config_save->setValue("Extras/Last_Edited", user_last_edited);
-    config_save->setValue("Extras/IsCompleted", document_iscompleted);
-
-    delete config_save;
-}
+QString argument_received;
 
 void MainWindow::open_project_ini() {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QSettings *config_open = new QSettings ( save_file_target, QSettings::IniFormat);
     //读取：文件头
         QString file_section_read = config_open->value("File/Section").toString();
@@ -971,6 +538,461 @@ void MainWindow::open_project_ini() {
 
         //处理：代码
         generate_code();
+
+        QApplication::restoreOverrideCursor();
+}
+
+void config_theme_for_this_application(){}
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    //预设的主题
+    //浅色
+    QString primary_light = "#E7BF9F";
+    QString background_light = "#F6F0E5";
+    QString text_color_selected_light = "#FFFFFF";
+    QString toolbar_light="#E7BF9F";
+
+    //深色
+    QString primary_dark = "#E7BF9F";
+    QString background_dark = "rgb(69,69,69)";
+    QString text_color_selected_dark = "#FFFFFF";
+    QString toolbar_dark="#E7BF9F";
+
+    //黑色
+    QString primary_black = "#E7BF9F";
+    QString background_black = "rgb(0,0,0)";
+    QString text_color_selected_black = "#FFFFFF";
+    QString toolbar_black="#rgb(0,0,0)";
+
+    //读取主题
+    QSettings *config_theme = new QSettings ( "./config/global.conf", QSettings::IniFormat);
+    //QString theme_pref_read = config_theme -> value ( "theme/name").toString();
+    //theme_pref_read = theme_pref;
+    //qDebug()<<theme_pref_read;
+
+    QSettings *config_theme_n = new QSettings ( "./config/global.conf", QSettings::IniFormat);
+    theme_pref = config_theme -> value ( "theme/name").toString();
+    delete config_theme_n;
+
+
+    //应用预设
+    if (theme_pref == "light"){
+        primary_current = primary_light;
+        background_current = background_light;
+        text_color_current = text_color_selected_light;
+        toolbar_current = toolbar_light;
+        toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
+    }
+    else if (theme_pref == "dark"){
+        primary_current = primary_dark;
+        background_current = background_dark;
+        text_color_current = text_color_selected_dark;
+        toolbar_current = toolbar_dark;
+    }
+    else if (theme_pref == "black"){
+        primary_current = primary_black;
+        background_current = background_black;
+        text_color_current = text_color_selected_black;
+        toolbar_current = toolbar_black;
+    }
+    else if (theme_pref == "custom"){
+        QString primary_custom = config_theme -> value ( "custom/primary").toString();
+        QString background_custom = config_theme -> value ( "custom/background").toString();
+        QString text_color_selected_custom = config_theme -> value ( "custom/text_color").toString();
+        QString toolbar_custom = config_theme -> value ( "custom/toolbar").toString();
+        primary_current = primary_custom;
+        background_current = background_custom;
+        text_color_current = text_color_selected_custom;
+        toolbar_current = toolbar_custom;
+    }
+    else{
+        primary_current = primary_light;
+        background_current = background_light;
+        text_color_current = text_color_selected_light;
+        toolbar_current = toolbar_light;
+        toolbar_shade_current = "border-image: url(:/ui/resources/images/toolbar_with_backgrounds_light_version_one.png);";
+    }
+
+    delete config_theme;
+
+    //生成样式表
+    //primary_current_16 = converRGB16HexStr(primary_current);
+    //ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + primary_current + "; color: " + text_color_current +";}";
+    ui_stylesheet_general = "QMenu::item:selected{background-color:" + background_current  + ";color:" + primary_current + ";}QMenu::item{background-color:" + primary_current + ";color:" + text_color_current + ";}QMenu::item:disabled{background-color:" + primary_current + ";color: #ddd" + "}QMenu{background-color:" +  toolbar_current + "; color: " + primary_current + ";}" + "QWidget{background-color:" +  background_current + "; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color:" + primary_current + " ;}" + "QMenuBar{background-color:" + toolbar_current + "; color: " + text_color_current +";}";
+    ui_btn_frameless = "QPushButton{border-radius: 5px; background-color: " + background_current + "; color:" + primary_current + ";border: 6px;}";
+    ui_btn_suggested = "QPushButton{border-radius: 5px; background-color: " + primary_current + "; color:" + text_color_current + ";border: 6px;}";
+    ui_radio_selected = ui_btn_suggested;
+    ui_radio_released = ui_btn_frameless;
+    ui_sidebar_selected = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_suggested;
+    ui_sidebar_released = "QPushButton{text-align : left;padding: 7px;}" + ui_btn_frameless;
+    ui_lineedit = "padding: 3px; border: 2px solid " + primary_current + "; border-radius: 5px;";
+    ui_combobox = "QComboBox::down-arrow{border: 2px solid "+ primary_current + "; border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + "; min-width: 10px;} QComboBox{border-radius: 5px; background-color: "+ primary_current + "; color:" + text_color_current + ";}";
+    ui_textedit = ui_lineedit;
+    ui_quickinsert = "background: " + primary_current + "; color: " + text_color_current + ";";
+
+    //初始化界面
+    //this->setStyleSheet("QMenu::item:selected{background-color:#E7BF9F;color:#FFFFFF;}QMenu::item{background-color:#F6F0E5;color:#E7BF9F;}QMenu::item:disabled{background-color:#F6F0E5;color:#ddd}QMenu{border-bottom-color: rgb(44, 44, 44); border-bottom: 2px; border-style: solid; background-color: #FFFFF}QWidget{background: #F6F0E5; border-top-left-radius: 0px; border-top-right-radius: 0px;}QWidget{color: #E7BF9F;}");
+    config_theme_for_this_application();
+    this->setStyleSheet(ui_stylesheet_general);
+    ui->toolbar_shade->setStyleSheet(toolbar_shade_current);
+    ui->project_name->setStyleSheet(ui_sidebar_selected);
+    ui->basic_info_switcher->setStyleSheet(ui_sidebar_released);
+    ui->npc_store_switcher->setStyleSheet(ui_sidebar_released);
+    ui->npc_dialog_switcher->setStyleSheet(ui_sidebar_released);
+    ui->cv_table_switcher->setStyleSheet(ui_sidebar_released);
+    ui->npc_location_switcher->setStyleSheet(ui_sidebar_released);
+    ui->extra_switcher->setStyleSheet(ui_sidebar_released);
+    ui->file_switcher->setStyleSheet(ui_sidebar_released);
+    ui->visual_editor_selected->setStyleSheet(ui_sidebar_selected);
+    ui->visual_editor_released->setStyleSheet(ui_sidebar_released);
+    ui->code_editor_released->setStyleSheet(ui_sidebar_released);
+    ui->code_editor_selected->setStyleSheet(ui_sidebar_selected);
+    ui->conf_panel_one->setStyleSheet(ui_sidebar_released);
+    ui->conf_panel_two->setStyleSheet(ui_sidebar_released);
+    ui->npcname_input->setStyleSheet(ui_lineedit);
+    ui->nickname_input->setStyleSheet(ui_lineedit);
+    ui->npc_gender_option_unknown->setStyleSheet(ui_radio_selected);
+    ui->npc_gender_male->setStyleSheet(ui_radio_released);
+    ui->npc_gender_female->setStyleSheet(ui_radio_released);
+    ui->job_input->setStyleSheet(ui_lineedit);
+    ui->location_input->setStyleSheet(ui_lineedit);
+    ui->npc_country_option_unknown->setStyleSheet(ui_radio_selected);
+    ui->npc_country_option_mondstadt->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_option_snezhnayan->setStyleSheet(ui_radio_released);
+    ui->organization_input->setStyleSheet(ui_lineedit);
+    ui->npc_system_option_none->setStyleSheet(ui_radio_selected);
+    ui->npc_system_option_activity->setStyleSheet(ui_radio_released);
+    ui->npc_system_option_commission->setStyleSheet(ui_radio_released);
+    ui->npc_system_option_frame->setStyleSheet(ui_radio_released);
+    ui->npc_system_option_serenitea_pot->setStyleSheet(ui_radio_released);
+    ui->npc_system_option_store->setStyleSheet(ui_radio_released);
+    ui->npc_system_option_cook->setStyleSheet(ui_radio_released);
+    ui->npc_gift_option_none->setStyleSheet(ui_radio_selected);
+    ui->npc_gift_option_exist->setStyleSheet(ui_radio_released);
+    ui->gift_single_edit_name->setStyleSheet(ui_lineedit);
+    ui->gift_single_edit_amount->setStyleSheet(ui_lineedit);
+    ui->multiple_gift_edit->setStyleSheet(ui_btn_suggested);
+    ui->version_input->setStyleSheet(ui_lineedit);
+    ui->code_output->setStyleSheet(ui_textedit);
+    ui->npc_store_list->setStyleSheet(ui_textedit);
+    ui->npc_store_commodity_name_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_min_sale_unit->setStyleSheet(ui_lineedit);
+    ui->npc_store_exchanger_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_price_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_limit_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_refresh_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_etc_input->setStyleSheet(ui_lineedit);
+    ui->npc_store_multi_exchanger->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_submit_current->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_clear_list->setStyleSheet(ui_btn_suggested);
+    ui->npc_store_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_store_none->setStyleSheet(ui_radio_selected);
+    ui->npc_dialog_isexist->setStyleSheet(ui_radio_released);
+    ui->npc_dialog_none->setStyleSheet(ui_radio_selected);
+    ui->npc_dialog_content_edit->setStyleSheet(ui_textedit);
+    ui->npc_dialog_speaker_edit->setStyleSheet(ui_lineedit);
+    ui->npc_dialog_line_edit->setStyleSheet(ui_lineedit);
+    ui->npc_dialog_islast_line->setStyleSheet(ui_radio_released);
+    ui->npc_dialog_insert->setStyleSheet(ui_btn_suggested);
+    ui->npc_dialog_append_npc_dialog->setStyleSheet(ui_btn_suggested);
+    ui->npc_dialog_append_npc_option->setStyleSheet(ui_btn_suggested);
+    ui->Chinese_cv_edit->setStyleSheet(ui_lineedit);
+    ui->Japanese_cv_edit->setStyleSheet(ui_lineedit);
+    ui->English_cv_edit->setStyleSheet(ui_lineedit);
+    ui->Korean_cv_edit->setStyleSheet(ui_lineedit);
+    ui->npc_appear_isfull_day->setStyleSheet(ui_radio_selected);
+    ui->npc_appear_isday->setStyleSheet(ui_radio_released);
+    ui->npc_appear_isnight->setStyleSheet(ui_radio_released);
+    ui->npc_location_usemap->setStyleSheet(ui_radio_selected);
+    ui->npc_location_usepic->setStyleSheet(ui_radio_released);
+    ui->npc_location_map_edit->setStyleSheet(ui_lineedit);
+    ui->upload_npc_pic_location->setStyleSheet(ui_btn_suggested);
+    ui->npc_activity_yes->setStyleSheet(ui_radio_released);
+    ui->npc_activity_no->setStyleSheet(ui_radio_selected);
+    ui->npc_frame_sys_edit->setStyleSheet(ui_lineedit);
+    ui->npc_commision_sys_edit->setStyleSheet(ui_lineedit);
+    ui->npc_trounce_edit->setStyleSheet(ui_lineedit);
+    ui->last_edit_ver_edit->setStyleSheet(ui_lineedit);
+    ui->file_iscompleted->setStyleSheet(ui_radio_released);
+    ui->file_requires_work->setStyleSheet(ui_radio_selected);
+    ui->submit_npc_avatar->setStyleSheet(ui_btn_suggested);
+    ui->submit_npc_model->setStyleSheet(ui_btn_suggested);
+    ui->submit_npc_location_not_detailed->setStyleSheet(ui_btn_suggested);
+    ui->quickinsert->setStyleSheet(ui_quickinsert);
+    ui->patch_avatar_false->setStyleSheet(ui_radio_selected);
+    ui->patch_avatar_true->setStyleSheet(ui_radio_released);
+    ui->patch_avatar_intro->setStyleSheet(ui_btn_frameless);
+    ui->npc_country_current_option_unknown->setStyleSheet(ui_radio_selected);
+    ui->npc_country_current_option_mondstat->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_liyue->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_inazuman->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_sumeru->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_fortaine->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_nata->setStyleSheet(ui_radio_released);
+    ui->npc_country_current_option_snezhnayan->setStyleSheet(ui_radio_released);
+
+
+    ui->editor_selecter->setCurrentIndex(0);
+    ui->tree_holder->setVisible(0);
+    ui->gift_single_edit_name->setVisible(0);
+    ui->gift_single_edit_amount->setVisible(0);
+    ui->multiple_gift_edit->setVisible(0);
+    ui->quickinsert->setVisible(0);
+
+    ui->working_area->setCurrentIndex(0);
+    ui->hide_store_info->setCurrentIndex(1);
+    ui->npc_dialog_mainframe->setCurrentIndex(0);
+    ui->npc_map_main_frame->setCurrentIndex(0);
+
+    ui->npc_dialog_content_edit->insertPlainText("{{NPC对话");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|标题=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|内容=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("|待机语音=");
+    ui->npc_dialog_content_edit->insertPlainText("\n");
+    ui->npc_dialog_content_edit->insertPlainText("}}");
+
+    setAcceptDrops(true);
+
+    QFile open_default("./config/arguments.conf");
+    if (open_default.open(QFile::ReadOnly | QIODevice::Truncate))
+    {
+        QTextStream arg_input(&open_default);
+        argument_received = arg_input.readAll();
+    }
+    open_default.close();
+    QFile clear_default("./config/arguments.conf");
+    clear_default.open(QFile::WriteOnly | QIODevice::Truncate);
+    clear_default.resize(0);
+    clear_default.close();
+
+
+    if (argument_received != ""){
+        save_file_target = argument_received;
+        setWindowTitle(save_file_target);
+        open_project_ini();
+    }
+    else{
+        bool ok;
+    }
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::generate_code(){
+    ui->code_output->clear();
+    ui->code_output->insertPlainText("{{NPC");
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|名称=");
+    ui->code_output->insertPlainText(npc_name);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|称号=");
+    ui->code_output->insertPlainText(npc_nickname);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|性别=");
+    ui->code_output->insertPlainText(npc_gender);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|职业=");
+    ui->code_output->insertPlainText(npc_job);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|位置=");
+    ui->code_output->insertPlainText(npc_location);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|所属国家=");
+    ui->code_output->insertPlainText(npc_country);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|所在国家=");
+    ui->code_output->insertPlainText(npc_current_country);
+    ui->code_output->insertPlainText("\n");
+    if (npc_gift !="multi") {
+        ui->code_output->insertPlainText("|对话赠礼=");
+        ui->code_output->insertPlainText(npc_gift);
+        ui->code_output->insertPlainText("\n");
+    }
+    else{
+        QSettings *config_commit_id = new QSettings ( "./config/commits.conf", QSettings::IniFormat);
+        QString slot_commit_read = config_commit_id -> value ( "generate/npc_gift").toString();
+        QString npc_gift_target_cache_read = "./commit/npc_gift/commit_" + slot_commit_read + ".commit";
+        delete config_commit_id;
+        QSettings *config_multi_gift = new QSettings (npc_gift_target_cache_read, QSettings::IniFormat);
+        npc_gift = config_multi_gift -> value ( "npc_gift/current").toString();
+        delete config_multi_gift;
+        ui->code_output->insertPlainText("|对话赠礼=");
+        ui->code_output->insertPlainText(npc_gift);
+        ui->code_output->insertPlainText("\n");
+    }
+    ui->code_output->insertPlainText("|实装版本=");
+    ui->code_output->insertPlainText(npc_version);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|所属组织=");
+    ui->code_output->insertPlainText(npc_organization);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|相关系统=");
+    ui->code_output->insertPlainText(npc_system);
+    ui->code_output->insertPlainText("\n");
+    if  (npc_store_exist == "否") {
+        ui->code_output->insertPlainText("|存在商店=否");
+        ui->code_output->insertPlainText("\n");
+    }
+    else{
+        ui->code_output->insertPlainText("|存在商店=是");
+        ui->code_output->insertPlainText("\n");
+        ui->code_output->insertPlainText("|商店内容=");
+        ui->code_output->insertPlainText(ui->npc_store_list->document()->toPlainText());
+        QTextCursor npc_store_handle_last_line = ui->code_output->textCursor();
+        npc_store_handle_last_line.deletePreviousChar();
+        npc_store_handle_last_line.deletePreviousChar();
+        ui->code_output->insertPlainText("\n");
+    }
+    if (npc_dialog_exist == "否") {
+        ui->code_output->insertPlainText("|存在对话=否");
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        ui->code_output->insertPlainText("|存在对话=是");
+        ui->code_output->insertPlainText("\n");
+        ui->code_output->insertPlainText("|对话内容=");
+        npc_dialog_received_2 = ui->npc_dialog_content_edit->document()->toPlainText();
+        ui->code_output->insertPlainText(npc_dialog_received_2);
+        ui->code_output->insertPlainText("\n");
+    }
+    ui->code_output->insertPlainText("|中文CV=");
+    ui->code_output->insertPlainText(npc_cv_Chinese);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|日文CV=");
+    ui->code_output->insertPlainText(npc_cv_Japanese);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|英文CV=");
+    ui->code_output->insertPlainText(npc_cv_English);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|韩文CV=");
+    ui->code_output->insertPlainText(npc_cv_Korean);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|出现时间=");
+    ui->code_output->insertPlainText(npc_exist_time);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|出现地点={{NPC位置|出现时间：");
+    ui->code_output->insertPlainText(npc_exist_time);
+    ui->code_output->insertPlainText("|");
+    ui->code_output->insertPlainText(npc_location_disp_approach);
+    ui->code_output->insertPlainText("|");
+    if (npc_location_disp_approach == "地图") {
+        ui->code_output->insertPlainText(npc_coordinate);
+    }
+    else {
+        QString npc_get_location_pic_detailed = "NPC-具体位置-" + npc_name + "-" + npc_exist_time;
+        ui->code_output->insertPlainText(npc_get_location_pic_detailed);
+    }
+    ui->code_output->insertPlainText("|");
+    ui->code_output->insertPlainText(npc_name);
+    ui->code_output->insertPlainText("位置}}");
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|活动限定=");
+    ui->code_output->insertPlainText(npc_activity);
+    ui->code_output->insertPlainText("\n");
+    if (npc_frame_sys != "") {
+        ui->code_output->insertPlainText("|声望系统=");
+        ui->code_output->insertPlainText(npc_frame_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    if (npc_commision_sys != "") {
+        ui->code_output->insertPlainText("|居民委托=");
+        ui->code_output->insertPlainText(npc_commision_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    if (npc_trounce_sys != "") {
+        ui->code_output->insertPlainText("|讨伐悬赏=");
+        ui->code_output->insertPlainText(npc_trounce_sys);
+        ui->code_output->insertPlainText("\n");
+    }
+    else {
+        bool ok;
+    }
+    ui->code_output->insertPlainText("|最后编辑版本=");
+    ui->code_output->insertPlainText(user_last_edited);
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("|是否完善=");
+    ui->code_output->insertPlainText(document_iscompleted);
+    if (npc_avatar_patch=="是"){
+       ui->code_output->insertPlainText("\n");
+       ui->code_output->insertPlainText("|修补头像=是");
+    }
+    else{
+        bool ok;
+    }
+    ui->code_output->insertPlainText("\n");
+    ui->code_output->insertPlainText("}}");
+
+}
+
+void MainWindow::save_project_ini() {
+    generate_code();
+    QSettings *config_save = new QSettings ( save_file_target, QSettings::IniFormat);
+    //处理：文件头
+    config_save->setValue("File/Section", "NPC");
+    config_save->setValue("File/Version", "2.0");
+    //处理：基本信息
+    config_save->setValue("Basic/Name", npc_name);
+    config_save->setValue("Basic/Nickname", npc_nickname);
+    config_save->setValue("Basic/Gender", npc_gender);
+    config_save->setValue("Basic/Job", npc_job);
+    config_save->setValue("Basic/Location", npc_location);
+    config_save->setValue("Basic/Country", npc_country);
+    config_save->setValue("Basic/Organization", npc_organization);
+    config_save->setValue("Basic/System", npc_system);
+    config_save->setValue("Basic/Gift", npc_gift);
+    config_save->setValue("Basic/Version", npc_version);
+
+    //处理：商店
+    config_save->setValue("Store/Exist", npc_store_exist);
+    QString save_store_content = ui->npc_store_list->document()->toPlainText();
+    config_save->setValue("Store/Content", save_store_content);
+
+    //处理：对话
+    config_save->setValue("Dialog/Exist", npc_dialog_exist);
+    config_save->setValue("Dialog/Content", npc_dialog_received_2);
+
+    //处理：CV表
+    config_save->setValue("CV_Table/Chinese", npc_cv_Chinese);
+    config_save->setValue("CV_Table/Japanese", npc_cv_Japanese);
+    config_save->setValue("CV_Table/English", npc_cv_English);
+    config_save->setValue("CV_Table/Korean", npc_cv_Korean);
+
+    //处理：位置
+    config_save->setValue("Location/Time", npc_exist_time);
+    config_save->setValue("Location/Type", npc_location_disp_approach);
+    config_save->setValue("Location/Coordinate", npc_coordinate);
+
+    //处理：杂项
+    config_save->setValue("Extras/Activity", npc_activity);
+    config_save->setValue("Extras/Frame", npc_frame_sys);
+    config_save->setValue("Extras/Commision", npc_commision_sys);
+    config_save->setValue("Extras/Trounce", npc_trounce_sys);
+    config_save->setValue("Extras/Last_Edited", user_last_edited);
+    config_save->setValue("Extras/IsCompleted", document_iscompleted);
+
+    delete config_save;
 }
 
 void MainWindow::on_code_editor_released_clicked()
@@ -2210,3 +2232,10 @@ void MainWindow::on_npc_country_current_option_snezhnayan_clicked()
     //更改字段
     npc_current_country = "至冬";
 }
+
+void MainWindow::on_conf_panel_two_clicked()
+{
+    theme *theme_cfg_n = new theme;
+    theme_cfg_n->show();
+}
+

@@ -245,6 +245,8 @@ private slots:
 
     void on_npc_country_current_option_snezhnayan_clicked();
 
+    void on_conf_panel_two_clicked();
+
 protected:
 
 
