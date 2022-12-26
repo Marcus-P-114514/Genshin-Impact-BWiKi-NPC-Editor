@@ -12,6 +12,8 @@
 
 #include "errsidebarstatus.h"
 
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,9 +31,13 @@ private:
     void initSideBar();
     QString sideBarStatus = "active";
     void resizeEvent(QResizeEvent* systemResize);
+    QString npcGiftExist = "不存在";
 
 protected:
 private slots:
     void on_sideBarSwitcher_clicked();
+    void on_npcDialogGiftExist_currentTextChanged(const QString &arg1);
 };
+
+
 #endif // MAINWINDOW_H

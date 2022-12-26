@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>860</width>
     <height>600</height>
    </rect>
   </property>
@@ -390,7 +390,7 @@ background-color: transparent;
 }
 QComboBox::drop-down{
 background-color: rgb(236,229,213);
-border: 1px solid rgb(236,229,213);
+border: 1px dashed rgb(236,229,213);
 }</string>
                         </property>
                         <item>
@@ -471,8 +471,7 @@ border-bottom:1px dashed rgb(182,169,143);
 background-color: transparent;
 }
 QComboBox::drop-down{
-background-color: rgb(236,229,213);
-border: 1px solid rgb(236,229,213);
+border-bottom: 1px dashed rgb(236,229,213);
 }</string>
                         </property>
                         <item>
@@ -542,8 +541,7 @@ border-bottom:1px dashed rgb(182,169,143);
 background-color: transparent;
 }
 QComboBox::drop-down{
-background-color: rgb(236,229,213);
-border: 1px solid rgb(236,229,213);
+border-bottom: 1px dashed rgb(236,229,213);
 }</string>
                         </property>
                         <item>
@@ -631,8 +629,7 @@ border-bottom:1px dashed rgb(182,169,143);
 background-color: transparent;
 }
 QComboBox::drop-down{
-background-color: rgb(236,229,213);
-border: 1px solid rgb(236,229,213);
+border-bottom: 1px dashed rgb(236,229,213);
 }</string>
                         </property>
                         <item>
@@ -697,8 +694,7 @@ border-bottom:1px dashed rgb(182,169,143);
 background-color: transparent;
 }
 QComboBox::drop-down{
-background-color: rgb(236,229,213);
-border: 1px solid rgb(236,229,213);
+border-bottom: 1px dashed rgb(236,229,213);
 }</string>
                         </property>
                         <item>
@@ -716,7 +712,7 @@ border: 1px solid rgb(236,229,213);
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_14">
+                     <layout class="QHBoxLayout" name="npcGiftContainer">
                       <item>
                        <widget class="QLineEdit" name="npcDialogGiftNameEdit">
                         <property name="styleSheet">
@@ -725,7 +721,7 @@ border: 1px solid rgb(236,229,213);
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_12">
+                       <widget class="QLabel" name="npcGiftEditLabel">
                         <property name="text">
                          <string>×</string>
                         </property>
@@ -1026,7 +1022,7 @@ font-size: 16px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>860</width>
      <height>21</height>
     </rect>
    </property>

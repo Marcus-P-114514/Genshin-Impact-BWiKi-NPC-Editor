@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     int getFont = QFontDatabase::addApplicationFont("./font/SourceHanSansSC-Regular.ttf");
     QStringList targetList = QFontDatabase::applicationFontFamilies(getFont);
     QFont font(targetList.first());
-    //a.setFont(font);
+    a.setFont(font);
 
     return a.exec();
 }

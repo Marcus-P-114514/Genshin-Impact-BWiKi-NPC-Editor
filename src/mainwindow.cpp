@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -8,14 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //Windows下解决HDPI问题
-    //qputenv("QT_SCALE_FACTOR", "2.0");
+    //qputenv("QT_SCALE_FACTOR", "1.5");
 
     //Set up Titlebar UI
     int getTitleBarFont = QFontDatabase::addApplicationFont("./font/SourceHanSansSC-Regular.ttf");
     QStringList titleBarTargetList = QFontDatabase::applicationFontFamilies(getTitleBarFont);
     QFont titleBarFont(titleBarTargetList.first());
-    //ui->appTitle->setFont(titleBarFont);
-    //ui->versionDisp->setFont(titleBarFont);
+    ui->appTitle->setFont(titleBarFont);
+    ui->versionDisp->setFont(titleBarFont);
 
     //Setup Card Shadow
     QGraphicsDropShadowEffect *cardShadow = new QGraphicsDropShadowEffect(this);
@@ -27,6 +29,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Setup Working Area
     ui->appInnerBoxL->setParent(ui->appOutterBoxL);
+
+    //Hide NPC Gift Edit
+    ui->npcDialogGiftNameEdit->setVisible(0);
+    ui->npcGiftEditLabel->setVisible(0);
+    ui->npcDialogGiftAmountEdit->setVisible(0);
 }
 
 
@@ -67,3 +74,20 @@ void MainWindow::resizeEvent(QResizeEvent *systemResize)
         ui->codeEditorApp->setVisible(0);
     }
 }
+
+void MainWindow::on_npcDialogGiftExist_currentTextChanged(const QString &arg1)
+{
+    npcGiftExist = ui->npcDialogGiftExist->currentText();
+    //if NPC Gift exists
+    if (npcGiftExist == "存在"){
+        ui->npcDialogGiftNameEdit->setVisible(1);
+        ui->npcGiftEditLabel->setVisible(1);
+        ui->npcDialogGiftAmountEdit->setVisible(1);
+    }
+    else{
+        ui->npcDialogGiftNameEdit->setVisible(0);
+        ui->npcGiftEditLabel->setVisible(0);
+        ui->npcDialogGiftAmountEdit->setVisible(0);
+    }
+}
+
