@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/ui">
+        <file>resources/bg.png</file>
+        <file>resources/slideBatBtn.png</file>
+    </qresource>
+</RCC>

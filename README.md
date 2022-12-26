@@ -1,52 +1,53 @@
-[We have English version here, click here to switch to English version if you want.](README_EN.MD)
+中文版 | [English](docs/readme_en.MD)
+## 目录
+- [开发背景](#开发背景)
+- [开发状态](#开发状态)
+- [安装](#安装)
+- [使用](#使用)
+- [贡献者](#贡献者)
+- [更新日志](#更新日志)
+- [许可证](#许可证)
 
-[![standard-readme compliant](https://img.shields.io/badge/version-2.3.4-brightgreen)](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor) [![standard-readme compliant](https://img.shields.io/badge/User%20Guide-https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)](https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3) [![standard-readme compliant](https://img.shields.io/badge/Made%20With-Love-critical)]()
-[![standard-readme compliant](https://img.shields.io/badge/Qt%20Version-5.15.2-9cf)]()
-# 目录
-
- - [开发背景](#%E5%BC%80%E5%8F%91%E8%83%8C%E6%99%AF)
- - [分支](#%E5%88%86%E6%94%AF)
- - [安装](#%E5%AE%89%E8%A3%85)
- - [使用教程](#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)
- - [主要项目负责人](#%E4%B8%BB%E8%A6%81%E9%A1%B9%E7%9B%AE%E8%B4%9F%E8%B4%A3%E4%BA%BA)
- - [开源协议](#%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE)
- - [更新日志](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)
-
-# 开发背景
-
+## 开发背景
 由于编辑NPC需要遵循特定的语法，编辑起来比较麻烦，某些性能较为差的电脑可能会在编辑到一半的时候提示「此页面出现问题，现已重新载入」从而损失未保存的编辑，故而为降低NPC图鉴编辑门槛以及提供一个离线编辑工具，此程序便诞生了。
 
-# 分支
-最初的设想是支持全平台，目前正在开发[Windows版](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/tree/Windows-Version)。
+## 开发状态
+| 平台 | 架构  | 状态 |
+| ------------ | ------------ | ------------ |
+| Windows | x86_64 | ![](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge) |
+| macOS |  x64 | ![](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge) |
+| Linux | x86_64 | ![](https://img.shields.io/badge/Build-Failed-critical?style=for-the-badge) |
+| Android | AArch64 | ![](https://img.shields.io/badge/Build-Pending-yellow?style=for-the-badge) |
+| iOS | AArch64 | ![](https://img.shields.io/badge/Build-Pending-yellow?style=for-the-badge) |
 
-目前，Windows版需要调用另外一个分支中的项目来实现清除缓存，该分支在[这里](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/tree/Windows-Version-Cache-Cleaner)
+## 安装
+- Windows版：解压Zip中的所有内容到所需位置即可。
+- macOS版：挂载`.dmg`文件，拖拽其中`.app`文件至`/Applications`文件夹即可。
+- Linux版：需要自行Build。
+- Android版：使用PackageManager安装即可。
+- iOS版：需要注意的是，所提供的`.ipa`文件**不提供签名**，请使用计算机签名后安装到本机。
 
-# 安装
+## 使用
+本程序自带支持文档，请阅读[使用文档](docs/manual/zh-cn/index.md)，或者转到[这里](https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)以获取在线版。
 
-## Windows版
-此为便携版，直接解压缩运行`npc-editor.exe`即可，也可以选择添加快捷方式到桌面以及%ProgramData%\Microsoft\Windows\Start Menu\Programs
+## 贡献者
+本程序的问世离不开各位的努力，特别感谢以下开发者对本程序的支持：
+|  程序 | 屑机主  |
+| ------------ | ------------ |
+| 程序  | Gaoily |
+| 美工  | 大猫雷恩 |
+## 更新日志
+- **v.1.0**：这个版本仅提供纯文本编辑（外加代码高亮），以及集成了一些额外小工具来帮助您快速在本地编辑NPC图鉴。
+- **v.1.1**：更新界面并且支持了拖拽文件。
+- **v.1.2**：加入了对特殊字符插入的支持。
+- **v.2.3.2**：重构代码，新增了可视化编辑。
+- **v.2.3.5**：适应WIKI模板新参数。
+- **v.2.3.6**：修复了读取工程文件时不显示特定参数的问题且可以默认打开工程文件，此版本未推送/发布。
+- **v.3.1.0**：重构代码，更新了用户界面，支持NPC模板中新增的「心声」参数，此更新仍在进行中。
 
-如果要自行编译，请先下载分支`Windows-Version-Cache`内的所有文件并放到名为cache的文件夹内，然后编译Windows-Version分支内的项目，命名为`clear-cache.exe`
+## 许可证
+[GNU General Public License v2.0](LICENSE.md)
 
-然后，请下载分支`Windows-Version`内所有文件，以release编译，命名为`npc-editor.exe`。
 
-新建一个空文件夹，把cache文件夹、clear-cache.exe、npc-editor.exe放在一起，进入该目录后，执行：
 
-> windeployqt npc-editor.exe
-> windeployqt clear-cache.exe
 
-# 使用教程
-
-请看[用户文档](https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3)。
-
-# 主要项目负责人
-
-@Marcus-P-114514
-
-# 开源协议
-
-[### GNU General Public License v2.0](https://github.com/Marcus-P-114514/Genshin-Impact-BWiKi-NPC-Editor/blob/main/LICENSE) (c) Marcus-P-114514
-
-# 更新日志
-
- - ver 0.9.1：初次提交的版本
