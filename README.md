@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Build-Passing-brightgreen?style=plastic) ![](https://img.shields.io/badge/Version-3.1.0-blue) ![](https://img.shields.io/badge/Qt-5.12.12-green) ![](https://img.shields.io/badge/Made%20with-Love-red) ![](https://img.shields.io/badge/User%20Guide-https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)](https://wiki.biligame.com/ys/NPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3)
+![](https://img.shields.io/badge/Build-Passing-brightgreen?style=plastic) ![](https://img.shields.io/badge/Version-3.1.0-blue) ![](https://img.shields.io/badge/Qt-5.12.12-green) ![](https://img.shields.io/badge/Made%20with-Love-red) ![](https://img.shields.io/badge/User%20Guide-https%3A%2F%2Fwiki.biligame.com%2Fys%2FNPC%E5%9B%BE%E9%89%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3-ff69b4)
 中文版 | [English](docs/readme_en.md)
 ## 目录
 - [开发背景](#开发背景)
