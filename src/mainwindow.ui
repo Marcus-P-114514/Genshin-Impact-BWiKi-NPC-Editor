@@ -265,7 +265,7 @@ background: transparent;
                  </widget>
                 </item>
                 <item row="0" column="0">
-                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <layout class="QHBoxLayout" name="visualEditorToolbar">
                   <item>
                    <widget class="QPushButton" name="visualEditorSwitchPreviousPage">
                     <property name="styleSheet">
@@ -322,9 +322,315 @@ border: 0px solid rgb(255,250,241);
 background-color: #ece5d5;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
-                  <widget class="QWidget" name="page"/>
+                  <widget class="QWidget" name="page">
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_14">
+                      <item>
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string>存在商店：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcStoreExistEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>不存在</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>存在</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QStackedWidget" name="npcStoreEdit">
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <widget class="QWidget" name="page_5">
+                       <layout class="QVBoxLayout" name="verticalLayout_4">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QTextEdit" name="npcStoreCodeOut">
+                          <property name="styleSheet">
+                           <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>这是代码输出预览，使用下方的表格时请注意在提交末行前勾选“末行”选项。</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_16">
+                          <item>
+                           <widget class="QLabel" name="label_14">
+                            <property name="text">
+                             <string>名称：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyNameEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>商品名，例：美味的烤吃虎鱼</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_17">
+                          <item>
+                           <widget class="QLabel" name="label_15">
+                            <property name="text">
+                             <string>最小交换单元：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyMinSaleUnitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>最低多少起卖，只填数字。例：1</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_18">
+                          <item>
+                           <widget class="QLabel" name="label_16">
+                            <property name="text">
+                             <string>价格：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyExchangerEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>交换物 例：摩拉</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_17">
+                            <property name="text">
+                             <string>×</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyPriceEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>价格，只填数字。例：380</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="toggleMultipleExchangerMode">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>多交换物模式</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_19">
+                          <item>
+                           <widget class="QLabel" name="label_18">
+                            <property name="text">
+                             <string>限购数量：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyAmountLimitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>刷新时间内的限购数量，只填数字。例：10</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_20">
+                          <item>
+                           <widget class="QLabel" name="label_19">
+                            <property name="text">
+                             <string>刷新时间：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyRefreshEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>商品刷新时间。例：每日04:00</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_21">
+                          <item>
+                           <widget class="QLabel" name="label_20">
+                            <property name="text">
+                             <string>限制：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyLimitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>其他限制，没有请填“无”</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_3">
+                          <property name="spacing">
+                           <number>10</number>
+                          </property>
+                          <item>
+                           <spacer name="horizontalSpacer">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>88</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBox">
+                            <property name="styleSheet">
+                             <string notr="true">QCheckBox::indicator{
+border:1px dashed rgb(182,169,143);
+}
+QCheckBox::indicator:checked{
+border:1px dashed rgb(182,169,143);
+padding: 3px;
+background-color: rgb(182,169,143);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>末行</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="clearStoreContent">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>清空</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="submitStoreContent">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>提交</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="page_6"/>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
                   <widget class="QWidget" name="page_2">
                    <layout class="QVBoxLayout" name="verticalLayout_3">
                     <item>
@@ -344,6 +650,9 @@ background-color: #ece5d5;</string>
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
                         </property>
+                        <property name="placeholderText">
+                         <string>为NPC头顶文字白色部分</string>
+                        </property>
                        </widget>
                       </item>
                      </layout>
@@ -361,6 +670,9 @@ background-color: #ece5d5;</string>
                        <widget class="QLineEdit" name="npcNickNameEdit">
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>&lt;&gt;中间内容，若没有请留空</string>
                         </property>
                        </widget>
                       </item>
@@ -426,6 +738,9 @@ border: 1px dashed rgb(236,229,213);
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
                         </property>
+                        <property name="placeholderText">
+                         <string>售卖东西的人请写“商人”；贩卖食物的请填写“厨师”</string>
+                        </property>
                        </widget>
                       </item>
                      </layout>
@@ -443,6 +758,9 @@ border: 1px dashed rgb(236,229,213);
                        <widget class="QLineEdit" name="npcLocationEdit">
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>填写NPC所在的地理位置，使用地名，地名之间使用“·”连接，尽量避免使用方位词</string>
                         </property>
                        </widget>
                       </item>
@@ -472,6 +790,19 @@ background-color: transparent;
 }
 QComboBox::drop-down{
 border-bottom: 1px dashed rgb(236,229,213);
+}
+QListView{
+
+}
+QListView::item{
+height: 30px;
+background-color: #ece5d5;
+color: #66574a;
+}
+QListView::item:hover{
+height: 30px;
+background-color: #66574a;
+color: #ece5d5;
 }</string>
                         </property>
                         <item>
@@ -602,6 +933,9 @@ border-bottom: 1px dashed rgb(236,229,213);
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
                         </property>
+                        <property name="placeholderText">
+                         <string>请根据游戏内各种资料填写，亦可写该NPC的工作单位</string>
+                        </property>
                        </widget>
                       </item>
                      </layout>
@@ -718,6 +1052,9 @@ border-bottom: 1px dashed rgb(236,229,213);
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
                         </property>
+                        <property name="placeholderText">
+                         <string>赠礼内容</string>
+                        </property>
                        </widget>
                       </item>
                       <item>
@@ -731,6 +1068,21 @@ border-bottom: 1px dashed rgb(236,229,213);
                        <widget class="QLineEdit" name="npcDialogGiftAmountEdit">
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>赠礼数量</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="npcMultipleGiftEdit">
+                        <property name="styleSheet">
+                         <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                        </property>
+                        <property name="text">
+                         <string>NPC有多种赠礼</string>
                         </property>
                        </widget>
                       </item>
@@ -749,6 +1101,9 @@ border-bottom: 1px dashed rgb(236,229,213);
                        <widget class="QLineEdit" name="lineEdit">
                         <property name="styleSheet">
                          <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>填写NPC的实装版本</string>
                         </property>
                        </widget>
                       </item>
@@ -908,7 +1263,68 @@ font-weight: 700;</string>
                  </widget>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QTextEdit" name="codeEditor"/>
+                 <widget class="QStackedWidget" name="workingAreaR">
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <widget class="QWidget" name="page_3">
+                   <layout class="QGridLayout" name="gridLayout_9">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="codeEditor"/>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_4">
+                   <layout class="QGridLayout" name="gridLayout_10">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="logOut">
+                      <property name="styleSheet">
+                       <string notr="true">color: #202122;</string>
+                      </property>
+                      <property name="verticalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOff</enum>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="placeholderText">
+                       <string>运行日志将会显示在这里。</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
                 </item>
                </layout>
               </widget>

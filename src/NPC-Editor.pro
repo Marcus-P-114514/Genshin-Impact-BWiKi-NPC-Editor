@@ -9,17 +9,23 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    errsidebarstatus.cpp \
+    errors/erralreadyrunning.cpp \
+    errors/errsidebarstatus.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plugins/npcGiftEditor/npcgifteditor.cpp
 
 HEADERS += \
-    errsidebarstatus.h \
-    mainwindow.h
+    errors/erralreadyrunning.h \
+    errors/errsidebarstatus.h \
+    mainwindow.h \
+    plugins/npcGiftEditor/npcgifteditor.h
 
 FORMS += \
-    errsidebarstatus.ui \
-    mainwindow.ui
+    errors/erralreadyrunning.ui \
+    errors/errsidebarstatus.ui \
+    mainwindow.ui \
+    plugins/npcGiftEditor/npcgifteditor.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
