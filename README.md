@@ -1,4 +1,4 @@
-中文版 | [English](docs/readme_en.MD)
+中文版 | [English](docs/readme_en.md)
 ## 目录
 - [开发背景](#开发背景)
 - [开发状态](#开发状态)
@@ -47,4 +47,4 @@
 - **v.3.1.0**：重构代码，更新了用户界面，支持NPC模板中新增的「心声」参数，此更新仍在进行中。
 
 ## 许可证
-[GNU General Public License v2.0](LICENSE.md)
+[GNU General Public License v2.0](LICENSE)
