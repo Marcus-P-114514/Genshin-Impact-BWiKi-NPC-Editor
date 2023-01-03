@@ -13,6 +13,8 @@
 #include "QFileInfo"
 #include "QSettings"
 #include "QDateTime"
+#include "QMouseEvent"
+#include "QPoint"
 
 #include "errors/errsidebarstatus.h"
 #include "plugins/npcGiftEditor/npcgifteditor.h"
@@ -39,8 +41,15 @@ private:
     QString npcGiftExist = "不存在";
     QString currentLog;
     QString npcStoreExist = "不存在";
+    QPoint mousePos;
+    bool titleBarMovement = false;
 
 protected:
+    void trigMaximize();
+    void mousePressEvent(QMouseEvent *targetPos);
+    void mouseMoveEvent(QMouseEvent *currentPos);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
 private slots:
     void on_sideBarSwitcher_clicked();
     void on_npcDialogGiftExist_currentTextChanged(const QString &arg1);

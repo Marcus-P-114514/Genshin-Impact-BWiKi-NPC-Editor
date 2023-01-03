@@ -50,7 +50,8 @@
       <property name="styleSheet">
        <string notr="true">#sideBar{
 background-color: rgb(255,250,241);
-border: 1px solid rgb(231,191,159)
+border: 1px solid rgb(231,191,159);
+border-bottom-left-radius: 7px;
 }</string>
       </property>
       <property name="frameShape">
@@ -137,6 +138,8 @@ margin: 2px;
        <string notr="true">#appContainer{
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #204e65, stop:1 #2ab1af);
 background-image: url(:/ui/resources/bg.png);
+border: 0px solid #ccc;
+border-bottom-right-radius: 7px;
 }</string>
       </property>
       <property name="frameShape">
@@ -1356,6 +1359,9 @@ font-weight: 700;</string>
        <string notr="true">#titleBar{
 background-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));
 border: 0px solid #ccc;
+border-top-right-radius: 7px;
+border-top-left-radius: 7px;
+
 }</string>
       </property>
       <property name="frameShape">
@@ -1418,13 +1424,71 @@ font-size: 16px;</string>
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="versionDisp">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: #E7BF9F;
-font-size: 16px;</string>
+font-size: 16px;
+background: transparent</string>
          </property>
          <property name="text">
-          <string>REL 3.1.0</string>
+          <string>最小化</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #E7BF9F;
+font-size: 16px;
+background: transparent</string>
+         </property>
+         <property name="text">
+          <string>最大化</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #E7BF9F;
+font-size: 16px;
+background: transparent</string>
+         </property>
+         <property name="text">
+          <string>关闭</string>
          </property>
         </widget>
        </item>

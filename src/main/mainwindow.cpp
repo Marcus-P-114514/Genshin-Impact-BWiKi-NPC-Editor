@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
     @brief: Set up titlebar UI
     @brief: 设定标题栏界面
     **/
+    setWindowFlags(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground, true);
+
     int getTitleBarFont = QFontDatabase::addApplicationFont("./font/SourceHanSansSC-Regular.ttf");
     QStringList titleBarTargetList = QFontDatabase::applicationFontFamilies(getTitleBarFont);
     QFont titleBarFont(titleBarTargetList.first());
@@ -22,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     QFont fontSerif(serifList.first());
 
     ui->appTitle->setFont(titleBarFont);
-    ui->versionDisp->setFont(titleBarFont);
 
     /**
     @brief: Set up card shadow
@@ -75,6 +77,49 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+/**
+@brief: Mouse press event / 鼠标点击事件
+@params: targetPos
+**/
+void MainWindow::mousePressEvent(QMouseEvent *targetPos)
+{
+    mousePos = targetPos->pos();
+    if (0 <= mousePos.y() <= 64){
+        titleBarMovement = true;
+    }
+}
+
+/**
+@brief: Mouse move event / 鼠标移动事件
+@params: currentPos
+**/
+void MainWindow::mouseMoveEvent(QMouseEvent *currentPos)
+{
+    if (titleBarMovement==true){
+        QPoint formMovementTarget = currentPos->globalPos() - mousePos;
+        move(formMovementTarget);
+    }
+}
+
+/**
+@brief: Mouse release event / 鼠标释放事件
+@params: event
+**/
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    titleBarMovement=false;
+}
+
+/**
+@brief: Mouse double click event / 鼠标双击事件
+@params: event
+**/
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+
+}
+
 
 /**
 @brief: Switch Sidebar / 切换侧边栏状态
