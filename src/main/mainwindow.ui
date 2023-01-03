@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>860</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NPC图鉴编辑器 ver.3 技术预览版</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="0">
+     <widget class="QFrame" name="sideBar">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#sideBar{
+background-color: rgb(255,250,241);
+border: 1px solid rgb(231,191,159)
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>3</number>
+       </property>
+       <property name="topMargin">
+        <number>3</number>
+       </property>
+       <property name="rightMargin">
+        <number>3</number>
+       </property>
+       <property name="bottomMargin">
+        <number>3</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QFrame" name="sideBarOutterBox">
+         <property name="styleSheet">
+          <string notr="true">#sideBarOutterBox{
+border: 1px solid #c8bea3;
+border-radius: 23px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QFrame" name="sideBarInnerBox">
+            <property name="styleSheet">
+             <string notr="true">#sideBarInnerBox{
+border: 2px solid #c8bea3;
+border-radius: 0px;
+margin: 2px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QFrame" name="appContainer">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#appContainer{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #204e65, stop:1 #2ab1af);
+background-image: url(:/ui/resources/bg.png);
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>25</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="visualEditorApp">
+         <property name="styleSheet">
+          <string notr="true">#visualEditorApp{
+border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;
+border-radius: 5px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="appOutterBoxL">
+            <property name="styleSheet">
+             <string notr="true">#appOutterBoxL{
+border: 1px solid #c8bea3;
+border-radius: 23px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QFrame" name="appInnerBoxL">
+               <property name="styleSheet">
+                <string notr="true">#appInnerBoxL{
+border: 2px solid #c8bea3;
+border-radius: 0px;
+margin: 2px;
+background: transparent;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_8">
+                <item row="1" column="0">
+                 <widget class="QFrame" name="visualEditorSpacer">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #af9d7d;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="visualEditorToolbar">
+                  <item>
+                   <widget class="QPushButton" name="visualEditorSwitchPreviousPage">
+                    <property name="styleSheet">
+                     <string notr="true">color: #66574a;
+border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;
+border-radius: 5px;</string>
+                    </property>
+                    <property name="text">
+                     <string>上一页</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="visualEditorTitle">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #66574a;
+font-weight: 700;</string>
+                    </property>
+                    <property name="text">
+                     <string>可视化编辑 · 基本信息</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="visualEditorSwitchNextPage">
+                    <property name="styleSheet">
+                     <string notr="true">color: #66574a;
+border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;
+border-radius: 5px;</string>
+                    </property>
+                    <property name="text">
+                     <string>下一页</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QStackedWidget" name="visualEditor">
+                  <property name="styleSheet">
+                   <string notr="true">color: #202122;
+border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;</string>
+                  </property>
+                  <property name="currentIndex">
+                   <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="page">
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_14">
+                      <item>
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string>存在商店：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcStoreExistEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>不存在</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>存在</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QStackedWidget" name="npcStoreEdit">
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <widget class="QWidget" name="page_5">
+                       <layout class="QVBoxLayout" name="verticalLayout_4">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QTextEdit" name="npcStoreCodeOut">
+                          <property name="styleSheet">
+                           <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>这是代码输出预览，使用下方的表格时请注意在提交末行前勾选“末行”选项。</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_16">
+                          <item>
+                           <widget class="QLabel" name="label_14">
+                            <property name="text">
+                             <string>名称：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyNameEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>商品名，例：美味的烤吃虎鱼</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_17">
+                          <item>
+                           <widget class="QLabel" name="label_15">
+                            <property name="text">
+                             <string>最小交换单元：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyMinSaleUnitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>最低多少起卖，只填数字。例：1</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_18">
+                          <item>
+                           <widget class="QLabel" name="label_16">
+                            <property name="text">
+                             <string>价格：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyExchangerEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>交换物 例：摩拉</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_17">
+                            <property name="text">
+                             <string>×</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyPriceEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>价格，只填数字。例：380</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="toggleMultipleExchangerMode">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>多交换物模式</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_19">
+                          <item>
+                           <widget class="QLabel" name="label_18">
+                            <property name="text">
+                             <string>限购数量：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyAmountLimitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>刷新时间内的限购数量，只填数字。例：10</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_20">
+                          <item>
+                           <widget class="QLabel" name="label_19">
+                            <property name="text">
+                             <string>刷新时间：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyRefreshEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>商品刷新时间。例：每日04:00</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_21">
+                          <item>
+                           <widget class="QLabel" name="label_20">
+                            <property name="text">
+                             <string>限制：</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="storeCommodittyLimitEdit">
+                            <property name="styleSheet">
+                             <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>其他限制，没有请填“无”</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_3">
+                          <property name="spacing">
+                           <number>10</number>
+                          </property>
+                          <item>
+                           <spacer name="horizontalSpacer">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>88</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBox">
+                            <property name="styleSheet">
+                             <string notr="true">QCheckBox::indicator{
+border:1px dashed rgb(182,169,143);
+}
+QCheckBox::indicator:checked{
+border:1px dashed rgb(182,169,143);
+padding: 3px;
+background-color: rgb(182,169,143);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>末行</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="clearStoreContent">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>清空</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="submitStoreContent">
+                            <property name="styleSheet">
+                             <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                            </property>
+                            <property name="text">
+                             <string>提交</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="page_6"/>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_2">
+                   <layout class="QVBoxLayout" name="verticalLayout_3">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_4">
+                      <property name="sizeConstraint">
+                       <enum>QLayout::SetMaximumSize</enum>
+                      </property>
+                      <item>
+                       <widget class="QLabel" name="label">
+                        <property name="text">
+                         <string>名称：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcNameEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>为NPC头顶文字白色部分</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_5">
+                      <item>
+                       <widget class="QLabel" name="label_3">
+                        <property name="text">
+                         <string>称号：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcNickNameEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>&lt;&gt;中间内容，若没有请留空</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_6">
+                      <item>
+                       <widget class="QLabel" name="label_4">
+                        <property name="text">
+                         <string>性别：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcGenderEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+background-color: rgb(236,229,213);
+border: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>未知</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>男</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>女</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_7">
+                      <item>
+                       <widget class="QLabel" name="label_5">
+                        <property name="text">
+                         <string>职业：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcJobEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>售卖东西的人请写“商人”；贩卖食物的请填写“厨师”</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_8">
+                      <item>
+                       <widget class="QLabel" name="label_6">
+                        <property name="text">
+                         <string>位置：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcLocationEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>填写NPC所在的地理位置，使用地名，地名之间使用“·”连接，尽量避免使用方位词</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <item>
+                       <widget class="QLabel" name="label_7">
+                        <property name="text">
+                         <string>所属国家：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcCountryEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}
+QListView{
+
+}
+QListView::item{
+height: 30px;
+background-color: #ece5d5;
+color: #66574a;
+}
+QListView::item:hover{
+height: 30px;
+background-color: #66574a;
+color: #ece5d5;
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>未知</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>蒙德</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>璃月</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>稻妻</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>须弥</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>枫丹</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>纳塔</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>至冬</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_10">
+                      <item>
+                       <widget class="QLabel" name="label_8">
+                        <property name="text">
+                         <string>所在国家：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcCurrentCountryEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>未知</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>蒙德</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>璃月</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>稻妻</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>须弥</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>枫丹</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>纳塔</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>至冬</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_11">
+                      <item>
+                       <widget class="QLabel" name="label_9">
+                        <property name="text">
+                         <string>所属组织：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcOrgEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>请根据游戏内各种资料填写，亦可写该NPC的工作单位</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_12">
+                      <item>
+                       <widget class="QLabel" name="label_10">
+                        <property name="text">
+                         <string>相关系统：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcSystemEdit">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>无</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>委托</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>声望</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>活动</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>商店</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>烹饪</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>尘歌壶</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_13">
+                      <item>
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string>对话赠礼：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="npcDialogGiftExist">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QComboBox{
+border-bottom:1px dashed rgb(182,169,143);
+background-color: transparent;
+}
+QComboBox::drop-down{
+border-bottom: 1px dashed rgb(236,229,213);
+}</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>不存在</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>存在</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="npcGiftContainer">
+                      <item>
+                       <widget class="QLineEdit" name="npcDialogGiftNameEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>赠礼内容</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="npcGiftEditLabel">
+                        <property name="text">
+                         <string>×</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="npcDialogGiftAmountEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>赠礼数量</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="npcMultipleGiftEdit">
+                        <property name="styleSheet">
+                         <string notr="true">font-weight: 700;
+color: rgb(178,115,43);
+border: none;</string>
+                        </property>
+                        <property name="text">
+                         <string>NPC有多种赠礼</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_15">
+                      <item>
+                       <widget class="QLabel" name="label_13">
+                        <property name="text">
+                         <string>实装版本：</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="lineEdit">
+                        <property name="styleSheet">
+                         <string notr="true">border-bottom:1px dashed rgb(182,169,143);</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>填写NPC的实装版本</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="codeEditorApp">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;
+border-radius: 5px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QFrame" name="appOutterBoxR">
+            <property name="styleSheet">
+             <string notr="true">#appOutterBoxR{
+border: 1px solid #c8bea3;
+border-radius: 23px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QFrame" name="appInnerBoxR">
+               <property name="styleSheet">
+                <string notr="true">#appInnerBoxR{
+border: 2px solid #c8bea3;
+border-radius: 0px;
+margin: 2px;
+background: transparent;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_7">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: #66574a;
+font-weight: 700;</string>
+                  </property>
+                  <property name="text">
+                   <string>输出预览</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QFrame" name="codeEditorSpacer">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #af9d7d;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QStackedWidget" name="workingAreaR">
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <widget class="QWidget" name="page_3">
+                   <layout class="QGridLayout" name="gridLayout_9">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="codeEditor"/>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_4">
+                   <layout class="QGridLayout" name="gridLayout_10">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="logOut">
+                      <property name="styleSheet">
+                       <string notr="true">color: #202122;</string>
+                      </property>
+                      <property name="verticalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOff</enum>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="placeholderText">
+                       <string>运行日志将会显示在这里。</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QFrame" name="titleBar">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#titleBar{
+background-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));
+border: 0px solid #ccc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>12</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="sideBarSwitcher">
+         <property name="minimumSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/ui/resources/slideBatBtn.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="appTitle">
+         <property name="styleSheet">
+          <string notr="true">color: #E7BF9F;
+font-size: 16px;</string>
+         </property>
+         <property name="text">
+          <string>&lt;b&gt;原神BWIKI&lt;/b&gt; · NPC编辑器</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="titleBarSpaxcer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>491</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="versionDisp">
+         <property name="styleSheet">
+          <string notr="true">color: #E7BF9F;
+font-size: 16px;</string>
+         </property>
+         <property name="text">
+          <string>REL 3.1.0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>860</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

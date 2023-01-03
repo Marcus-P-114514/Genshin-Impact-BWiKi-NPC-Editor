@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>npcGiftEditor</class>
+ <widget class="QDialog" name="npcGiftEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>611</width>
+    <height>413</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid rgb(255,250,241);
+background: #fcf8ef;
+border-radius: 7px;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>30</number>
+      </property>
+      <property name="rightMargin">
+       <number>30</number>
+      </property>
+      <property name="bottomMargin">
+       <number>30</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">font-weight: 700;
+color: #202122;</string>
+        </property>
+        <property name="text">
+         <string>NPC赠礼编辑器</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="npcGiftStatus">
+        <property name="styleSheet">
+         <string notr="true">color: #202122;</string>
+        </property>
+        <property name="text">
+         <string>请注意：使用NPC赠礼编辑器保存后赠礼栏将会显示[MULTIPLE]，此后该工程的NPC赠礼部分将只能由&quot;NPC赠礼编辑器&quot;处理。</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="tableViewMain">
+        <property name="styleSheet">
+         <string notr="true">border: none;
+border-radius: 0px;</string>
+        </property>
+        <widget class="QWidget" name="page">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: rgb(231,191,159);
+color: #fff;
+font-weight: 700;
+padding-left: 5px;</string>
+            </property>
+            <property name="text">
+             <string>代码预览</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="npcGiftCodeOut">
+            <property name="styleSheet">
+             <string notr="true">QTextEdit{
+border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+color: rgb(231,191,159);
+background: rgb(245,240,230);
+padding: 5px;
+}
+QScrollBar:vertical{
+width: 6px;
+background: rgb(204,202,198);
+border: 1px solid rgb(204,202,198);
+margin: 0px 0px 0px 0px;
+}
+QSCrollBar::handle:vertical{
+border-radius: 10px;
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb(191,191,191);
+}</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="placeholderText">
+             <string>这里是代码预览区，编辑完成请点击“提交”即可储存更改并退出编辑。</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: rgb(231,191,159);
+color: #fff;
+font-weight: 700;
+padding-left: 5px;</string>
+            </property>
+            <property name="text">
+             <string>赠礼编辑</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="npcGiftNameEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+color: rgb(231,191,159);
+background: rgb(245,240,230);
+padding-left: 5px;</string>
+              </property>
+              <property name="placeholderText">
+               <string>赠礼名称</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="npcGiftAmountEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+color: rgb(231,191,159);
+background: rgb(245,240,230);
+padding-left: 5px;</string>
+              </property>
+              <property name="placeholderText">
+               <string>赠礼数量</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="insertGift">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+color: rgb(231,191,159);
+background: rgb(245,240,230);
+font-weight: 700;</string>
+              </property>
+              <property name="text">
+               <string>插入</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="clearGift">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+color: rgb(231,191,159);
+background: rgb(245,240,230);
+font-weight: 700;</string>
+              </property>
+              <property name="text">
+               <string>清空</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_2"/>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>418</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="discardGift">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(178,115,43);
+font-weight: 700;</string>
+          </property>
+          <property name="text">
+           <string>放弃</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="commitGift">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(178,115,43);
+font-weight: 700;</string>
+          </property>
+          <property name="text">
+           <string>提交</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
