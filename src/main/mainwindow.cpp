@@ -79,13 +79,62 @@ MainWindow::~MainWindow()
 }
 
 /**
+@brief: Maximize window / 最大化窗口
+@params: void
+**/
+void MainWindow::trigMaximize()
+{
+    if (windowMaximized == false){
+        this->showMaximized();
+        ui->titleBar->setStyleSheet("#titleBar{\nbackground-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));\nborder: 0px solid #ccc;\nborder-top-right-radius: 0px;\nborder-top-left-radius: 0px;\n\n}");
+        ui->sideBar->setStyleSheet("#sideBar{\nbackground-color: rgb(255,250,241);\nborder: 1px solid rgb(231,191,159);\nborder-bottom-left-radius: 0px;\n}");
+        ui->appContainer->setStyleSheet("#appContainer{\nbackground-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #204e65, stop:1 #2ab1af);\nbackground-image: url(:/ui/resources/bg.png);\nborder: 0px solid #ccc;\nborder-bottom-right-radius: 0px;\n}");
+        windowMaximized = true;
+    }
+    else{
+        this->showNormal();
+        ui->titleBar->setStyleSheet("#titleBar{\nbackground-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));\nborder: 0px solid #ccc;\nborder-top-right-radius: 7px;\nborder-top-left-radius: 7px;\n\n}");
+        ui->sideBar->setStyleSheet("#sideBar{\nbackground-color: rgb(255,250,241);\nborder: 1px solid rgb(231,191,159);\nborder-bottom-left-radius: 7px;\n}");
+        ui->appContainer->setStyleSheet("#appContainer{\nbackground-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #204e65, stop:1 #2ab1af);\nbackground-image: url(:/ui/resources/bg.png);\nborder: 0px solid #ccc;\nborder-bottom-right-radius: 7px;\n}");
+        windowMaximized = false;
+    }
+}
+
+/**
+@brief: Minimize window / 最小化窗口
+@params: void
+**/
+void MainWindow::on_minimizeApp_clicked()
+{
+    this->showMinimized();
+}
+
+/**
+@brief: Maximize window with  titlebar button/ 最大化窗口（使用标题栏按钮）
+@params: void
+**/
+void MainWindow::on_maximizeApp_clicked()
+{
+    trigMaximize();
+}
+
+/**
+@brief: Exit application / 退出
+@params: void
+**/
+void MainWindow::on_exitApp_clicked()
+{
+    QApplication::quit();
+}
+
+/**
 @brief: Mouse press event / 鼠标点击事件
 @params: targetPos
 **/
 void MainWindow::mousePressEvent(QMouseEvent *targetPos)
 {
     mousePos = targetPos->pos();
-    if (0 <= mousePos.y() <= 64){
+    if (0 <= mousePos.y() && mousePos.y()<= 64){
         titleBarMovement = true;
     }
 }
@@ -96,9 +145,12 @@ void MainWindow::mousePressEvent(QMouseEvent *targetPos)
 **/
 void MainWindow::mouseMoveEvent(QMouseEvent *currentPos)
 {
-    if (titleBarMovement==true){
+    if (titleBarMovement==true && windowMaximized == false){
         QPoint formMovementTarget = currentPos->globalPos() - mousePos;
         move(formMovementTarget);
+    }
+    else{
+
     }
 }
 
@@ -117,9 +169,13 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 **/
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
-
+    mousePos = event->pos();
+    if (0 <= mousePos.y()){
+        if (mousePos.y()<=64){
+            trigMaximize();
+        }
+    }
 }
-
 
 /**
 @brief: Switch Sidebar / 切换侧边栏状态
@@ -244,4 +300,3 @@ void MainWindow::on_npcStoreExistEdit_currentTextChanged(const QString &arg1)
         ui->npcStoreEdit->setVisible(1);
     }
 }
-

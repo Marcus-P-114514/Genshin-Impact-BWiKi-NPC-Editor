@@ -43,6 +43,7 @@ private:
     QString npcStoreExist = "不存在";
     QPoint mousePos;
     bool titleBarMovement = false;
+    bool windowMaximized = false;
 
 protected:
     void trigMaximize();
@@ -58,6 +59,9 @@ private slots:
     void on_npcMultipleGiftEdit_clicked();
     void receiveGiftLog(QString giftLogReceived);
     void on_npcStoreExistEdit_currentTextChanged(const QString &arg1);
+    void on_minimizeApp_clicked();
+    void on_maximizeApp_clicked();
+    void on_exitApp_clicked();
 };
 
 

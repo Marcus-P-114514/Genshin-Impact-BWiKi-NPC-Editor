@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     /**
     @brief: HDPI Scaling
-    @brief: ����HDPI����
+    @brief: 修复某些屏幕的HDPI缩放问题
     **/
     QString configPath = "./config/global.conf";
     QSettings *HDPISettings = new QSettings (configPath, QSettings::IniFormat);
