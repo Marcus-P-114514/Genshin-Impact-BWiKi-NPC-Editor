@@ -145,7 +145,10 @@ void MainWindow::mousePressEvent(QMouseEvent *targetPos)
 **/
 void MainWindow::mouseMoveEvent(QMouseEvent *currentPos)
 {
-    if (titleBarMovement==true && windowMaximized == false){
+    if (titleBarMovement==true){
+        if (windowMaximized == true){
+            trigMaximize();
+        }
         QPoint formMovementTarget = currentPos->globalPos() - mousePos;
         move(formMovementTarget);
     }
