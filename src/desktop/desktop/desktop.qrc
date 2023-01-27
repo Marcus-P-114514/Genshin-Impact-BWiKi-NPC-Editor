@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/IonIcons">
+        <file>resources/folder-outline.png</file>
+    </qresource>
+    <qresource prefix="/ui">
+        <file>resources/bg.png</file>
+        <file>resources/slideBatBtn.png</file>
+        <file>resources/close_ver1.png</file>
+        <file>resources/maximize_ver1.png</file>
+        <file>resources/minimize_ver1.png</file>
+    </qresource>
+    <qresource prefix="/IonIcons/Modified">
+        <file>resources/folder-outline-unselected.png</file>
+        <file>resources/document-outline-selected.png</file>
+        <file>resources/document-outline-unselected.png</file>
+        <file>resources/arrow-down-outline-combobox.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>resources/SourceHanSansCN-Bold.otf</file>
+        <file>resources/SourceHanSansCN-Heavy.otf</file>
+        <file>resources/SourceHanSansCN-Regular.otf</file>
+    </qresource>
+</RCC>

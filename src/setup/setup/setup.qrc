@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/license">
+        <file>resources/LICENSE.html</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>resources/font-Heavy.otf</file>
+        <file>resources/font-Regular.otf</file>
+    </qresource>
+    <qresource prefix="/ui">
+        <file>resources/bg.png</file>
+        <file>resources/slideHandler.png</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>icon1.ico</file>
+    </qresource>
+</RCC>

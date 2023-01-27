@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>setupClass</class>
+ <widget class="QMainWindow" name="setupClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>setup</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="setup.qrc">
+    <normaloff>:/icon/icon1.ico</normaloff>:/icon/icon1.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frameContainer">
+      <property name="styleSheet">
+       <string notr="true">#frameContainer{
+	background-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));
+	border: 0px solid #ccc;
+	border-radius: 7px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="titleBar">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#titleBar{
+background-color: qlineargradient(spread:pad, x1:0.157775, y1:0.199, x2:1, y2:0.693, stop:0 rgba(62,69,86), stop:1 rgba(47,64,108));
+border: 0px solid #ccc;
+border-top-right-radius: 7px;
+border-top-left-radius: 7px;
+
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>24</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="title">
+            <property name="styleSheet">
+             <string notr="true">color: #E7BF9F;
+font-size: 16px;</string>
+            </property>
+            <property name="text">
+             <string>NPC编辑器 · 初始化</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="titleBarSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="appContainer">
+         <property name="styleSheet">
+          <string notr="true">#appContainer{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #204e65, stop:1 #2ab1af);
+background-image: url(:/ui/resources/bg.png);
+border: 0px solid #ccc;
+border-bottom-right-radius: 7px;
+border-bottom-left-radius: 7px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QFrame" name="mainApp">
+            <property name="styleSheet">
+             <string notr="true">#mainApp{
+border: 0px solid rgb(255,250,241);
+background-color: #ece5d5;
+border-radius: 5px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <property name="leftMargin">
+              <number>4</number>
+             </property>
+             <property name="topMargin">
+              <number>4</number>
+             </property>
+             <property name="rightMargin">
+              <number>4</number>
+             </property>
+             <property name="bottomMargin">
+              <number>4</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QFrame" name="appOutterBox">
+               <property name="styleSheet">
+                <string notr="true">#appOutterBox{
+border: 1px solid #c8bea3;
+border-radius: 23px;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_4">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QFrame" name="appInnerBox">
+                  <property name="styleSheet">
+                   <string notr="true">#appInnerBox{
+border: 2px solid #c8bea3;
+border-radius: 0px;
+margin: 2px;
+background: transparent;
+}</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_5">
+                   <item row="0" column="0">
+                    <widget class="QStackedWidget" name="dialogBox">
+                     <property name="styleSheet">
+                      <string notr="true">#dialogBox{
+	background: transparent;
+}</string>
+                     </property>
+                     <property name="currentIndex">
+                      <number>0</number>
+                     </property>
+                     <widget class="QWidget" name="page">
+                      <layout class="QVBoxLayout" name="verticalLayout_2">
+                       <item>
+                        <widget class="QLabel" name="welcome">
+                         <property name="styleSheet">
+                          <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>欢迎使用原神BWIKI · NPC编辑器，我们将协助您配置该程序。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="errAlreadySet">
+                         <property name="styleSheet">
+                          <string notr="true">color: #FF2323; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>警告：如果您已经完成初始化，再次运行向导会覆盖您现存的配置。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="welcomePageSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>187</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_2">
+                         <item>
+                          <spacer name="StartSetupSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>438</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="startSetup">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>开始</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_2">
+                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                       <item>
+                        <widget class="QLabel" name="licenseTitle">
+                         <property name="styleSheet">
+                          <string notr="true">font-size: 16px; font-weight: bold; color: #66574A; background: transparent;</string>
+                         </property>
+                         <property name="text">
+                          <string>许可证</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QTextBrowser" name="licenseBrowser">
+                         <property name="styleSheet">
+                          <string notr="true">#licenseBrowser{
+	background: transparent;
+	border: 0px solid #ccc;
+	font-size: 14px;
+}
+
+QContexMenu{
+	background: #ccc;
+}</string>
+                         </property>
+                         <property name="verticalScrollBarPolicy">
+                          <enum>Qt::ScrollBarAlwaysOff</enum>
+                         </property>
+                         <property name="horizontalScrollBarPolicy">
+                          <enum>Qt::ScrollBarAlwaysOff</enum>
+                         </property>
+                         <property name="lineWrapMode">
+                          <enum>QTextEdit::WidgetWidth</enum>
+                         </property>
+                         <property name="source">
+                          <url>
+                           <string>qrc:/license/resources/LICENSE.html</string>
+                          </url>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_3">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <item>
+                          <spacer name="licenseSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="acceptLicense">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>接受</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="denyLicense">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>拒绝</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_3">
+                      <layout class="QVBoxLayout" name="verticalLayout_4">
+                       <item>
+                        <widget class="QLabel" name="importInfoTitle">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">font-size: 16px; font-weight: bold; color: #66574A; background: transparent;</string>
+                         </property>
+                         <property name="text">
+                          <string>导入设置</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="importInstruction">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>您可以选择根据向导设置您的程序，或者导入已有配置。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_4">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <item>
+                          <spacer name="importSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="startImportManager">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>导入配置</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="startCleanSetup">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>不导入配置</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_4">
+                      <layout class="QVBoxLayout" name="verticalLayout_5">
+                       <item>
+                        <widget class="QLabel" name="label">
+                         <property name="styleSheet">
+                          <string notr="true">font-size: 16px; font-weight: bold; color: #66574A; background: transparent;</string>
+                         </property>
+                         <property name="text">
+                          <string>缩放</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="DPIInstruction">
+                         <property name="styleSheet">
+                          <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>当前窗口、字体大小是否过大或过小？使用自定义缩放即可解决此问题。如果看起来一切正常，使用默认缩放即可；如需更改推荐缩放值与系统缩放一致。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="DPIHowToChange">
+                         <property name="styleSheet">
+                          <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>要更改缩放，请移动滑块。下方表格中“当前程序缩放”为当前窗体缩放等级，“更改后的程序缩放”为滑块所在的缩放等级。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="DPISlider">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QSlider::groove:horizontal{ 
+	height: 4px;
+	border: 0px solid #ccc;
+	border-radius: 2px;
+	background: rgb(204,202,198);
+ } 
+
+QSlider::handle:horizontal{
+	width: 20px;
+	height: 20px;
+	margin-left: 0px;
+	margin-bottom: -10px;
+	margin-top: -10px;
+	border-image: url(:/ui/resources/slideHandler.png);
+}
+
+QSlider::sub-page:horizontal{
+	background: #b2732b;
+}</string>
+                         </property>
+                         <property name="maximum">
+                          <number>9</number>
+                         </property>
+                         <property name="pageStep">
+                          <number>0</number>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="tickPosition">
+                          <enum>QSlider::NoTicks</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QGridLayout" name="gridLayout_6">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="currentDPIText">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: rgb(225,192,163); color: rgb(245,240,230); border-top: 1px solid rgb(225,192,163); font-size: 14px; font-weight: bold; padding: 5px; border-right: 1px solid rgb(225,192,163); border-bottom: 1px solid rgb(225,192,163);</string>
+                           </property>
+                           <property name="text">
+                            <string>当前程序缩放</string>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QLabel" name="currentDPIResult">
+                           <property name="styleSheet">
+                            <string notr="true">background: rgb(245,240,230); color: rgb(225,192,163); border-top: 1px solid rgb(225,192,163); font-size: 14px; font-weight: bold; padding: 5px; border-right: 1px solid rgb(225,192,163); border-bottom: 1px solid rgb(225,192,163);</string>
+                           </property>
+                           <property name="text">
+                            <string>默认</string>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="0">
+                          <widget class="QLabel" name="sliderDPIText">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background: rgb(225,192,163); color: rgb(245,240,230); border-bottom: 1px solid rgb(225,192,163); font-size: 14px; font-weight: bold; padding: 5px; border-right: 1px solid rgb(225,192,163);</string>
+                           </property>
+                           <property name="text">
+                            <string>更改后的程序缩放</string>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="1">
+                          <widget class="QLabel" name="sliderDPIResult">
+                           <property name="styleSheet">
+                            <string notr="true">background: rgb(245,240,230); color: rgb(225,192,163); border-bottom: 1px solid rgb(225,192,163); font-size: 14px; font-weight: bold; padding: 5px; border-right: 1px solid rgb(225,192,163);</string>
+                           </property>
+                           <property name="text">
+                            <string>默认</string>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="DPISpacerV">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>50</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_5">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <item>
+                          <spacer name="DPISpacerH">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="previewWindow">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>预览</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="switchToEditorFont">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>下一步</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_5">
+                      <layout class="QVBoxLayout" name="verticalLayout_6">
+                       <item>
+                        <widget class="QLabel" name="configEditorTitle">
+                         <property name="styleSheet">
+                          <string notr="true">font-size: 16px; font-weight: bold; color: #66574A; background: transparent;</string>
+                         </property>
+                         <property name="text">
+                          <string>文本编辑器</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_6">
+                         <item>
+                          <widget class="QLabel" name="editorFontText">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>编辑器字体：</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="switchSerif">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>衬线字体</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="switchSans">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>无衬线字体</string>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="editFontSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_7">
+                         <item>
+                          <widget class="QLabel" name="label_2">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>代码高亮：</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="openSyntanHighLighter">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>开启</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup_2</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="closeSyntaxHighlighter">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>关闭</string>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup_2</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="syntaxHighlighterSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_8">
+                         <item>
+                          <widget class="QLabel" name="syntaxTipText">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>语法提示：</string>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="syntaxTipOn">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>开启</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup_3</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="syntaxTipOff">
+                           <property name="styleSheet">
+                            <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                           </property>
+                           <property name="text">
+                            <string>关闭</string>
+                           </property>
+                           <attribute name="buttonGroup">
+                            <string notr="true">buttonGroup_3</string>
+                           </attribute>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="syntaxTipSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="editorSpacerV">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>125</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_9">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <item>
+                          <spacer name="editorSpacerH">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>398</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="switchToScale">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>上一页</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="writeConfig">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>下一页</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_6">
+                      <layout class="QVBoxLayout" name="verticalLayout_7">
+                       <item>
+                        <widget class="QLabel" name="label_3">
+                         <property name="styleSheet">
+                          <string notr="true">font-size: 16px; font-weight: bold; color: #66574A; background: transparent;</string>
+                         </property>
+                         <property name="text">
+                          <string>初始化完成</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_4">
+                         <property name="styleSheet">
+                          <string notr="true">color: #495366; background: transparent; font-size: 14px;</string>
+                         </property>
+                         <property name="text">
+                          <string>恭喜您，您的程序已经可以开始使用了。</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                         </property>
+                         <property name="wordWrap">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="finishingSpacerV">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>185</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_10">
+                         <item>
+                          <spacer name="finishingSpacerH">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="finishConf">
+                           <property name="styleSheet">
+                            <string notr="true">color: #b2732b; font-size: 14px; font-weight: bold; background: transparent; border: 0px solid #ccc;</string>
+                           </property>
+                           <property name="text">
+                            <string>关闭</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_7"/>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="setup.qrc"/>
+ </resources>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_3"/>
+ </buttongroups>
+</ui>
