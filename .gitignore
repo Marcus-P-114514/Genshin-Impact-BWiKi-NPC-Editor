@@ -50,3 +50,4 @@ compile_commands.json
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+src/desktop/.vs/desktop/v17/Browse.VC.opendb
