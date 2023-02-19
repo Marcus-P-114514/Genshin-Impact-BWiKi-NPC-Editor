@@ -1,0 +1,26 @@
+QMAKE_CXX.QT_COMPILER_STDCXX = 199711L
+QMAKE_CXX.QMAKE_MSC_VER = 1934
+QMAKE_CXX.QMAKE_MSC_FULL_VER = 193431937
+QMAKE_CXX.COMPILER_MACROS = \
+    QT_COMPILER_STDCXX \
+    QMAKE_MSC_VER \
+    QMAKE_MSC_FULL_VER
+QMAKE_CXX.INCDIRS = \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\include" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\atlmfc\\include" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\VS\\include" \
+    "D:\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\VS\\UnitTest\\include" \
+    "D:\\Windows Kits\\10\\Include\\10.0.22000.0\\um" \
+    "D:\\Windows Kits\\10\\Include\\10.0.22000.0\\shared" \
+    "D:\\Windows Kits\\10\\Include\\10.0.22000.0\\winrt" \
+    "D:\\Windows Kits\\10\\Include\\10.0.22000.0\\cppwinrt" \
+    "C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um"
+QMAKE_CXX.LIBDIRS = \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\lib\\x64" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\atlmfc\\lib\\x64" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\VS\\lib\\x64" \
+    "D:\\Windows Kits\\10\\lib\\10.0.22000.0\\ucrt\\x64" \
+    "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\VS\\UnitTest\\lib" \
+    "D:\\Windows Kits\\10\\lib\\10.0.22000.0\\um\\x64" \
+    "C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\lib\\um\\x64"

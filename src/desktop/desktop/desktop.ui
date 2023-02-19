@@ -507,23 +507,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="uploadSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>上传</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -562,23 +581,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="locationSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>位置</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -607,23 +645,53 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="checked">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="basicInfoSwitcher">
+                            <property name="font">
+                             <font>
+                              <pointsize>-1</pointsize>
+                             </font>
+                            </property>
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #b2732b;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>基本信息</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="checked">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -652,23 +720,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="storeSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>商店</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -697,23 +784,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="dialogSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>对话</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -742,23 +848,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="CVTableSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>CV表</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -787,23 +912,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="extrasSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>杂项</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -832,23 +976,42 @@ background: transparent;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);</string>
+                             <string notr="true">QPushButton{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-unselected.png);
+}
+QPushButton:checked{
+	border-image: url(:/IonIcons/Modified/resources/document-outline-selected.png);
+}</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QPushButton" name="wishSwitcher">
                             <property name="styleSheet">
-                             <string notr="true">text-align: left;
-font-size: 14px;
-color: #3b475D;
-background: transparent;</string>
+                             <string notr="true">QPushButton{
+	text-align: left;
+	font-size: 14px;
+	color: #3b475D;
+	background: transparent;
+}
+QPushButton:checked{
+	text-align: left;
+	font-size: 14px;
+	color: #b2732b;
+	background: transparent;
+}</string>
                             </property>
                             <property name="text">
                              <string>心声</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -1058,6 +1221,9 @@ font-weight: bold;</string>
                       <string notr="true">#VEApp{
 	background: transparent;
 }</string>
+                     </property>
+                     <property name="currentIndex">
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="page_3">
                       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1792,7 +1958,125 @@ font-size: 14px;</string>
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="page_4"/>
+                     <widget class="QWidget" name="page_4">
+                      <widget class="QTableWidget" name="storeContentEdit">
+                       <property name="geometry">
+                        <rect>
+                         <x>10</x>
+                         <y>10</y>
+                         <width>181</width>
+                         <height>192</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QTableWidget{
+	color: rgb(231,191,159);
+	background: rgb(246,240,229);
+	border: 1px solid rgb(231,191,159);
+	gridline-color: rgb(231,191,159);
+}
+
+QTableWidget::item:selected{
+	color: #fff;
+	background: rgb(231,191,159);
+}
+
+QTableWidget::item:hover{
+	color: #66574a;
+	background: #ece5d5;
+}
+
+QHeaderView::section{
+	text-align: center;
+	background: rgb(231,191,159);
+	color: #fff;
+	border: 1px solid rgb(231,191,159);
+}
+
+QScrollBar:horizontal{
+	background: rgb(246,240,229);
+	border-radius: 4px;
+	max-height: 8px;
+}
+
+QScrollBar::handle:horizontal{
+	background: rgb(231,191,159);
+	border-radius: 4px;
+}
+
+QScrollBar::sub-line:horizontal{
+	background: rgb(246,240,229);
+}
+
+QScrollBar::add-line:horizontal{
+	background: rgb(246,240,229);
+}
+</string>
+                       </property>
+                       <property name="gridStyle">
+                        <enum>Qt::DashLine</enum>
+                       </property>
+                       <attribute name="horizontalHeaderVisible">
+                        <bool>true</bool>
+                       </attribute>
+                       <attribute name="verticalHeaderVisible">
+                        <bool>false</bool>
+                       </attribute>
+                       <attribute name="verticalHeaderHighlightSections">
+                        <bool>true</bool>
+                       </attribute>
+                       <row>
+                        <property name="text">
+                         <string>新建行</string>
+                        </property>
+                       </row>
+                       <row>
+                        <property name="text">
+                         <string>新建行</string>
+                        </property>
+                       </row>
+                       <row>
+                        <property name="text">
+                         <string>新建行</string>
+                        </property>
+                       </row>
+                       <column>
+                        <property name="text">
+                         <string>名称</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>最小销售单元</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>新建列</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>价格</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>限购数量</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>刷新时间</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>限制</string>
+                        </property>
+                       </column>
+                      </widget>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
@@ -1960,6 +2244,11 @@ font-weight: bold;</string>
     </rect>
    </property>
   </widget>
+  <action name="actionb">
+   <property name="text">
+    <string>b</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

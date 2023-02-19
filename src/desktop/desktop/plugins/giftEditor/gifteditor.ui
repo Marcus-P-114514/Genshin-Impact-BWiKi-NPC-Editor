@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>giftEditorClass</class>
+ <widget class="QWidget" name="giftEditorClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>giftEditor</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>12</number>
+   </property>
+   <property name="topMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>12</number>
+   </property>
+   <property name="bottomMargin">
+    <number>12</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QFrame" name="pluginContainer">
+     <property name="styleSheet">
+      <string notr="true">#pluginContainer{
+	border: 0px solid rgb(251,248,240);
+	background-color: rgb(251,248,240);
+	border-radius: 5px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>24</number>
+      </property>
+      <property name="topMargin">
+       <number>24</number>
+      </property>
+      <property name="rightMargin">
+       <number>24</number>
+      </property>
+      <property name="bottomMargin">
+       <number>24</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="pluginTitle">
+        <property name="styleSheet">
+         <string notr="true">font-size: 14px;
+color: #66574A;
+font-weight: bold;</string>
+        </property>
+        <property name="text">
+         <string>NPC赠礼编辑器</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pluginDesc">
+        <property name="styleSheet">
+         <string notr="true">font-size: 14px;
+color: #66574A;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;本工具用来处理NPC有多重对话赠礼的情况，至多可以处理五个对话赠礼并返回代码，若NPC对话赠礼少于五个，多的请留空。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="table">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLabel" name="editorTitle">
+          <property name="styleSheet">
+           <string notr="true">border: 2px solid rgb(231,191,159);
+background: rgb(231,191,159);
+color: rgb(246,240,229);
+font-size: 14px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>输入</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="numDesc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(231,191,159);
+color: rgb(246,240,229);
+font-size: 14px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>#</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="nameDesc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(231,191,159);
+color: rgb(246,240,229);
+font-size: 14px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>名称</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(231,191,159);
+color: rgb(246,240,229);
+font-size: 14px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>数量</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="row1Desc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="row1NameInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="row1AmountInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="row2Desc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="row2NameInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLineEdit" name="row2AmountInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="row3Desc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="row3NameInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QLineEdit" name="row3AmountInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="row4Desc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="row4NameInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLineEdit" name="row4AmountInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="row5Desc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLineEdit" name="row5NameInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2">
+         <widget class="QLineEdit" name="row5AmountInput">
+          <property name="styleSheet">
+           <string notr="true">border-left: 0px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="3">
+         <widget class="QLabel" name="outputDesc">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(231,191,159);
+color: rgb(246,240,229);
+font-size: 14px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>预览</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0" colspan="3">
+         <widget class="QTextEdit" name="outputPreview">
+          <property name="styleSheet">
+           <string notr="true">border-left: 2px solid rgb(231,191,159);
+border-right: 2px solid rgb(231,191,159);
+border-top: 0px solid rgb(231,191,159);
+border-bottom: 2px solid rgb(231,191,159);
+background: rgb(246,240,229);
+color: rgb(231,191,159);
+font-size: 14px;</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="pluginSpacerV">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>18</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="pluginSpacerH">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>388</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelEdit">
+          <property name="styleSheet">
+           <string notr="true">font-size: 14px;
+color: #B2732B;
+font-weight: bold;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>取消</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sendOutput">
+          <property name="styleSheet">
+           <string notr="true">font-size: 14px;
+color: #B2732B;
+font-weight: bold;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>写入</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
